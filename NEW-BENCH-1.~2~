@@ -1,0 +1,59 @@
+(DEFINE-FILE-INFO PACKAGE "INTERLISP" READTABLE "INTERLISP" BASE 10)
+
+(FILECREATED "25-Feb-2026 14:27:24" {DSK}<Users>kabirgupta>documents>interlisp>gabriel>NEW-BENCH-1.;2 2211   
+
+      :CHANGES-TO (FNS BENCH-1)
+
+      :PREVIOUS-DATE "17-Feb-2026 19:41:20" 
+{DSK}<Users>kabirgupta>documents>interlisp>gabriel>NEW-BENCH-1.;1)
+
+
+(PRETTYCOMPRINT NEW-BENCH-1COMS)
+
+(RPAQQ NEW-BENCH-1COMS ((P (DEFPACKAGE "GABRIEL"))
+                        (XCL:FILE-ENVIRONMENTS NEW-BENCH-1)
+                        (VARIABLES *BENCH1-TOOLS-DIR* *BENCH1-BENCHMARKS-DIR* *BENCH1-RESULTS-DIR*)
+                        (FNS BENCH-1)))
+
+(DEFPACKAGE "GABRIEL")
+
+(XCL:DEFINE-FILE-ENVIRONMENT NEW-BENCH-1 :PACKAGE "IL"
+   :READTABLE "INTERLISP"
+   :COMPILER :COMPILE-FILE)
+
+(CL:DEFVAR *BENCH1-TOOLS-DIR* "{GABRIEL}<tools>"
+   "Directory where the Gabriel benchmarks' tools reside")
+
+(CL:DEFVAR *BENCH1-BENCHMARKS-DIR* "{GABRIEL}<benchmarks>"
+   "Where the Gabriel banchmark source and object code files are found")
+
+(CL:DEFVAR *BENCH1-RESULTS-DIR* "{GABRIEL}<Results>"
+   "Where to write the benchmark results")
+(DEFINEQ
+
+(BENCH-1
+  [LAMBDA (TOOLS-DIR BENCH1-DIR RESULTS-DIR)
+
+    (* ;; "load tools and benchmarks")
+
+    (LOAD (PACKFILENAME.STRING 'DIRECTORY TOOLS-DIR 'BODY "GABRIEL-TIMERS.LCOM"))
+    (LOAD (PACKFILENAME.STRING 'DIRECTORY BENCH1-DIR 'BODY "TAK.LCOM"))
+    (LOAD (PACKFILENAME.STRING 'DIRECTORY BENCH1-DIR 'BODY "ARITH-BENCHMARKS.LCOM"))
+    (LOAD (PACKFILENAME.STRING 'DIRECTORY BENCH1-DIR 'BODY "IO-BENCHMARKS.LCOM"))
+
+    (* ;; "do a prophylactic GC")
+
+    (RECLAIM)
+
+    (* ;; "run the benchmarks")
+
+    (GABRIEL::RUN-BENCHMARKS GABRIEL::*TAK-TIMERS* (PACKFILENAME.STRING 'DIRECTORY RESULTS-DIR
+                                                          'BODY "AV-TAK.Results"))
+    (GABRIEL::RUN-BENCHMARKS GABRIEL::*MAIKO-IO-BENCHMARKS* (PACKFILENAME.STRING 'DIRECTORY 
+                                                                   RESULTS-DIR 'BODY "IO.Results"))
+    (GABRIEL::RUN-BENCHMARKS *ARITH-BENCHMARKS* (PACKFILENAME.STRING 'DIRECTORY RESULTS-DIR
+                                                       'BODY "PAV-ARITH.Results"])
+)
+(DECLARE%: DONTCOPY
+  (FILEMAP (NIL (1115 2188 (BENCH-1 1125 . 2186)))))
+STOP

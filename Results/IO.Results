@@ -1,0 +1,374 @@
+Lisp Type:          Venue Medley
+Lisp Version:       Medley 2.0 sysout of  7-Jan-2026 01:26:13
+Software Type:      Envos Medley
+Software Version:   Medley 2.0 sysout of  7-Jan-2026 01:26:13, Make-init dates:  7-Jan-2026 01:25:51,  7-Jan-2026 01:25:51
+Machine Type:       i386
+Machine Version:    Emulator created: 17-Jun-20, memory size: 0
+Machine Instance:   0 Kabirs-MacBook-Pro.local
+Site:               Unknown
+Features:           (:CLOS :XEROX-MEDLEY :INTERLISP :XEROX :COMMON :IEEE-FLOATING-POINT :MEDLEY)
+
+***** FPRINT Benchmark ***
+
+FPrint
+
+
+Iteration 0 of FPRINT
+Timing for :         FPRINT
+Elapsed time        =     0.009 seconds
+SWAP time           =     0.001 seconds
+net compute time    =     0.008 seconds
+Page faults         =        11
+Storage allocated:
+83 FIXP, 113 LISTP, 1 STREAM, 43 ONED-ARRAY, 1 PATHNAME, 2 NEW-ATOM, 4 ENVIRONMENT, 1 DIRECTORY-COMPONENT
+
+
+Iteration 1 of FPRINT
+Timing for :         FPRINT
+Elapsed time        =     0.010 seconds
+SWAP time           =     0.002 seconds
+net compute time    =     0.008 seconds
+Storage allocated:
+84 FIXP, 136 LISTP, 2 STREAM, 58 ONED-ARRAY, 2 PATHNAME, 1 NEW-ATOM, 4 ENVIRONMENT, 2 DIRECTORY-COMPONENT
+
+
+
+***** FREAD Benchmark ***
+
+FRead
+
+
+Iteration 0 of FREAD
+Timing for :         FREAD
+Elapsed time        =     0.010 seconds
+SWAP time           =     0.001 seconds
+net compute time    =     0.009 seconds
+Storage allocated:
+1868 FIXP, 1 STREAM, 59 ONED-ARRAY, 2 PATHNAME, 4 ENVIRONMENT, 2 DIRECTORY-COMPONENT
+
+
+Iteration 1 of FREAD
+Timing for :         FREAD
+Elapsed time        =     0.009 seconds
+SWAP time           =     0.001 seconds
+reclaim time        =     0.001 seconds
+net compute time    =     0.007 seconds
+Storage allocated:
+1868 FIXP, 5952 LISTP, 1 STREAM, 59 ONED-ARRAY, 2 PATHNAME, 4 ENVIRONMENT, 2 DIRECTORY-COMPONENT
+
+
+
+***** TPRINT Benchmark ***
+
+TPrint
+
+
+Evaluating setup for TPRINT
+
+Iteration 0 of TPRINT
+Timing for :         TPRINT
+Elapsed time        =     0.119 seconds
+SWAP time           =     0.015 seconds
+net compute time    =     0.104 seconds
+Storage allocated:
+9 LISTP, 2 ENVIRONMENT
+
+
+Evaluating after every function for TPRINT
+
+Iteration 1 of TPRINT
+Timing for :         TPRINT
+Elapsed time        =     0.120 seconds
+SWAP time           =     0.015 seconds
+net compute time    =     0.105 seconds
+Storage allocated:
+9 LISTP, 2 ENVIRONMENT
+
+
+Evaluating after every function for TPRINT
+
+Evaluating after function for TPRINT
+
+
+***** READ-FLOAT Benchmark ***
+
+Read 2000 Floats from {CORE}
+
+
+Iteration 0 of READ-FLOAT
+Timing for :         IL:READ-FLOAT
+Elapsed time        =     0.058 seconds
+SWAP time           =     0.001 seconds
+reclaim time        =     0.001 seconds
+net compute time    =     0.056 seconds
+Page faults         =         3
+Storage allocated:
+8522 FIXP, 2000 FLOATP, 2052 LISTP, 1 STREAM, 2 COMPILED-CLOSURE, 6 ONED-ARRAY, 4 ENVIRONMENT
+
+
+Iteration 1 of READ-FLOAT
+Timing for :         IL:READ-FLOAT
+Elapsed time        =     0.058 seconds
+SWAP time           =     0.001 seconds
+reclaim time        =     0.001 seconds
+net compute time    =     0.056 seconds
+Page faults         =         4
+Storage allocated:
+8522 FIXP, 2000 FLOATP, 2046 LISTP, 1 STREAM, 2 COMPILED-CLOSURE, 3 ONED-ARRAY, 1 NEW-ATOM, 4 ENVIRONMENT
+
+
+
+***** PRINT-FLOAT Benchmark ***
+
+Print 2000 Floats to {NULL}
+
+
+Iteration 0 of PRINT-FLOAT
+Timing for :         IL:PRINT-FLOAT
+Elapsed time        =     0.053 seconds
+reclaim time        =     0.003 seconds
+net compute time    =     0.050 seconds
+Page faults         =         5
+Storage allocated:
+8066 FIXP, 4008 LISTP, 1 STREAM, 4002 ONED-ARRAY, 2 ENVIRONMENT
+
+
+Iteration 1 of PRINT-FLOAT
+Timing for :         IL:PRINT-FLOAT
+Elapsed time        =     0.053 seconds
+reclaim time        =     0.002 seconds
+net compute time    =     0.051 seconds
+Storage allocated:
+8066 FIXP, 4007 LISTP, 1 STREAM, 4002 ONED-ARRAY, 2 ENVIRONMENT
+
+
+
+***** TERMINAL-PRINTING Benchmark ***
+
+Printing chars to terminal
+
+
+Evaluating setup for TERMINAL-PRINTING
+
+Iteration 0 of TERMINAL-PRINTING
+Timing for :         IL:TERMINAL-PRINTING
+Elapsed time        =     1.152 seconds
+SWAP time           =     0.209 seconds
+reclaim time        =     0.005 seconds
+net compute time    =     0.938 seconds
+Page faults         =         4
+Storage allocated:
+3012 FIXP, 26167 LISTP, 1 STREAM, 2 ONED-ARRAY, 1 COREFILEINFOBLK, 7 ENVIRONMENT
+
+
+Iteration 1 of TERMINAL-PRINTING
+Timing for :         IL:TERMINAL-PRINTING
+Elapsed time        =     1.150 seconds
+SWAP time           =     0.217 seconds
+reclaim time        =     0.004 seconds
+net compute time    =     0.929 seconds
+Storage allocated:
+3009 FIXP, 7 ENVIRONMENT
+
+
+Evaluating after function for TERMINAL-PRINTING
+
+
+***** READ-EXISTING-SYMBOLS Benchmark ***
+
+Read 1000 symbols that exist in the sysout already
+
+
+Iteration 0 of READ-EXISTING-SYMBOLS
+Timing for :         IL:READ-EXISTING-SYMBOLS
+Elapsed time        =     0.036 seconds
+SWAP time           =     0.001 seconds
+net compute time    =     0.035 seconds
+Page faults         =        10
+Storage allocated:
+1012 FIXP, 4 FLOATP, 3053 LISTP, 1 STREAM, 2 COMPILED-CLOSURE, 17 ONED-ARRAY, 946 NEW-ATOM, 4 ENVIRONMENT
+
+
+Iteration 1 of READ-EXISTING-SYMBOLS
+Timing for :         IL:READ-EXISTING-SYMBOLS
+Elapsed time        =     0.031 seconds
+SWAP time           =     0.001 seconds
+net compute time    =     0.030 seconds
+Storage allocated:
+1003 FIXP, 3044 LISTP, 1 STREAM, 13 ONED-ARRAY, 1 NEW-ATOM, 4 ENVIRONMENT
+
+
+
+***** READ-DSK Benchmark ***
+
+Read 50,000 bytes from a file on {DSK}
+
+
+Evaluating setup for READ-DSK
+
+Iteration 0 of READ-DSK
+Timing for :         IL:READ-DSK
+Elapsed time        =     0.237 seconds
+SWAP time           =     0.002 seconds
+reclaim time        =     0.015 seconds
+net compute time    =     0.220 seconds
+Storage allocated:
+100124 FIXP, 100301 LISTP, 1 STREAM, 24 ONED-ARRAY, 7 ENVIRONMENT, 1 RESTART
+
+
+Iteration 1 of READ-DSK
+Timing for :         IL:READ-DSK
+Elapsed time        =     0.243 seconds
+SWAP time           =     0.002 seconds
+reclaim time        =     0.017 seconds
+net compute time    =     0.224 seconds
+Storage allocated:
+100117 FIXP, 34669 LISTP, 1 STREAM, 24 ONED-ARRAY, 7 ENVIRONMENT, 1 RESTART
+
+
+Evaluating after function for READ-DSK
+
+
+***** READ-UFS Benchmark ***
+
+Read 50,000 bytes from a file on the {UNIX} device
+
+
+Evaluating setup for READ-UFS
+
+Iteration 0 of READ-UFS
+Timing for :         IL:READ-UFS
+Elapsed time        =     0.238 seconds
+SWAP time           =     0.002 seconds
+reclaim time        =     0.016 seconds
+net compute time    =     0.220 seconds
+Storage allocated:
+100115 FIXP, 34652 LISTP, 1 STREAM, 15 ONED-ARRAY, 7 ENVIRONMENT, 1 RESTART
+
+
+Iteration 1 of READ-UFS
+Timing for :         IL:READ-UFS
+Elapsed time        =     0.242 seconds
+SWAP time           =     0.002 seconds
+reclaim time        =     0.018 seconds
+net compute time    =     0.222 seconds
+Storage allocated:
+100115 FIXP, 100188 LISTP, 1 STREAM, 15 ONED-ARRAY, 7 ENVIRONMENT, 1 RESTART
+
+
+Evaluating after function for READ-UFS
+
+
+***** READ-CORE Benchmark ***
+
+Read 50,000 bytes from CORE.
+
+
+Evaluating setup for READ-CORE
+
+Iteration 0 of READ-CORE
+Timing for :         IL:READ-CORE
+Elapsed time        =     0.349 seconds
+SWAP time           =     0.002 seconds
+reclaim time        =     0.021 seconds
+net compute time    =     0.326 seconds
+Storage allocated:
+100021 FIXP, 34638 LISTP, 1 STREAM, 6 COMPILED-CLOSURE, 3 ONED-ARRAY, 7 ENVIRONMENT, 1 RESTART
+
+
+Iteration 1 of READ-CORE
+Timing for :         IL:READ-CORE
+Elapsed time        =     0.351 seconds
+SWAP time           =     0.003 seconds
+reclaim time        =     0.019 seconds
+net compute time    =     0.329 seconds
+Storage allocated:
+100024 FIXP, 34639 LISTP, 1 STREAM, 8 COMPILED-CLOSURE, 3 ONED-ARRAY, 7 ENVIRONMENT, 1 RESTART
+
+
+Evaluating after function for READ-CORE
+
+
+***** WRITE-DSK Benchmark ***
+
+Write 50,000 bytes on on {DSK}
+
+
+Iteration 0 of WRITE-DSK
+Timing for :         IL:WRITE-DSK
+Elapsed time        =     0.247 seconds
+SWAP time           =     0.002 seconds
+reclaim time        =     0.019 seconds
+net compute time    =     0.226 seconds
+Storage allocated:
+100216 FIXP, 100214 LISTP, 1 STREAM, 24 ONED-ARRAY, 7 ENVIRONMENT, 1 RESTART
+
+
+Iteration 1 of WRITE-DSK
+Timing for :         IL:WRITE-DSK
+Elapsed time        =     0.247 seconds
+SWAP time           =     0.003 seconds
+reclaim time        =     0.018 seconds
+net compute time    =     0.226 seconds
+Storage allocated:
+100216 FIXP, 100214 LISTP, 1 STREAM, 24 ONED-ARRAY, 1 NEW-ATOM, 7 ENVIRONMENT, 1 RESTART
+
+
+Evaluating after function for WRITE-DSK
+
+
+***** WRITE-UFS Benchmark ***
+
+Write 50,000 bytes to a file on {UNIX}
+
+
+Iteration 0 of WRITE-UFS
+Timing for :         IL:WRITE-UFS
+Elapsed time        =     0.248 seconds
+SWAP time           =     0.002 seconds
+reclaim time        =     0.022 seconds
+net compute time    =     0.224 seconds
+Storage allocated:
+100214 FIXP, 34661 LISTP, 1 STREAM, 17 ONED-ARRAY, 7 ENVIRONMENT, 1 RESTART
+
+
+Iteration 1 of WRITE-UFS
+Timing for :         IL:WRITE-UFS
+Elapsed time        =     0.247 seconds
+SWAP time           =     0.002 seconds
+reclaim time        =     0.019 seconds
+net compute time    =     0.226 seconds
+Storage allocated:
+100214 FIXP, 34661 LISTP, 1 STREAM, 17 ONED-ARRAY, 7 ENVIRONMENT, 1 RESTART
+
+
+Evaluating after function for WRITE-UFS
+
+
+***** WRITE-CORE Benchmark ***
+
+Write 50,000 bytes to a file on {CORE}
+
+
+Iteration 0 of WRITE-CORE
+Timing for :         IL:WRITE-CORE
+Elapsed time        =     0.357 seconds
+SWAP time           =     0.002 seconds
+reclaim time        =     0.006 seconds
+net compute time    =     0.349 seconds
+Storage allocated:
+100027 FIXP, 34846 LISTP, 1 STREAM, 8 COMPILED-CLOSURE, 6 ONED-ARRAY, 1 COREFILEINFOBLK, 7 ENVIRONMENT, 1 RESTART
+
+
+Iteration 1 of WRITE-CORE
+Timing for :         IL:WRITE-CORE
+Elapsed time        =     0.354 seconds
+SWAP time           =     0.002 seconds
+reclaim time        =     0.011 seconds
+net compute time    =     0.341 seconds
+Page faults         =         3
+Storage allocated:
+100124 FIXP, 100383 LISTP, 1 STREAM, 8 COMPILED-CLOSURE, 9 ONED-ARRAY, 1 NEW-ATOM, 1 COREFILEINFOBLK, 7 ENVIRONMENT, 1 RESTART
+
+
+Evaluating after function for WRITE-CORE

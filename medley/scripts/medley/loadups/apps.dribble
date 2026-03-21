@@ -1,0 +1,348 @@
+
+{DSK}<home>runner>work>medley>medley>internal>loadups>LOADUP-CLOS.LCOM;1
+compiled on  9-Mar-2025 19:04:44
+File created  9-Mar-2025 19:04:34
+LOADUP-CLOSCOMS
+
+{DSK}<home>runner>work>medley>medley>clos>defsys.DFASL;1
+XCL Compiler output for source file {DSK}<Users>arunwelch>SKYDRIVE>DOCUMENTS>UNIX>LISP>CLOS>CURRENT>defsys.lisp;2
+Source file created Saturday, 5 December 2020, 11:17:25.
+FASL file created Saturday, 5 December 2020, 11:18:39.
+
+
+{DSK}<home>runner>work>medley>medley>internal>loadups>LOADUP-APPS.LCOM;1
+compiled on  9-Mar-2025 20:03:34
+File created  9-Mar-2025 20:03:27
+LOADUP-APPSCOMS
+
+{DSK}<home>runner>work>medley>medley>rooms>ROOMS.;1
+File created  5-Dec-2020 16:12:54
+IL:ROOMSCOMS
+
+{DSK}<home>runner>work>medley>medley>rooms>ROOMS-D.DFASL;1
+XCL Compiler output for source file {DSK}<Users>arunwelch>SKYDRIVE>DOCUMENTS>UNIX>LISP>LDE>ROOMS>MEDLEY-35>ROOMS-D.;2
+Source file created Saturday, 5 December 2020, 16:24:55.
+FASL file created Saturday, 5 December 2020, 16:24:55.
+
+
+{DSK}<home>runner>work>medley>medley>rooms>ROOMS-CORE.DFASL;1
+XCL Compiler output for source file {DSK}<Users>arunwelch>SKYDRIVE>DOCUMENTS>UNIX>LISP>LDE>ROOMS>MEDLEY-35>ROOMS-CORE.;2
+Source file created Saturday, 5 December 2020, 16:26:02.
+FASL file created Saturday, 5 December 2020, 16:26:02.
+
+
+{DSK}<home>runner>work>medley>medley>rooms>ROOMS-WINDOW-HIDER.DFASL;1
+XCL Compiler output for source file {DSK}<Users>arunwelch>SKYDRIVE>DOCUMENTS>UNIX>LISP>LDE>ROOMS>MEDLEY-35>ROOMS-WINDOW-HIDER.;2
+Source file created Saturday, 5 December 2020, 16:26:33.
+FASL file created Saturday, 5 December 2020, 16:26:33.
+
+
+{DSK}<home>runner>work>medley>medley>rooms>ROOMS-GEOMETRY.DFASL;1
+XCL Compiler output for source file {DSK}<Users>arunwelch>SKYDRIVE>DOCUMENTS>UNIX>LISP>LDE>ROOMS>MEDLEY-35>ROOMS-GEOMETRY.;2
+Source file created Saturday, 5 December 2020, 16:26:58.
+FASL file created Saturday, 5 December 2020, 16:26:58.
+
+
+{DSK}<home>runner>work>medley>medley>rooms>ROOMS-TEXT.DFASL;1
+XCL Compiler output for source file {DSK}<Users>arunwelch>SKYDRIVE>DOCUMENTS>UNIX>LISP>LDE>ROOMS>MEDLEY-35>ROOMS-TEXT.;2
+Source file created Saturday, 5 December 2020, 16:27:41.
+FASL file created Saturday, 5 December 2020, 16:27:41.
+
+
+{DSK}<home>runner>work>medley>medley>rooms>ROOMS-WINDOW-TYPES.DFASL;1
+XCL Compiler output for source file {DSK}<Users>arunwelch>SKYDRIVE>DOCUMENTS>UNIX>LISP>LDE>ROOMS>MEDLEY-35>ROOMS-WINDOW-TYPES.;2
+Source file created Saturday, 5 December 2020, 16:34:55.
+FASL file created Saturday, 5 December 2020, 16:34:55.
+
+
+{DSK}<home>runner>work>medley>medley>rooms>ROOMS-BUTTONS.DFASL;1
+XCL Compiler output for source file {DSK}<Users>arunwelch>SKYDRIVE>DOCUMENTS>UNIX>LISP>LDE>ROOMS>MEDLEY-35>ROOMS-BUTTONS.;3
+Source file created Saturday, 5 December 2020, 16:35:06.
+FASL file created Saturday, 5 December 2020, 16:35:06.
+
+
+{DSK}<home>runner>work>medley>medley>rooms>ROOMS-BIOS.DFASL;1
+XCL Compiler output for source file {DSK}<Users>arunwelch>SKYDRIVE>DOCUMENTS>UNIX>LISP>LDE>ROOMS>MEDLEY-35>ROOMS-BIOS.;2
+Source file created Saturday, 5 December 2020, 16:35:15.
+FASL file created Saturday, 5 December 2020, 16:35:15.
+
+
+{DSK}<home>runner>work>medley>medley>rooms>ROOMS-SUITES.DFASL;1
+XCL Compiler output for source file {DSK}<Users>arunwelch>SKYDRIVE>DOCUMENTS>UNIX>LISP>LDE>ROOMS>MEDLEY-35>ROOMS-SUITES.;2
+Source file created Saturday, 5 December 2020, 16:35:25.
+FASL file created Saturday, 5 December 2020, 16:35:25.
+
+
+{DSK}<home>runner>work>medley>medley>rooms>ROOMS-INTERACTIVE.DFASL;1
+XCL Compiler output for source file {DSK}<Users>arunwelch>SKYDRIVE>DOCUMENTS>UNIX>LISP>LDE>ROOMS>MEDLEY-35>ROOMS-INTERACTIVE.;2
+Source file created Saturday, 5 December 2020, 16:35:33.
+FASL file created Saturday, 5 December 2020, 16:35:33.
+
+
+{DSK}<home>runner>work>medley>medley>rooms>ROOMS-BACKGROUNDS.DFASL;1
+XCL Compiler output for source file {DSK}<Users>arunwelch>SKYDRIVE>DOCUMENTS>UNIX>LISP>LDE>ROOMS>MEDLEY-35>ROOMS-BACKGROUNDS.;2
+Source file created Saturday, 5 December 2020, 16:35:40.
+FASL file created Saturday, 5 December 2020, 16:35:40.
+
+
+{DSK}<home>runner>work>medley>medley>rooms>ROOMS-PLACEMENT-EDITOR.DFASL;1
+XCL Compiler output for source file {DSK}<Users>arunwelch>SKYDRIVE>DOCUMENTS>UNIX>LISP>LDE>ROOMS>MEDLEY-35>ROOMS-PLACEMENT-EDITOR.;2
+Source file created Saturday, 5 December 2020, 16:35:49.
+FASL file created Saturday, 5 December 2020, 16:35:49.
+
+
+{DSK}<home>runner>work>medley>medley>rooms>ROOMS-OVERVIEW.DFASL;1
+XCL Compiler output for source file {DSK}<Users>arunwelch>SKYDRIVE>DOCUMENTS>UNIX>LISP>LDE>ROOMS>MEDLEY-35>ROOMS-OVERVIEW.;2
+Source file created Saturday, 5 December 2020, 16:35:56.
+FASL file created Saturday, 5 December 2020, 16:35:57.
+
+
+{DSK}<home>runner>work>medley>medley>rooms>ROOMS-MEDLEY-WINDOW-TYPES.DFASL;1
+XCL Compiler output for source file {MM}<rooms>ROOMS-MEDLEY-WINDOW-TYPES.;2
+Source file created  4-Feb-2022 14:16:25
+FASL file created Friday, 4 February 2022, 14:16:25
+
+
+Warning: The variable STRING was unknown and has been declared SPECIAL.
+Warning: The variable IL:TITLE was unknown and has been declared SPECIAL.
+Warning: The variable IL:TITLE-LOCATION was unknown and has been declared SPECIAL.
+
+{DSK}<home>runner>work>medley>notecards>system>NOTECARDS.LCOM;1
+compiled on 23-Sep-2024 12:16:57
+File created 23-Sep-2024 12:16:42
+NOTECARDSCOMS
+
+{DSK}<home>runner>work>medley>medley>library>PSEUDOHOSTS.LCOM;1
+compiled on 16-May-2025 12:07:54
+File created 16-May-2025 12:07:44
+PSEUDOHOSTSCOMS
+
+{DSK}<home>runner>work>medley>notecards>library>NCHACKS.LCOM;1
+compiled on 10-Mar-2024 23:36:02
+File created 10-Mar-2024 23:35:48
+NCHACKSCOMS
+
+{DSK}<home>runner>work>medley>notecards>library>NEWSHADEITEM.LCOM;1
+compiled on 10-Jun-2021 13:05:49
+File created  5-Nov-2020 20:04:05
+NEWSHADEITEMCOMS
+
+{DSK}<home>runner>work>medley>notecards>lispusers>TEDIT-PROCESS-KILLER.LCOM;1
+compiled on 20-Oct-2023 00:11:10
+File created 20-Oct-2023 00:11:10
+TEDIT-PROCESS-KILLERCOMS
+Warning: The variable W was unknown and has been declared SPECIAL.
+Warning: The variable TEDIT-CREATION-TIME was unknown and has been declared SPECIAL.
+Warning: The variable TEDIT-PROCESSES was unknown and has been declared SPECIAL.
+Warning: The variable USERFN was unknown and has been declared SPECIAL.
+Warning: The variable W was unknown and has been declared SPECIAL.
+
+{DSK}<home>runner>work>medley>medley>lispusers>STYLESHEET.LCOM;1
+compiled on  6-Jul-94 01:23:11
+File created 26-Jan-88 17:58:05
+STYLESHEETCOMS
+
+{DSK}<home>runner>work>medley>notecards>system>NCCONFIG.LCOM;1
+compiled on 11-Mar-2024 15:53:07
+File created 11-Mar-2024 15:52:56
+NCCONFIGCOMS
+
+{DSK}<home>runner>work>medley>notecards>system>NCDECLS.LCOM;1
+compiled on 10-Jun-2021 12:51:18
+File created  5-Nov-2020 19:15:21
+NCDECLSCOMS
+
+{DSK}<home>runner>work>medley>notecards>system>NCUTILITIES.LCOM;1
+compiled on 13-Jan-2025 22:38:39
+File created 13-Jan-2025 22:38:26
+NCUTILITIESCOMS
+
+{DSK}<home>runner>work>medley>notecards>system>NCPARAMETERS.LCOM;1
+compiled on 10-Jun-2021 12:53:28
+File created  3-Nov-2020 16:11:09
+NCPARAMETERSCOMS
+
+{DSK}<home>runner>work>medley>notecards>system>NCINTERFACE.LCOM;1
+compiled on 10-Jan-2025 15:29:00
+File created 10-Jan-2025 15:27:35
+NCINTERFACECOMS
+
+{DSK}<home>runner>work>medley>notecards>system>NCDATABASE.LCOM;1
+compiled on  6-Jan-2025 14:21:01
+File created  6-Jan-2025 14:20:47
+NCDATABASECOMS
+
+{DSK}<home>runner>work>medley>notecards>system>NCLOCALDEVICE.LCOM;1
+compiled on 10-Jun-2021 12:53:14
+File created  3-Nov-2020 16:13:17
+NCLOCALDEVICECOMS
+
+{DSK}<home>runner>work>medley>notecards>system>NCCARDS.LCOM;1
+compiled on 14-Jan-2025 14:16:58
+File created 14-Jan-2025 14:16:00
+NCCARDSCOMS
+
+{DSK}<home>runner>work>medley>notecards>system>NCLINKS.LCOM;1
+compiled on  8-Mar-2024 15:59:04
+File created  8-Mar-2024 15:58:49
+NCLINKSCOMS
+
+{DSK}<home>runner>work>medley>notecards>system>NCTYPESMECH.LCOM;1
+compiled on 10-Jun-2021 12:54:50
+File created  3-Nov-2020 16:13:45
+NCTYPESMECHCOMS
+
+{DSK}<home>runner>work>medley>notecards>system>NCPROGINT.LCOM;1
+compiled on  7-Mar-2024 22:42:50
+File created  7-Mar-2024 22:42:36
+NCPROGINTCOMS
+
+{DSK}<home>runner>work>medley>notecards>system>NCCROSSFILELINKS.LCOM;1
+compiled on 10-Jun-2021 12:50:10
+File created  3-Nov-2020 16:13:55
+NCCROSSFILELINKSCOMS
+
+{DSK}<home>runner>work>medley>notecards>patches>MEDLEYSYSTEMPATCHES.LCOM;1
+compiled on 10-Jun-2021 12:55:32
+File created  3-Nov-2020 16:14:11
+MEDLEYSYSTEMPATCHESCOMS
+
+{DSK}<home>runner>work>medley>notecards>patches>MEDLEYROOMSPATCHES.LCOM;1
+compiled on 10-Jun-2021 12:55:32
+File created  6-Dec-2020 17:24:20
+
+{DSK}<home>runner>work>medley>notecards>patches>MODERNIZEPATCHES.LCOM;1
+compiled on  7-Oct-2021 23:39:30
+File created  7-Oct-2021 23:39:06
+MODERNIZEPATCHESCOMS
+
+{DSK}<home>runner>work>medley>notecards>patches>NC2021PATCHES.LCOM;1
+compiled on  7-Oct-2021 17:27:57
+File created  7-Oct-2021 17:27:27
+NC2021PATCHESCOMS
+Warning: The variable |NC.ModernizeTITLEPROPORTION| was unknown and has been declared SPECIAL.
+
+{DSK}<home>runner>work>medley>notecards>system>NCHASHCARD.LCOM;1
+compiled on 10-Jun-2021 12:51:40
+File created  5-Nov-2020 19:33:38
+NCHASHCARDCOMS
+
+{DSK}<home>runner>work>medley>notecards>system>NCLISTCARD.LCOM;1
+compiled on 10-Jun-2021 12:53:12
+File created  5-Nov-2020 20:00:58
+NCLISTCARDCOMS
+
+{DSK}<home>runner>work>medley>notecards>system>NCTEXTCARD.LCOM;1
+compiled on 14-Jan-2025 21:29:53
+File created 14-Jan-2025 21:29:29
+NCTEXTCARDCOMS
+Warning: The variable TEDIT.DEFAULT.MENU was unknown and has been declared SPECIAL.
+Warning: The variable TEDIT.DEFAULT.MENU was unknown and has been declared SPECIAL.
+
+{DSK}<home>runner>work>medley>notecards>system>NCFILEBOXCARD.LCOM;1
+compiled on 10-Jun-2021 12:51:22
+File created  5-Nov-2020 19:28:37
+NCFILEBOXCARDCOMS
+
+{DSK}<home>runner>work>medley>medley>library>SCALEBITMAP.LCOM;1
+compiled on 21-Jan-93 13:59:01
+File created 12-Jun-90 11:20:16
+SCALEBITMAPCOMS
+
+{DSK}<home>runner>work>medley>notecards>patches>POSTRELEASEPATCHES.LCOM;1
+compiled on 11-Mar-2024 13:04:16
+File created 11-Mar-2024 13:03:59
+POSTRELEASEPATCHESCOMS
+
+{DSK}<home>runner>work>medley>notecards>patches>GRAPHERPATCH.LCOM;1
+compiled on 10-Jun-2021 12:55:25
+File created  2-Nov-2020 16:42:38
+(EDITMOVEREGION redefined)
+(EDITMOVESUBTREE redefined)
+(NOT.TRACKCURSOR redefined)
+(RECURSIVE.COLLECTDESCENDENTS redefined)
+(MOVEDESCENDENTS redefined)
+(COLLECT.CHILD.NODES redefined)
+(CREATE.NEW.NODEPOSITION redefined)
+(GETBOXPOSITION.FROMINITIALREGION redefined)
+(INIT/NODES/FOR/LAYOUT redefined)
+(NODECREATE redefined)
+(COLLECTDESCENDENTSA0001 redefined)
+(COLLECTDESCENDENTS redefined)
+(DISPLAYGRAPH redefined)
+(DISPLAYNODELINKS redefined)
+(GETNODEFROMID redefined)
+(EDITADDNODE redefined)
+(EDITCHANGELABEL redefined)
+(EDITAPPLYTOLINKA0001 redefined)
+(EDITAPPLYTOLINK redefined)
+(EDITCHANGEFONT redefined)
+(PRINTDISPLAYNODE redefined)
+(GRAPHOBJ.GETFN redefined)
+(ERASE/GRAPHNODE redefined)
+(DEFAULT.ADDNODEFN redefined)
+(EDITCHANGEFONT redefined)
+(EDITTOGGLELABELA0001 redefined)
+(EDITTOGGLELABEL redefined)
+(EDITMOVENODE redefined)
+(EDITTOGGLEBORDERA0001 redefined)
+(EDITTOGGLEBORDER redefined)
+(EDITDELETENODEA0001 redefined)
+(EDITDELETENODE redefined)
+(DELETE/AND/DISPLAY/LINK redefined)
+(ADD/AND/DISPLAY/LINK redefined)
+GRAPHERPATCHCOMS
+
+{DSK}<home>runner>work>medley>medley>clos>defsys.DFASL;1
+XCL Compiler output for source file {DSK}<Users>arunwelch>SKYDRIVE>DOCUMENTS>UNIX>LISP>CLOS>CURRENT>defsys.lisp;2
+Source file created Saturday, 5 December 2020, 11:17:25.
+FASL file created Saturday, 5 December 2020, 11:18:39.
+
+Loading binary of PATCH...
+Loading binary of PKG...
+Loading binary of WALK...
+Loading binary of ITERATE...
+Loading binary of MACROS...
+Loading binary of LOW...
+Loading binary of LOW2...
+Loading binary of FIN...
+Loading binary of DEFCLASS...
+Loading binary of DEFS...
+Loading binary of FNGEN...
+Loading binary of LAP...
+Loading binary of PLAP...
+Loading binary of CACHE...
+Loading binary of DLAP...
+Loading binary of BOOT...
+Loading binary of VECTOR...
+Loading binary of SLOTS...
+Loading binary of INIT...
+Loading binary of STD-CLASS...
+Loading binary of CPL...
+Loading binary of BRAID...
+Loading binary of FSC...
+Loading binary of METHODS...
+Loading binary of COMBIN...
+Loading binary of DFUN...
+Loading binary of PRECOM1...
+Loading binary of PRECOM2...
+Loading binary of PRECOM4...
+Loading binary of FIXUP...
+Loading binary of DEFCOMBIN...
+Loading binary of CTYPES...
+Loading binary of CONSTRUCT...
+Loading binary of ENV...
+Loading binary of COMPAT...
+Loading binary of CLOS-ENV...;CLOS-ENV Copyright (c) 1991 by Venue Corporation.  All rights reserved.
+
+{DSK}<home>runner>work>medley>medley>clos>clos-env-internal.DFASL;1
+Loading binary of WEB-EDITOR...
+;WEB-EDITOR Copyright (c) 1987, VENUE Corporation.  All rights reserved.
+Loading binary of NEW-CLOS-BROWSER...
+;CLOS-BROWSER Copyright (c) 1991 VENUE Corporation.  All rights reserved.
+
+{DSK}<home>runner>work>medley>medley>lispusers>BUTTONS.LCOM;1
+compiled on  7-Jul-2025 15:53:15
+File created  7-Jul-2025 15:53:15
+BUTTONSCOMS
+commits-- ((MEDLEY 782d97e) (NOTECARDS 32defae))

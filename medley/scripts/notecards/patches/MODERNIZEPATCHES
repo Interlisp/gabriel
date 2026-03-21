@@ -1,0 +1,38 @@
+(DEFINE-FILE-INFO PACKAGE "INTERLISP" READTABLE "INTERLISP" BASE 10)
+(FILECREATED " 7-Oct-2021 23:39:06" {DSK}<home>medley>notecards>patches>MODERNIZEPATCHES.;2 1960   
+
+      changes to%:  (VARS MODERNIZEPATCHESCOMS)
+
+      previous date%: "12-Jun-2021 13:29:59" {DSK}<home>medley>notecards>patches>MODERNIZEPATCHES.;1
+)
+
+
+(PRETTYCOMPRINT MODERNIZEPATCHESCOMS)
+
+(RPAQQ MODERNIZEPATCHESCOMS ((FNS MODERNWINDOW)))
+(DEFINEQ
+
+(MODERNWINDOW
+  [LAMBDA (WINDOW ANYWHERE TITLEPROPORTION)           (* ; "Edited  7-Oct-2021 23:37 by medley")
+                                                            (* ; "Edited  3-Jul-2021 10:31 by rmk:")
+                                                            (* ; "Edited 24-Jun-2021 14:52 by rmk:")
+
+    (* ;; "This can be applied to windows that have been created with an unknown or unmodifiable buttoneventfn.  If the window was previously modernized, we restore its original state first, in case it is called here with different parameters")
+
+    (CL:WHEN (AND TITLEPROPORTION (GREATERP TITLEPROPORTION 0.5))
+           (ERROR "TITLEPROPORTION cannot be greater than .5"))
+    (CL:WHEN (WINDOWPROP WINDOW 'PREMODERN-BUTTONEVENTFN)
+        (WINDOWPROP WINDOW 'BUTTONEVENTFN (WINDOWPROP WINDOW 'PREMODERN-BUTTONEVENTFN))
+        (WINDOWPROP WINDOW 'PREMODERN-BUTTONEVENTFN NIL))
+    (WINDOWPROP WINDOW 'PREMODERN-BUTTONEVENTFN (WINDOWPROP WINDOW 'BUTTONEVENTFN))
+    (WINDOWPROP WINDOW 'BUTTONEVENTFN (IF (OR ANYWHERE TITLEPROPORTION)
+                                          THEN `[LAMBDA (WINDOW)
+                                                      (MODERNWINDOW.BUTTONEVENTFN WINDOW NIL
+                                                             ,ANYWHERE
+                                                             ,TITLEPROPORTION]
+                                        ELSE (FUNCTION MODERNWINDOW.BUTTONEVENTFN)))
+    WINDOW])
+)
+(DECLARE%: DONTCOPY
+  (FILEMAP (NIL (426 1937 (MODERNWINDOW 436 . 1935)))))
+STOP

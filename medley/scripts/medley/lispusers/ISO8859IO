@@ -1,0 +1,557 @@
+(DEFINE-FILE-INFO PACKAGE "INTERLISP" READTABLE "INTERLISP" BASE 10 FORMAT XCCS)
+(FILECREATED " 8-Aug-2021 13:22:31" 
+{DSK}<Users>kaplan>Local>medley3.5>git-medley>lispusers>ISO8859IO.;18 22218  
+
+      changes to%:  (FNS \8859OUTCHARFN \IBMOUTCHARFN \MACOUTCHARFN)
+
+      previous date%: " 6-Aug-2021 16:12:42" 
+{DSK}<Users>kaplan>Local>medley3.5>git-medley>lispusers>ISO8859IO.;17)
+
+
+(* ; "
+Copyright (c) 1995-1997, 1999, 2021 by Xerox Corporation.
+")
+
+(PRETTYCOMPRINT ISO8859IOCOMS)
+
+(RPAQQ ISO8859IOCOMS
+       (
+        (* ;; "This package defines EXTERNALFORMATS for files that are encoded in either ISO8859/1, the standard IBM extended ascii, or the usual MAC encoding.")
+
+        (COMS                                                (* ; "ISO8859/1")
+              (FNS \8859OUTCHARFN \8859INCCODEFN \8859PEEKCCODEFN)
+              (GLOBALVARS *XEROXTOISO8859MAP* *ISO8859TOXEROXMAP*)
+              (FNS MAKEISOFORMAT)
+              (P (MAKEISOFORMAT)))
+        (COMS                                                (* ; "IBM-PC Extended Ascii")
+              (FNS \IBMOUTCHARFN \IBMINCCODEFN \IBMPEEKCCODEFN)
+              (GLOBALVARS *XEROXTOIBMMAP* *IBMTOXEROXMAP*)
+              (FNS MAKEIBMFORMAT)
+              (P (MAKEIBMFORMAT)))
+        (COMS                                                (* ; "Macintosh")
+              (FNS \MACOUTCHARFN \MACINCCODEFN \MACPEEKCCODEFN)
+              (GLOBALVARS *XEROXTOMACMAP* *MACTOXEROXMAP*)
+              (FNS MAKEMACFORMAT)
+              (P (MAKEMACFORMAT)))
+        (COMS                                                (* ; "Independent of char encoding")
+              (FNS \COMMONBACKCCODEFN \MAKERECODEMAP \RECODECCODE))))
+
+
+
+(* ;; 
+"This package defines EXTERNALFORMATS for files that are encoded in either ISO8859/1, the standard IBM extended ascii, or the usual MAC encoding."
+)
+
+
+
+
+(* ; "ISO8859/1")
+
+(DEFINEQ
+
+(\8859OUTCHARFN
+  [LAMBDA (STREAM CHARCODE)
+    (DECLARE (GLOBALVARS *XEROXTOISO8859MAP*))      (* ; "Edited  8-Aug-2021 13:21 by rmk:")
+                                                             (* ; "Edited  7-Dec-95 14:34 by ")
+                                                             (* ; "Edited  7-Dec-95 14:32 by ")
+
+    (* ;; "Converts CHARCODE from internal encoding to ISO8859 before printing.")
+
+    (* ;; "Unconverted codes are left unchanged (no error).")
+
+    (* ;; "If any remaining codes are out of charset 0, the streams external format will be used. ")
+
+    (IF (EQ CHARCODE (CHARCODE EOL))
+        THEN (FREPLACE (STREAM CHARPOSITION) OF STREAM WITH 0)
+              (\BOUTEOL STREAM)
+      ELSE (CHANGE (FFETCH (STREAM CHARPOSITION) OF STREAM)
+                      (IPLUS16 1 DATUM))
+            (\BOUT STREAM (IF (IGREATERP CHARCODE 127)
+                              THEN 
+
+                                 (* ;; "We know that ISO doesn't have floating accents, so only singletons are returned.  We also know that it agrees with Xerox on first 128")
+
+                                    (\RECODECCODE CHARCODE *XEROXTOISO8859MAP*)
+                            ELSE CHARCODE])
+
+(\8859INCCODEFN
+  [LAMBDA (STRM COUNTP)                                 (* ; "Edited  6-Aug-2021 16:10 by rmk:")
+                                                             (* ; "Edited  7-Dec-95 15:24 by ")
+                                                             (* ; "Edited  7-Dec-95 15:19 by ")
+    (DECLARE (USEDFREE *BYTECOUNTER*))
+    (CL:WHEN COUNTP (SETQ *BYTECOUNTER* 1))
+    (\RECODECCODE (\BIN STRM)
+           *ISO8859TOXEROXMAP*])
+
+(\8859PEEKCCODEFN
+  [LAMBDA (STRM NOERROR)                                (* ; "Edited  5-May-2021 17:44 by rmk:")
+                                                             (* ; "Edited  3-Jan-96 14:21 by ")
+                                                             (* ; "Edited  7-Dec-95 15:51 by ")
+                                                             (* ; "Edited  7-Dec-95 15:19 by ")
+    (\RECODECCODE (\PEEKCCODE STRM NOERROR)
+           *ISO8859TOXEROXMAP*])
+)
+(DECLARE%: DOEVAL@COMPILE DONTCOPY
+
+(GLOBALVARS *XEROXTOISO8859MAP* *ISO8859TOXEROXMAP*)
+)
+(DEFINEQ
+
+(MAKEISOFORMAT
+  [LAMBDA NIL                                           (* ; "Edited  5-Aug-2021 22:15 by rmk:")
+                                                             (* ; "Edited  9-Mar-99 17:19 by rmk:")
+                                                             (* ; "Edited  7-Dec-95 16:24 by ")
+                                                             (* ; "Edited  7-Dec-95 16:20 by ")
+    (LET [(XEROXTOISO '((61217 160)
+                        (61291 166)
+                        (8994 168)
+                        (211 169)
+                        (227 170)
+                        (61290 172)
+                        (61219 173)
+                        (210 174)
+                        (9086 175)
+                        (8999 180)
+                        (203 184)
+                        (209 185)
+                        (235 186)
+                        (61729 192)
+                        (61730 193)
+                        (61731 194)
+                        (61732 195)
+                        (61735 196)
+                        (61736 197)
+                        (225 198)
+                        (61741 199)
+                        (61744 200)
+                        (61745 201)
+                        (61746 202)
+                        (61749 203)
+                        (61758 204)
+                        (61759 205)
+                        (61760 206)
+                        (61764 207)
+                        (226 208)
+                        (61772 209)
+                        (61775 210)
+                        (61776 211)
+                        (61777 212)
+                        (61778 213)
+                        (61780 214)
+                        (180 215)
+                        (233 216)
+                        (61791 217)
+                        (61792 218)
+                        (61793 219)
+                        (61797 220)
+                        (61803 221)
+                        (236 222)
+                        (251 223)
+                        (61857 224)
+                        (61858 225)
+                        (61859 226)
+                        (61860 227)
+                        (61863 228)
+                        (61864 229)
+                        (241 230)
+                        (61869 231)
+                        (61872 232)
+                        (61873 233)
+                        (61874 234)
+                        (61877 235)
+                        (61886 236)
+                        (61887 237)
+                        (61888 238)
+                        (61892 239)
+                        (243 240)
+                        (61900 241)
+                        (61903 242)
+                        (61904 243)
+                        (61905 244)
+                        (61906 245)
+                        (61908 246)
+                        (184 247)
+                        (249 248)
+                        (61919 249)
+                        (61920 250)
+                        (61921 251)
+                        (61925 252)
+                        (61931 253)
+                        (252 254)
+                        (61933 255)
+                        (61805 376]
+         (SETQ *XEROXTOISO8859MAP* (\MAKERECODEMAP XEROXTOISO))
+         (SETQ *ISO8859TOXEROXMAP* (\MAKERECODEMAP XEROXTOISO T)))
+    (MAKE-EXTERNALFORMAT :ISO8859/1 (FUNCTION \8859INCCODEFN)
+           (FUNCTION \8859PEEKCCODEFN)
+           (FUNCTION \COMMONBACKCCODEFN)
+           (FUNCTION \8859OUTCHARFN])
+)
+
+(MAKEISOFORMAT)
+
+
+
+(* ; "IBM-PC Extended Ascii")
+
+(DEFINEQ
+
+(\IBMOUTCHARFN
+  [LAMBDA (STREAM CHARCODE)                             (* ; "Edited  8-Aug-2021 13:21 by rmk:")
+    (IF (EQ CHARCODE (CHARCODE EOL))
+        THEN (FREPLACE (STREAM CHARPOSITION) OF STREAM WITH 0)
+              (\BOUTEOL STREAM)
+      ELSE (CHANGE (FFETCH (STREAM CHARPOSITION) OF STREAM)
+                      (IPLUS16 1 DATUM))
+            (\BOUT STREAM (IF (IGREATERP CHARCODE 127)
+                              THEN 
+
+                                 (* ;; "We know that IBM doesn't have floating accents, so only singletons are returned.  We also know that it agrees with Xerox on first 128")
+
+                                    (\RECODECCODE CHARCODE *XEROXTOIBMMAP*)
+                            ELSEIF CHARCODE])
+
+(\IBMINCCODEFN
+  [LAMBDA (STRM COUNTP)                                 (* ; "Edited  6-Aug-2021 16:10 by rmk:")
+                                                             (* ; "Edited  8-Dec-95 13:23 by ")
+                                                             (* ; "Edited  7-Dec-95 15:19 by ")
+    (DECLARE (USEDFREE *BYTECOUNTER*))
+    (CL:WHEN COUNTP (SETQ *BYTECOUNTER* 1))
+    (\RECODECCODE (\BIN STRM)
+           *IBMTOXEROXMAP*])
+
+(\IBMPEEKCCODEFN
+  [LAMBDA (STRM NOERROR)                                (* ; "Edited  5-Aug-2021 22:28 by rmk:")
+                                                             (* ; "Edited  3-Jan-96 14:23 by ")
+                                                             (* ; "Edited  8-Dec-95 13:24 by ")
+                                                             (* ; "Edited  7-Dec-95 15:51 by ")
+                                                             (* ; "Edited  7-Dec-95 15:19 by ")
+    (\RECODECCODE (\PEEKCCODE STRM NOERROR)
+           *IBMTOXEROXMAP*])
+)
+(DECLARE%: DOEVAL@COMPILE DONTCOPY
+
+(GLOBALVARS *XEROXTOIBMMAP* *IBMTOXEROXMAP*)
+)
+(DEFINEQ
+
+(MAKEIBMFORMAT
+  [LAMBDA NIL                                           (* ; "Edited  5-Aug-2021 22:17 by rmk:")
+    (LET [(XEROXTOIBM '((61217 255)
+                        (61291 166)
+                        (8994 168)
+                        (211 169)
+                        (227 166)
+                        (61290 170)
+                        (61219 173)
+                        (210 174)
+                        (9086 175)
+                        (8999 180)
+                        (203 184)
+                        (235 167)
+                        (61729 183)
+                        (61730 181)
+                        (61731 182)
+                        (61732 199)
+                        (61735 142)
+                        (61736 143)
+                        (225 146)
+                        (61741 128)
+                        (61744 212)
+                        (61745 144)
+                        (61746 210)
+                        (61749 211)
+                        (61758 222)
+                        (61759 214)
+                        (61760 215)
+                        (61764 216)
+                        (61772 165)
+                        (61775 227)
+                        (61776 224)
+                        (61777 226)
+                        (61778 229)
+                        (61780 153)
+                        (233 157)
+                        (61791 235)
+                        (61792 233)
+                        (61793 234)
+                        (61797 154)
+                        (61803 194)
+                        (251 225)
+                        (61857 133)
+                        (61858 160)
+                        (61859 131)
+                        (61860 198)
+                        (61863 132)
+                        (61864 134)
+                        (241 145)
+                        (61869 135)
+                        (61872 138)
+                        (61873 130)
+                        (61874 136)
+                        (61877 137)
+                        (61886 141)
+                        (61887 161)
+                        (61888 140)
+                        (61892 139)
+                        (61900 164)
+                        (61903 149)
+                        (61904 162)
+                        (61905 147)
+                        (61906 228)
+                        (61908 148)
+                        (249 155)
+                        (61919 151)
+                        (61920 163)
+                        (61921 150)
+                        (61925 129)
+                        (61931 194)
+                        (61933 152)
+                        (61805 376)
+                        (161 173)
+                        (162 155)
+                        (163 156)
+                        (165 157)
+                        (167 21)
+                        (171 174)
+                        (176 248)
+                        (177 241)
+                        (178 253)
+                        (181 230)
+                        (182 20)
+                        (183 250)
+                        (187 175)
+                        (188 172)
+                        (189 171)
+                        (191 168]
+         (SETQ *XEROXTOIBMMAP* (\MAKERECODEMAP XEROXTOIBM))
+         (SETQ *IBMTOXEROXMAP* (\MAKERECODEMAP XEROXTOIBM T))
+         (MAKE-EXTERNALFORMAT :IBM (FUNCTION \IBMINCCODEFN)
+                (FUNCTION \IBMPEEKCCODEFN)
+                (FUNCTION \COMMONBACKCCODEFN)
+                (FUNCTION \IBMOUTCHARFN])
+)
+
+(MAKEIBMFORMAT)
+
+
+
+(* ; "Macintosh")
+
+(DEFINEQ
+
+(\MACOUTCHARFN
+  [LAMBDA (STREAM CHARCODE)                             (* ; "Edited  8-Aug-2021 13:22 by rmk:")
+
+    (* ;; "Converts CHARCODE from internal encoding to MAC before printing.")
+
+    (* ;; "Unconverted codes are left unchanged (no error).")
+
+    (* ;; "If any remaining codes are out of charset 0, the streams external format will be used.")
+
+    (IF (EQ CHARCODE (CHARCODE EOL))
+        THEN (FREPLACE (STREAM CHARPOSITION) OF STREAM WITH 0)
+              (\BOUTEOL STREAM)
+      ELSE (CHANGE (FFETCH (STREAM CHARPOSITION) OF STREAM)
+                      (IPLUS16 1 DATUM))
+            (\BOUT STREAM (IF (IGREATERP CHARCODE 127)
+                              THEN 
+
+                                 (* ;; "We know that MAC doesn't have floating accents, so only singletons are returned.  We also know that it agrees with Xerox on first 128")
+
+                                    (\RECODECCODE CHARCODE *XEROXTOMACMAP*)
+                            ELSE CHARCODE])
+
+(\MACINCCODEFN  [LAMBDA (STRM BYTECOUNTVAR BYTECOUNTVAL)              (* ; "Edited 15-Jun-2021 13:50 by rmk:")                                                             (* ; "Edited  8-Dec-95 13:29 by ")    (CL:WHEN BYTECOUNTVAR        (SET BYTECOUNTVAR (SUB1 BYTECOUNTVAL)))    (\RECODECCODE (\BIN STRM)           *MACTOXEROXMAP*])
+
+(\MACPEEKCCODEFN
+  [LAMBDA (STRM NOERROR)                                (* ; "Edited  5-Aug-2021 22:29 by rmk:")
+                                                             (* ; "Edited  3-Jan-96 14:23 by ")
+                                                             (* ; "Edited  8-Dec-95 13:29 by ")
+    (\RECODECCODE (\PEEKCCODE STRM NOERROR)
+           *MACTOXEROXMAP*])
+)
+(DECLARE%: DOEVAL@COMPILE DONTCOPY
+
+(GLOBALVARS *XEROXTOMACMAP* *MACTOXEROXMAP*)
+)
+(DEFINEQ
+
+(MAKEMACFORMAT
+  [LAMBDA NIL                                           (* ; "Edited  5-Aug-2021 22:25 by rmk:")
+                                                             (* ; "Edited  7-Dec-95 16:24 by ")
+                                                             (* ; "Edited  7-Dec-95 16:20 by ")
+
+    (* ;; "Note:  This maps some characters into sequences--only the first in the sequence will appear.  Sigh.")
+
+    (LET [(XEROXTOMAC '((211 212)
+                        (227 187)
+                        (61290 194)
+                        (210 168)
+                        (203 252)
+                        (209 213)
+                        (235 188)
+                        (61729 203)
+                        (61730 231)
+                        (61731 171)
+                        (61732 204)
+                        (61735 128)
+                        (61736 129)
+                        (225 174)
+                        (61741 130)
+                        (61744 172)
+                        (61745 131)
+                        (61746 230)
+                        (61749 232)
+                        (61758 237)
+                        (61759 234)
+                        (61760 235)
+                        (61764 236)
+                        (61772 132)
+                        (61775 241)
+                        (61776 238)
+                        (61777 170)
+                        (61778 205)
+                        (61780 133)
+                        (233 175)
+                        (61791 244)
+                        (61792 242)
+                        (61793 243)
+                        (61797 134)
+                        (61803 194 89)
+                        (251 167)
+                        (61857 136)
+                        (61858 135)
+                        (61859 137)
+                        (61860 139)
+                        (61863 138)
+                        (61864 140)
+                        (241 190)
+                        (61869 141)
+                        (61872 143)
+                        (61873 142)
+                        (61874 144)
+                        (61877 145)
+                        (61886 147)
+                        (61887 146)
+                        (61888 148)
+                        (61892 149)
+                        (61900 150)
+                        (61903 152)
+                        (61904 151)
+                        (61905 153)
+                        (61906 155)
+                        (61908 154)
+                        (184 214)
+                        (249 191)
+                        (61919 157)
+                        (61920 156)
+                        (61921 158)
+                        (61925 159)
+                        (61931 194 121)
+                        (61933 216)
+                        (61805 217)
+                        (61232 160)
+                        (176 161)
+                        (167 164)
+                        (61286 165)
+                        (182 166)
+                        (8546 173)
+                        (8551 176)
+                        (8549 178)
+                        (8550 179)
+                        (165 180)
+                        (61370 182)
+                        (61306 183)
+                        (61307 184)
+                        (9843 185)
+                        (61301 186)
+                        (191 192)
+                        (161 193)
+                        (61308 195)
+                        (61346 196)
+                        (61305 197)
+                        (9797 198)
+                        (171 199)
+                        (187 200)
+                        (8516 201)
+                        (32 202)
+                        (61220 208)
+                        (61221 209)
+                        (8574 215)
+                        (47 218)
+                        (164 219)
+                        (61226 220)
+                        (61227 221)
+                        (61476 222)
+                        (61477 223)
+                        (61233 224)
+                        (183 225)
+                        (9138 226)
+                        (61224 227)
+                        (61249 228]
+         (SETQ *XEROXTOMACMAP* (\MAKERECODEMAP XEROXTOMAC))
+         (SETQ *MACTOXEROXMAP* (\MAKERECODEMAP XEROXTOMAC T))
+         (MAKE-EXTERNALFORMAT :MACINTOSH (FUNCTION \MACINCCODEFN)
+                (FUNCTION \MACPEEKCCODEFN)
+                (FUNCTION \COMMONBACKCCODEFN)
+                (FUNCTION \MACOUTCHARFN])
+)
+
+(MAKEMACFORMAT)
+
+
+
+(* ; "Independent of char encoding")
+
+(DEFINEQ
+
+(\COMMONBACKCCODEFN
+  [LAMBDA (STRM COUNTP)                                 (* ; "Edited  6-Aug-2021 16:12 by rmk:")
+                                                             (* ; "Edited  8-Dec-95 13:26 by ")
+    (DECLARE (USEDFREE *BYTECOUNTER*))
+    (CL:WHEN (\BACKFILEPTR STRM)
+        (CL:WHEN COUNTP (SETQ *BYTECOUNTER* -1))
+        T)])
+
+(\MAKERECODEMAP
+  [LAMBDA (CODEMAP INVERTED)                             (* ; "Edited  9-Mar-99 17:23 by rmk:")
+
+    (* ;; "Produces a map array for use by \RECODECCODE.  The map array is a 256-array of either NIL or 256-arrays, so that space isn't allocated for widely separated codes.")
+
+    (DECLARE (USEDFREE FASTRECODEMAPCACHE))
+    (CL:WHEN INVERTED
+        [SETQ CODEMAP (FOR C IN CODEMAP COLLECT (LIST (CADR C)
+                                                                  (CAR C])
+    (FOR M (MAPARRAY _ (CL:MAKE-ARRAY 256 :INITIAL-ELEMENT NIL))
+           CSMAP IN CODEMAP UNLESS (EQ (CAR M)
+                                               (CADR M))
+       DO (CL:UNLESS (SETQ CSMAP (CL:SVREF MAPARRAY (LRSH (CAR M)
+                                                              8)))
+                  (SETQ CSMAP (CL:MAKE-ARRAY 256 :INITIAL-ELEMENT NIL))
+                  (CL:SETF (CL:SVREF MAPARRAY (LRSH (CAR M)
+                                                    8))
+                         CSMAP))
+             (CL:SETF (CL:SVREF CSMAP (LOGAND (CAR M)
+                                             255))
+                    (CADR M)) FINALLY (RETURN MAPARRAY])
+
+(\RECODECCODE
+  [LAMBDA (CODE MAPARRAY)                                (* ; "Edited  9-Mar-99 17:28 by rmk:")
+                                                             (* ; "Edited 21-Jun-95 10:18 by rmk:")
+
+    (* ;; "Recodes a singleton charcode.  Leaves everything else unchanged.")
+
+    (LET [(CSMAP (CL:SVREF MAPARRAY (LRSH CODE 8]
+         (OR (AND CSMAP (CL:SVREF CSMAP (LOGAND CODE 255)))
+             CODE])
+)
+(PUTPROPS ISO8859IO COPYRIGHT ("Xerox Corporation" 1995 1996 1997 1999 2021))
+(DECLARE%: DONTCOPY
+  (FILEMAP (NIL (1909 4233 (\8859OUTCHARFN 1919 . 3222) (\8859INCCODEFN 3224 . 3710) (\8859PEEKCCODEFN 
+3712 . 4231)) (4325 7866 (MAKEISOFORMAT 4335 . 7864)) (7926 9844 (\IBMOUTCHARFN 7936 . 8739) (
+\IBMINCCODEFN 8741 . 9222) (\IBMPEEKCCODEFN 9224 . 9842)) (9928 13459 (MAKEIBMFORMAT 9938 . 13457)) (
+13507 15354 (\MACOUTCHARFN 13517 . 14574) (\MACINCCODEFN 14576 . 14940) (\MACPEEKCCODEFN 14942 . 15352
+)) (15438 19991 (MAKEMACFORMAT 15448 . 19989)) (20058 22117 (\COMMONBACKCCODEFN 20068 . 20438) (
+\MAKERECODEMAP 20440 . 21670) (\RECODECCODE 21672 . 22115)))))
+STOP

@@ -1,0 +1,7 @@
+*.~*~
+*.SYSOUT
+*.sysout
+.c9
+/sysouts
+
+.DS_Store

@@ -1,0 +1,340 @@
+Lisp Type:          Venue Medley
+Lisp Version:       Medley 2.0 sysout of  7-Jan-2026 01:26:13
+Software Type:      Envos Medley
+Software Version:   Medley 2.0 sysout of  7-Jan-2026 01:26:13, Make-init dates:  7-Jan-2026 01:25:51,  7-Jan-2026 01:25:51
+Machine Type:       i386
+Machine Version:    Emulator created: 17-Jun-20, memory size: 0
+Machine Instance:   0 Kabirs-MacBook-Pro.local
+Site:               Unknown
+Features:           (:CLOS :XEROX-MEDLEY :INTERLISP :XEROX :COMMON :IEEE-FLOATING-POINT :MEDLEY)
+
+***** FRPOLY10R Benchmark ***
+
+FRPoly, Power = 10, r = x + y + z + 1
+
+
+Evaluating setup for FRPOLY10R
+
+Iteration 0 of FRPOLY10R
+Timing for :         FRPOLY10R
+Elapsed time        =     0.920 seconds
+SWAP time           =     0.016 seconds
+reclaim time        =     0.116 seconds
+net compute time    =     0.788 seconds
+Page faults         =         1
+Storage allocated:
+6261 FIXP, 152703 LISTP, 2 ONED-ARRAY, 1 NEW-ATOM, 93177 ENVIRONMENT
+
+
+Iteration 1 of FRPOLY10R
+Timing for :         FRPOLY10R
+Elapsed time        =     0.917 seconds
+SWAP time           =     0.015 seconds
+reclaim time        =     0.110 seconds
+net compute time    =     0.792 seconds
+Storage allocated:
+6261 FIXP, 87159 LISTP, 2 ONED-ARRAY, 1 NEW-ATOM, 93177 ENVIRONMENT
+
+
+
+***** FRPOLY10R2 Benchmark ***
+
+FRPoly, Power = 10, r2 = 1000r
+
+
+Evaluating setup for FRPOLY10R2
+
+Iteration 0 of FRPOLY10R2
+Timing for :         FRPOLY10R2
+Elapsed time        =     1.100 seconds
+SWAP time           =     0.016 seconds
+reclaim time        =     0.174 seconds
+net compute time    =     0.910 seconds
+Page faults         =         2
+Storage allocated:
+61826 FIXP, 390545 LISTP, 2 ONED-ARRAY, 17227 BIGNUM, 1 NEW-ATOM, 93177 ENVIRONMENT
+
+
+Iteration 1 of FRPOLY10R2
+Timing for :         FRPOLY10R2
+Elapsed time        =     1.102 seconds
+SWAP time           =     0.017 seconds
+reclaim time        =     0.162 seconds
+net compute time    =     0.923 seconds
+Storage allocated:
+61826 FIXP, 390545 LISTP, 2 ONED-ARRAY, 17227 BIGNUM, 1 NEW-ATOM, 93177 ENVIRONMENT
+
+
+
+***** FRPOLY10R3 Benchmark ***
+
+FRPoly, Power = 10, r3 = r in flonums
+
+
+Evaluating setup for FRPOLY10R3
+
+Iteration 0 of FRPOLY10R3
+Timing for :         FRPOLY10R3
+Elapsed time        =     0.921 seconds
+SWAP time           =     0.015 seconds
+reclaim time        =     0.115 seconds
+net compute time    =     0.791 seconds
+Storage allocated:
+6192 FIXP, 6393 FLOATP, 87159 LISTP, 2 ONED-ARRAY, 1 NEW-ATOM, 93177 ENVIRONMENT
+
+
+Iteration 1 of FRPOLY10R3
+Timing for :         FRPOLY10R3
+Elapsed time        =     0.923 seconds
+SWAP time           =     0.015 seconds
+reclaim time        =     0.128 seconds
+net compute time    =     0.780 seconds
+Storage allocated:
+6192 FIXP, 6393 FLOATP, 152695 LISTP, 2 ONED-ARRAY, 1 NEW-ATOM, 93177 ENVIRONMENT
+
+
+
+***** FRPOLY15R Benchmark ***
+
+FRPoly, Power = 15, r = x + y + z + 1
+
+
+Evaluating setup for FRPOLY15R
+
+Iteration 0 of FRPOLY15R
+Timing for :         FRPOLY15R
+Elapsed time        =     6.900 seconds
+SWAP time           =     0.156 seconds
+reclaim time        =     0.837 seconds
+net compute time    =     5.907 seconds
+Storage allocated:
+85263 FIXP, 891797 LISTP, 2 ONED-ARRAY, 1 NEW-ATOM, 676480 ENVIRONMENT
+
+
+Iteration 1 of FRPOLY15R
+Timing for :         FRPOLY15R
+Elapsed time        =     6.903 seconds
+SWAP time           =     0.159 seconds
+reclaim time        =     0.850 seconds
+net compute time    =     5.894 seconds
+Storage allocated:
+85263 FIXP, 826261 LISTP, 2 ONED-ARRAY, 1 NEW-ATOM, 676480 ENVIRONMENT
+
+
+
+***** FRPOLY15R2 Benchmark ***
+
+FRPoly, Power = 15, r2 = 1000r
+
+
+Evaluating setup for FRPOLY15R2
+
+Iteration 0 of FRPOLY15R2
+Timing for :         FRPOLY15R2
+Elapsed time        =     9.287 seconds
+SWAP time           =     0.180 seconds
+reclaim time        =     1.734 seconds
+net compute time    =     7.373 seconds
+Page faults         =         6
+Storage allocated:
+1102498 FIXP, 6084613 LISTP, 2 ONED-ARRAY, 129648 BIGNUM, 1 NEW-ATOM, 676480 ENVIRONMENT
+
+
+Iteration 1 of FRPOLY15R2
+Timing for :         FRPOLY15R2
+Elapsed time        =     9.294 seconds
+SWAP time           =     0.176 seconds
+reclaim time        =     1.715 seconds
+net compute time    =     7.403 seconds
+Storage allocated:
+1102498 FIXP, 6084613 LISTP, 2 ONED-ARRAY, 129648 BIGNUM, 1 NEW-ATOM, 676480 ENVIRONMENT
+
+
+
+***** FRPOLY15R3 Benchmark ***
+
+FRPoly, Power = 15, r3 = r in flonums
+
+
+Evaluating setup for FRPOLY15R3
+
+Iteration 0 of FRPOLY15R3
+Timing for :         FRPOLY15R3
+Elapsed time        =     6.995 seconds
+SWAP time           =     0.158 seconds
+reclaim time        =     0.878 seconds
+net compute time    =     5.959 seconds
+Storage allocated:
+53474 FIXP, 53297 FLOATP, 760725 LISTP, 2 ONED-ARRAY, 1 NEW-ATOM, 676480 ENVIRONMENT
+
+
+Iteration 1 of FRPOLY15R3
+Timing for :         FRPOLY15R3
+Elapsed time        =     7.096 seconds
+SWAP time           =     0.158 seconds
+reclaim time        =     0.898 seconds
+net compute time    =     6.040 seconds
+Storage allocated:
+53474 FIXP, 53297 FLOATP, 695189 LISTP, 2 ONED-ARRAY, 1 NEW-ATOM, 676480 ENVIRONMENT
+
+
+
+***** FRPOLY2R Benchmark ***
+
+FRPoly, Power = 2, r = x + y + z + 1
+
+
+Evaluating setup for FRPOLY2R
+
+Iteration 0 of FRPOLY2R
+Timing for :         FRPOLY2R
+Elapsed time        =     0.007 seconds
+reclaim time        =     0.001 seconds
+net compute time    =     0.006 seconds
+Storage allocated:
+34 FIXP, 10229 LISTP, 2 ONED-ARRAY, 1 NEW-ATOM, 764 ENVIRONMENT
+
+
+Iteration 1 of FRPOLY2R
+Timing for :         FRPOLY2R
+Elapsed time        =     0.007 seconds
+reclaim time        =     0.001 seconds
+net compute time    =     0.006 seconds
+Storage allocated:
+34 FIXP, 10229 LISTP, 2 ONED-ARRAY, 1 NEW-ATOM, 764 ENVIRONMENT
+
+
+
+***** FRPOLY2R2 Benchmark ***
+
+FRPoly, Power = 2, r2 = 1000r
+
+
+Evaluating setup for FRPOLY2R2
+
+Iteration 0 of FRPOLY2R2
+Timing for :         FRPOLY2R2
+Elapsed time        =     0.009 seconds
+reclaim time        =     0.001 seconds
+net compute time    =     0.008 seconds
+Storage allocated:
+82 FIXP, 10781 LISTP, 2 ONED-ARRAY, 74 BIGNUM, 1 NEW-ATOM, 764 ENVIRONMENT
+
+
+Iteration 1 of FRPOLY2R2
+Timing for :         FRPOLY2R2
+Elapsed time        =     0.008 seconds
+reclaim time        =     0.001 seconds
+net compute time    =     0.007 seconds
+Storage allocated:
+82 FIXP, 2 ONED-ARRAY, 74 BIGNUM, 1 NEW-ATOM, 764 ENVIRONMENT
+
+
+
+***** FRPOLY2R3 Benchmark ***
+
+FRPoly, Power = 2, r3 = r in flonums
+
+
+Evaluating setup for FRPOLY2R3
+
+Iteration 0 of FRPOLY2R3
+Timing for :         FRPOLY2R3
+Elapsed time        =     0.007 seconds
+net compute time    =     0.007 seconds
+Storage allocated:
+34 FIXP, 33 FLOATP, 10229 LISTP, 2 ONED-ARRAY, 1 NEW-ATOM, 764 ENVIRONMENT
+
+
+Iteration 1 of FRPOLY2R3
+Timing for :         FRPOLY2R3
+Elapsed time        =     0.007 seconds
+reclaim time        =     0.001 seconds
+net compute time    =     0.006 seconds
+Storage allocated:
+34 FIXP, 33 FLOATP, 10229 LISTP, 2 ONED-ARRAY, 1 NEW-ATOM, 764 ENVIRONMENT
+
+
+
+***** FRPOLY5R Benchmark ***
+
+FRPoly, Power = 5, r = x + y + z + 1
+
+
+Evaluating setup for FRPOLY5R
+
+Iteration 0 of FRPOLY5R
+Timing for :         FRPOLY5R
+Elapsed time        =     0.079 seconds
+SWAP time           =     0.001 seconds
+reclaim time        =     0.015 seconds
+net compute time    =     0.063 seconds
+Storage allocated:
+490 FIXP, 2 ONED-ARRAY, 1 NEW-ATOM, 8002 ENVIRONMENT
+
+
+Iteration 1 of FRPOLY5R
+Timing for :         FRPOLY5R
+Elapsed time        =     0.078 seconds
+SWAP time           =     0.001 seconds
+reclaim time        =     0.012 seconds
+net compute time    =     0.065 seconds
+Storage allocated:
+490 FIXP, 39022 LISTP, 2 ONED-ARRAY, 1 NEW-ATOM, 8002 ENVIRONMENT
+
+
+
+***** FRPOLY5R2 Benchmark ***
+
+FRPoly, Power = 5, r2 = 1000r
+
+
+Evaluating setup for FRPOLY5R2
+
+Iteration 0 of FRPOLY5R2
+Timing for :         FRPOLY5R2
+Elapsed time        =     0.091 seconds
+SWAP time           =     0.001 seconds
+reclaim time        =     0.016 seconds
+net compute time    =     0.074 seconds
+Storage allocated:
+2174 FIXP, 2 ONED-ARRAY, 1190 BIGNUM, 1 NEW-ATOM, 8002 ENVIRONMENT
+
+
+Iteration 1 of FRPOLY5R2
+Timing for :         FRPOLY5R2
+Elapsed time        =     0.089 seconds
+SWAP time           =     0.001 seconds
+reclaim time        =     0.016 seconds
+net compute time    =     0.072 seconds
+Storage allocated:
+2174 FIXP, 53402 LISTP, 2 ONED-ARRAY, 1190 BIGNUM, 1 NEW-ATOM, 8002 ENVIRONMENT
+
+
+
+***** FRPOLY5R3 Benchmark ***
+
+FRPoly, Power = 5, r3 = r in flonums
+
+
+Evaluating setup for FRPOLY5R3
+
+Iteration 0 of FRPOLY5R3
+Timing for :         FRPOLY5R3
+Elapsed time        =     0.080 seconds
+SWAP time           =     0.001 seconds
+reclaim time        =     0.012 seconds
+net compute time    =     0.067 seconds
+Storage allocated:
+490 FIXP, 448 FLOATP, 2 ONED-ARRAY, 1 NEW-ATOM, 8002 ENVIRONMENT
+
+
+Iteration 1 of FRPOLY5R3
+Timing for :         FRPOLY5R3
+Elapsed time        =     0.079 seconds
+SWAP time           =     0.001 seconds
+reclaim time        =     0.013 seconds
+net compute time    =     0.065 seconds
+Storage allocated:
+490 FIXP, 448 FLOATP, 39022 LISTP, 2 ONED-ARRAY, 1 NEW-ATOM, 8002 ENVIRONMENT
+

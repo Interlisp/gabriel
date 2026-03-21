@@ -1,0 +1,99 @@
+(DEFINE-FILE-INFO PACKAGE "INTERLISP" READTABLE "INTERLISP" BASE 10)
+
+(FILECREATED " 9-Mar-2025 20:03:27" {DSK}<home>frank>il>medley>internal>loadups>LOADUP-APPS.;10 3274   
+
+      :EDIT-BY "frank"
+
+      :CHANGES-TO (FNS LOADUP-APPS)
+
+      :PREVIOUS-DATE " 9-Mar-2025 19:42:36" {DSK}<home>frank>il>medley>internal>loadups>LOADUP-APPS.;8
+)
+
+
+(PRETTYCOMPRINT LOADUP-APPSCOMS)
+
+(RPAQQ LOADUP-APPSCOMS ((GLOBALVARS *ALL-BUTTONS* BackgroundMenuCommands BackgroundMenu)
+                        (FNS LOADUP-APPS Apps.RemoveBackgroundMenuItem)))
+(DECLARE%: DOEVAL@COMPILE DONTCOPY
+
+(GLOBALVARS *ALL-BUTTONS* BackgroundMenuCommands BackgroundMenu)
+)
+(DEFINEQ
+
+(LOADUP-APPS
+  [LAMBDA NIL                                              (* ; "Edited  9-Mar-2025 20:02 by frank")
+                                                             (* ; "Edited  2-Jan-2025 20:38 by lmm")
+                                                           (* ; "Edited  2-Jan-2025 06:30 by larry")
+
+    (* ;; "= = = = = = = = = = = = = = = = = =")
+
+    (* ;; " Load ROOMS")
+
+    (* ;; "")
+
+    (DOFILESLOAD `((SYSLOAD SOURCE)
+                   (FROM ,(MEDLEYDIR "ROOMS"))
+                   ROOMS))
+
+    (* ;; "======================")
+
+    (* ;; " Load Notecards and %"fix up%"")
+
+    (* ;; "")
+
+    (DOFILESLOAD `((SYSLOAD)
+                   (FROM ,(CONCAT (UNIX-GETENV "NOTECARDSDIR")
+                                 "/system"))
+                   NOTECARDS))
+    (Apps.RemoveBackgroundMenuItem 'NoteCards)               (* ; "")
+    (PUTASSOC 'NOTECARDS (LIST (UNIX-GETENV 'NOTECARDS_COMMIT_ID))
+           SYSOUTCOMMITS)
+
+    (* ;; "======================")
+
+    (* ;; " Load CLOS and %"fix up%"")
+
+    (* ;; " Assumes that clos/DEFSYS.DFASL has already been loaded (so CLOS: package is defined)")
+
+    (* ;; "")
+
+    (LOADUP-CLOS)
+    (CLOS::LOAD-CLOS)                                        (* ; "")
+    (Apps.RemoveBackgroundMenuItem 'BrowseClass)
+
+    (* ;; "= = = = = = = = = = =  = = == = = = ")
+
+    (* ;; " Load lispusers/BUTTONS and %"fix up%"")
+
+    (* ;; "")
+
+    (DOFILESLOAD '((SYSLOAD)
+                   BUTTONS))
+    (Apps.RemoveBackgroundMenuItem "Button Control")
+    (for B in *ALL-BUTTONS* do (DELETE-BUTTON B))
+
+    (* ;; "= = = = = = = = = = =  = = == = = = ")
+
+    (* ;; " Do misc")
+
+    (* ;; "")
+
+    (PUTASSOC 'MEDLEY (LIST (UNIX-GETENV 'LOADUP_COMMIT_ID))
+           SYSOUTCOMMITS)
+    (PRINTOUT T "commits-- " SYSOUTCOMMITS T])
+
+(Apps.RemoveBackgroundMenuItem
+  [LAMBDA (ItemStringOrAtom)
+    (DECLARE (GLOBALVARS Apps.SBG))                          (* ; "Edited 17-Jan-2023 20:33 by FGH")
+                                                             (* ; "Edited 12-Nov-2022 14:07 by FGH")
+    (LET (SAVEX)
+         (SETQ BackgroundMenuCommands (REMOVE (SETQ SAVEX (SASSOC ItemStringOrAtom 
+                                                                 BackgroundMenuCommands))
+                                             BackgroundMenuCommands))
+         (SETQ BackgroundMenu NIL)
+         (SETQ Apps.SBG (APPEND (LIST SAVEX)
+                               Apps.SBG])
+)
+(DECLARE%: DONTCOPY
+  (FILEMAP (NIL (656 3251 (LOADUP-APPS 666 . 2579) (Apps.RemoveBackgroundMenuItem 2581 . 3249)))))
+STOP

@@ -1,0 +1,338 @@
+
+Full loadup started at  7-Jan-2026 01:26:07 while connected to 
+{DSK}<home>runner>work>medley>medley>
+
+loading POSTSCRIPTSTREAM
+
+{DSK}<home>runner>work>medley>medley>library>POSTSCRIPTSTREAM.LCOM;1
+compiled on 13-Oct-2025 18:05:08
+File created 13-Oct-2025 18:05:08
+POSTSCRIPTSTREAMCOMS
+Loading FULL fonts...
+  Loading CLASSIC 8 10 12 
+  Loading MODERN 8 10 12 
+  Loading TERMINAL 8 10 12 
+  Loading postscript fonts
+FULL fonts loaded
+loading CHAT
+
+{DSK}<home>runner>work>medley>medley>library>CHAT.LCOM;1
+compiled on 11-Oct-2025 10:32:05
+File created 11-Oct-2025 10:32:05
+CHATCOMS
+
+{DSK}<home>runner>work>medley>medley>library>DMCHAT.LCOM;1
+compiled on 25-Feb-93 18:08:53
+File created 20-Jan-93 13:49:09
+DMCHATCOMS
+
+{DSK}<home>runner>work>medley>medley>library>CHATTERMINAL.LCOM;1
+compiled on 11-Oct-2025 10:28:04
+File created 11-Oct-2025 10:28:04
+CHATTERMINALCOMS
+loading INTERPRESS
+
+{DSK}<home>runner>work>medley>medley>sources>INTERPRESS.LCOM;1
+compiled on 10-Sep-2025 16:59:12
+File created 10-Sep-2025 16:59:11
+INTERPRESSCOMS
+loading TEDIT
+
+{DSK}<home>runner>work>medley>medley>library>tedit>TEDIT.LCOM;1
+compiled on 13-Nov-2025 21:00:34
+File created 13-Nov-2025 21:00:34
+TEDITCOMS
+
+{DSK}<home>runner>work>medley>medley>library>PDFSTREAM.LCOM;1
+compiled on 23-Aug-2025 10:53:39
+File created 23-Aug-2025 10:53:33
+PDFSTREAMCOMS
+
+{DSK}<home>runner>work>medley>medley>lispusers>WHEELSCROLL.LCOM;1
+compiled on 29-Mar-2025 20:15:06
+File created 29-Mar-2025 20:15:01
+WHEELSCROLLCOMS
+
+{DSK}<home>runner>work>medley>medley>library>tedit>TEDIT-PCTREE.LCOM;1
+compiled on 28-Jul-2025 23:25:19
+File created 28-Jul-2025 23:25:19
+TEDIT-PCTREECOMS
+
+{DSK}<home>runner>work>medley>medley>library>tedit>TEDIT-SELECTION.LCOM;1
+compiled on 29-Jul-2025 11:22:10
+File created 29-Jul-2025 11:22:10
+TEDIT-SELECTIONCOMS
+
+{DSK}<home>runner>work>medley>medley>library>tedit>TEDIT-SCREEN.LCOM;1
+compiled on 19-Oct-2025 00:07:29
+File created 19-Oct-2025 00:07:29
+TEDIT-SCREENCOMS
+
+{DSK}<home>runner>work>medley>medley>library>tedit>TEDIT-STREAM.LCOM;1
+compiled on 23-Sep-2025 08:19:29
+File created 23-Sep-2025 08:19:29
+TEDIT-STREAMCOMS
+
+{DSK}<home>runner>work>medley>medley>library>tedit>TEDIT-COMMAND.LCOM;1
+compiled on  8-Nov-2025 10:03:19
+File created  8-Nov-2025 10:03:19
+TEDIT-COMMANDCOMS
+
+{DSK}<home>runner>work>medley>medley>library>tedit>TEDIT-ABBREV.LCOM;1
+compiled on  5-Sep-2025 18:50:19
+File created  5-Sep-2025 18:50:19
+TEDIT-ABBREVCOMS
+
+{DSK}<home>runner>work>medley>medley>library>tedit>TEDIT-LOOKS.LCOM;1
+compiled on  6-Oct-2025 20:51:00
+File created  6-Oct-2025 20:50:59
+TEDIT-LOOKSCOMS
+
+{DSK}<home>runner>work>medley>medley>library>tedit>TEDIT-STYLES.LCOM;1
+compiled on 28-Jul-2025 23:25:43
+File created 28-Jul-2025 23:25:43
+TEDIT-STYLESCOMS
+
+{DSK}<home>runner>work>medley>medley>library>IMAGEOBJ.LCOM;1
+compiled on  9-Jun-2025 20:33:50
+File created  9-Jun-2025 20:33:49
+IMAGEOBJCOMS
+
+{DSK}<home>runner>work>medley>medley>library>EDITBITMAP.LCOM;1
+compiled on 25-Feb-93 18:10:27
+File created 11-Jun-90 15:42:25
+EDITBITMAPCOMS
+
+{DSK}<home>runner>work>medley>medley>library>READNUMBER.LCOM;1
+compiled on 16-Aug-95 11:18:52
+File created 25-May-93 00:28:30
+READNUMBERCOMS
+
+{DSK}<home>runner>work>medley>medley>library>tedit>TEDIT-FIND.LCOM;1
+compiled on 23-Jun-2025 09:06:59
+File created 21-Apr-2025 22:42:57
+TEDIT-FINDCOMS
+
+{DSK}<home>runner>work>medley>medley>library>tedit>TEDIT-HISTORY.LCOM;1
+compiled on  1-Aug-2025 14:58:56
+File created  1-Aug-2025 14:58:56
+TEDIT-HISTORYCOMS
+
+{DSK}<home>runner>work>medley>medley>library>tedit>TEDIT-FILE.LCOM;1
+compiled on 23-Oct-2025 08:49:06
+File created 23-Oct-2025 08:49:06
+TEDIT-FILECOMS
+
+{DSK}<home>runner>work>medley>medley>library>tedit>TEDIT-OLDFILE.LCOM;1
+compiled on  8-Sep-2025 22:10:10
+File created  8-Sep-2025 22:10:10
+TEDIT-OLDFILECOMS
+
+{DSK}<home>runner>work>medley>medley>library>tedit>TEDIT-WINDOW.LCOM;1
+compiled on 15-Nov-2025 01:27:38
+File created 15-Nov-2025 01:27:38
+TEDIT-WINDOWCOMS
+
+{DSK}<home>runner>work>medley>medley>library>tedit>TEDIT-TFBRAVO.LCOM;1
+compiled on  7-Sep-2025 11:11:44
+File created  7-Sep-2025 11:11:43
+TEDIT-TFBRAVOCOMS
+
+{DSK}<home>runner>work>medley>medley>library>tedit>TEDIT-HCPY.LCOM;1
+compiled on 10-Sep-2025 19:05:00
+File created 10-Sep-2025 19:05:00
+TEDIT-HCPYCOMS
+
+{DSK}<home>runner>work>medley>medley>library>tedit>TEDIT-PAGE.LCOM;1
+compiled on 23-Jun-2025 10:02:53
+File created  5-Jun-2025 08:24:12
+TEDIT-PAGECOMS
+
+{DSK}<home>runner>work>medley>medley>library>tedit>TEDIT-BUTTONS.LCOM;1
+compiled on 19-Oct-2025 10:44:19
+File created 19-Oct-2025 10:44:18
+TEDIT-BUTTONSCOMS
+
+{DSK}<home>runner>work>medley>medley>library>tedit>TEDIT-MENU.LCOM;1
+compiled on 22-Oct-2025 12:55:36
+File created 22-Oct-2025 12:55:36
+TEDIT-MENUCOMS
+
+{DSK}<home>runner>work>medley>medley>library>tedit>TEDIT-FNKEYS.LCOM;1
+compiled on 24-Nov-2025 08:40:56
+File created 24-Nov-2025 08:40:56
+TEDIT-FNKEYSCOMS
+loading HRULE
+
+{DSK}<home>runner>work>medley>medley>library>HRULE.LCOM;1
+compiled on 26-Nov-2023 09:46:44
+File created 26-Nov-2023 09:46:44
+HRULECOMS
+loading TEDIT-CHAT
+
+{DSK}<home>runner>work>medley>medley>library>tedit>TEDIT-CHAT.LCOM;1
+compiled on 21-Apr-2025 23:06:01
+File created 21-Apr-2025 23:06:01
+TEDIT-CHATCOMS
+READNUMBER already loaded
+EDITBITMAP already loaded
+loading FILEBROWSER
+
+{DSK}<home>runner>work>medley>medley>library>FILEBROWSER.LCOM;1
+compiled on 29-May-2024 15:30:59
+File created 29-May-2024 15:30:07
+FILEBROWSERCOMS
+
+{DSK}<home>runner>work>medley>medley>library>TABLEBROWSER.LCOM;1
+compiled on  6-Aug-2022 18:06:59
+File created  6-Aug-2022 18:06:57
+TABLEBROWSERCOMS
+loading THINFILES
+
+{DSK}<home>runner>work>medley>medley>lispusers>THINFILES.LCOM;1
+compiled on  9-Oct-2021 00:35:17
+File created  9-Oct-2021 00:35:17
+THINFILESCOMS
+loading GRAPHER
+
+{DSK}<home>runner>work>medley>medley>library>GRAPHER.LCOM;1
+compiled on 14-Mar-2021 20:40:31
+File created 14-Mar-2021 20:40:30
+GRAPHERCOMS
+loading SPY
+
+{DSK}<home>runner>work>medley>medley>library>SPY.LCOM;1
+compiled on 27-Feb-2024 21:32:16
+File created 27-Feb-2024 20:25:02
+SPYCOMS
+loading WHERE-IS
+
+{DSK}<home>runner>work>medley>medley>library>WHERE-IS.DFASL;1
+XCL Compiler output for source file {DSK}<home>matt>Interlisp>medley>library>WHERE-IS.;5
+Source file created 30-Jul-2025 16:15:16
+FASL file created Wednesday, 30 July 2025, 16:15:16
+
+
+{DSK}<home>runner>work>medley>medley>library>HASH-FILE.dfasl;1
+XCL Compiler output for source file {PELE:MV:ENVOS}<LISPCORE>LIBRARY>HASH-FILE.;2
+Source file created Monday, 11 June 1990, 16:16:54.
+FASL file created Friday, 26 February 1993, 11:23:40.
+
+
+{DSK}<home>runner>work>medley>medley>library>CASH-FILE.DFASL;1
+XCL Compiler output for source file {DSK}<usr>local>lde>lispcore>library>CASH-FILE.;2
+Source file created 11-Jun-90 14:33:44
+FASL file created Saturday, 19 September 2020, 22:04:31
+
+loading COPYFILES
+
+{DSK}<home>runner>work>medley>medley>library>COPYFILES.LCOM;1
+compiled on 26-Mar-2022 11:43:49
+File created 26-Mar-2022 11:43:49
+COPYFILESCOMS
+loading MSANALYZE
+
+{DSK}<home>runner>work>medley>medley>library>MSANALYZE.DFASL;1
+XCL Compiler output for source file {DSK}<home>larry>il>medley>library>MSANALYZE.;2
+Source file created 20-Feb-2024 09:28:38
+FASL file created Tuesday, 20 February 2024, 9:29:08
+
+loading MSPARSE
+
+{DSK}<home>runner>work>medley>medley>library>MSPARSE.DFASL;1
+XCL Compiler output for source file {PELE:MV:ENVOS}<LISPCORE>LIBRARY>MSPARSE.;5
+Source file created Wednesday, 15 August 1990, 13:00:12.
+FASL file created Sunday, 28 February 1993, 23:24:50.
+
+loading MASTERSCOPE
+
+{DSK}<home>runner>work>medley>medley>library>MASTERSCOPE.DFASL;1
+XCL Compiler output for source file {WMEDLEY}<library>MASTERSCOPE.;30
+Source file created 24-Aug-2025 13:45:51
+FASL file created Sunday, 24 August 2025, 13:46:22
+
+
+{DSK}<home>runner>work>medley>medley>library>MSCOMMON.DFASL;1
+XCL Compiler output for source file {DSK}<home>larry>ilisp>medley>library>MSCOMMON.;3
+Source file created  2-Nov-2022 10:13:59
+FASL file created Wednesday, 2 November 2022, 10:13:59
+
+loading UNIXPRINT
+
+{DSK}<home>runner>work>medley>medley>library>UNIXPRINT.DFASL;1
+XCL Compiler output for source file {DSK}<home>frank>il>medley>gmedley>library>UNIXPRINT.;4
+Source file created 20-Jan-2023 22:44:05
+FASL file created Friday, 20 January 2023, 22:44:20
+
+
+{DSK}<home>runner>work>medley>medley>library>UNIXUTILS.DFASL;1
+XCL Compiler output for source file {WMEDLEY}<library>UNIXUTILS.;35
+Source file created 26-Nov-2025 14:21:13
+FASL file created Wednesday, 26 November 2025, 14:21:39
+
+
+{DSK}<home>runner>work>medley>medley>library>UNIXCOMM.LCOM;1
+compiled on  2-Sep-2025 12:06:52
+File created  2-Sep-2025 12:06:52
+loading ISO8859IO
+
+{DSK}<home>runner>work>medley>medley>lispusers>ISO8859IO.LCOM;1
+compiled on  8-Aug-2021 13:22:32
+File created  8-Aug-2021 13:22:31
+ISO8859IOCOMS
+loading HELPSYS
+
+{DSK}<home>runner>work>medley>medley>lispusers>HELPSYS.LCOM;1
+compiled on  5-May-2025 22:04:46
+File created  5-May-2025 22:04:32
+
+{DSK}<home>runner>work>medley>medley>lispusers>DINFO.LCOM;1
+compiled on  9-May-2025 21:15:54
+File created  9-May-2025 21:15:54
+
+{DSK}<home>runner>work>medley>medley>library>HASH.LCOM;1
+compiled on 26-Feb-93 11:22:10
+File created 11-Jun-90 16:23:11
+HASHCOMS
+
+Reading IRM graph...OK.DINFO already loaded
+loading CLIPBOARD
+
+{DSK}<home>runner>work>medley>medley>library>CLIPBOARD.LCOM;1
+compiled on 25-Sep-2025 15:00:01
+File created 25-Sep-2025 15:00:01
+CLIPBOARDCOMS
+loading MODERNIZE
+
+{DSK}<home>runner>work>medley>medley>lispusers>MODERNIZE.LCOM;1
+compiled on 23-Jul-2025 14:41:38
+File created 23-Jul-2025 14:41:38
+MODERNIZECOMS
+WHEELSCROLL already loaded
+loading PRETTYFILEINDEX
+
+{DSK}<home>runner>work>medley>medley>lispusers>PRETTYFILEINDEX.LCOM;1
+compiled on 21-Sep-2025 09:50:47
+File created 21-Sep-2025 09:50:47
+PRETTYFILEINDEXCOMS
+loading WHO-LINE
+
+{DSK}<home>runner>work>medley>medley>lispusers>WHO-LINE.DFASL;1
+XCL Compiler output for source file {DSK}<home>larry>il>medley>lispusers>WHO-LINE.;6
+Source file created 16-Mar-2024 12:08:24
+FASL file created Saturday, 16 March 2024, 12:10:12
+
+UNIXCOMM already loaded
+loading UNIXCHAT
+
+{DSK}<home>runner>work>medley>medley>library>UNIXCHAT.LCOM;1
+compiled on 21-Jan-93 18:45:15
+File created 15-Aug-90 11:05:53
+UNIXCHATCOMS
+loading UNIXYCD
+
+{DSK}<home>runner>work>medley>medley>lispusers>UNIXYCD.LCOM;1
+compiled on 12-Aug-2022 12:29:30
+File created 12-Aug-2022 12:29:18
+UNIXYCDCOMS
+UNIXUTILS already loaded

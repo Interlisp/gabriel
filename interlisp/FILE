@@ -1,0 +1,17 @@
+TAK(@X @Y @Z)     LAMBDA
+      <@X>
+6:    COPY <@Y> [IGREATERP] TJUMP 5
+      <@Z> RETURN
+5:    '1 [IDIFFERENCE] <@Y> <@Z> [TAK 3] <@Y> '1 [IDIFFERENCE]
+      <@Z> <@X> [TAK 3] <@Z> '1 [IDIFFERENCE] <@X> <@Y> [TAK 3]
+      SETQ<@Z> POP SETQ<@Y> POP SETQ<@X> JUMP 6
+
+
+TAK
+name table: 
+(L (2 Z 1 Y 0 X))
+code length:  argtype: 0
+(IVAR 0) COPY (IVAR 1) IGREATERP (TJUMP 1) (IVAR 2) RETURN '1 IDIFFERENCE (IVAR 1) (IVAR 2) FN3 0 0 0 
+(FN . TAK) (IVAR 1) '1 IDIFFERENCE (IVAR 2) (IVAR 0) FN3 0 0 0 (FN . TAK) (IVAR 2) '1 IDIFFERENCE (
+IVAR 0) (IVAR 1) FN3 0 0 0 (FN . TAK) IVARX_ 4 POP IVARX_ 2 POP IVARX_ 0 JUMPX 325Q -X-
+

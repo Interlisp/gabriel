@@ -1,0 +1,1716 @@
+(DEFINE-FILE-INFO PACKAGE "INTERLISP" READTABLE "INTERLISP" BASE 10)
+
+(FILECREATED " 5-May-2025 22:04:32" {WMEDLEY}<lispusers>HELPSYS.;15 87966  
+
+      :EDIT-BY rmk
+
+      :CHANGES-TO (FNS CLHS.INDEX)
+
+      :PREVIOUS-DATE " 4-May-2025 13:30:47" {WMEDLEY}<lispusers>HELPSYS.;12)
+
+
+(PRETTYCOMPRINT HELPSYSCOMS)
+
+(RPAQQ HELPSYSCOMS
+       ((FILES DINFO HASH)
+        (RECORDS IRMREFERENCE)
+        (DECLARE%: EVAL@COMPILE DONTCOPY (FILES (LOADCOMP)
+                                                DINFO HASH))
+        [COMS (COMMANDS "man")
+              (FNS HELPSYS IRM.LOOKUP GENERIC.MAN.LOOKUP IRM.SMART.LOOKUP IRM.RESET)
+              (INITVARS (IRM.HOST&DIR)
+                     (IRM.HASHFILE.NAME))
+              (GLOBALVARS IRM.HOST&DIR IRM.HASHFILE.NAME)
+              (DECLARE%: DONTEVAL@LOAD DOCOPY (P (MOVD 'HELPSYS 'XHELPSYS NIL T]
+        
+
+(* ;;; "Common Lisp HyperSpec lookup")
+
+        (COMS (FNS CLHS.INDEX CLHS.LOOKUP CLHS.OPENER REPO.LOOKUP)
+              (VARS CLHS.INDEX)
+              [INITVARS (CLHS.ROOT.URL "https://interlisp.org/clhs/")
+                     (CLHS.INDEX)
+                     (CLHS.OPENER)
+                     (HELPSYS.REPO.TYPES '(FNS FUNCTIONS VARS VARIABLES]
+              (GLOBALVARS CLHS.INDEX CLHS.OPENER HELPSYS.REPO.TYPES CLHS.ROOT.URL))
+        (COMS 
+
+(* ;;; "Interface to DInfo")
+
+              (FNS IRM.GET.DINFOGRAPH IRM.DISPLAY.REF)
+              (FUNCTIONS IRM.LOAD-GRAPH)
+              [ADDVARS (DINFO.GRAPHS ("Interlisp-D Reference Manual" (IRM.GET.DINFOGRAPH T]
+              (INITVARS (IRM.DINFOGRAPH))
+              (GLOBALVARS IRM.DINFOGRAPH)
+              [DECLARE%: DONTEVAL@LOAD DOCOPY (P (COND (IRM.HOST&DIR (SETQ IRM.DINFOGRAPH (
+                                                                                       IRM.LOAD-GRAPH
+                                                                                           ]
+              
+
+(* ;;; "Cross reference imageobj")
+
+              (FNS IRM.DISPLAY.CREF IRM.CREF.BOX IRM.PUT.CREF IRM.GET.CREF IRM.CREF.BUTTONEVENTFN)
+              [INITVARS (IRM.CREF.FONT (FONTCREATE 'MODERN 8 'MRR))
+                     (\IRM.CREF.IMAGEFNS (IMAGEFNSCREATE (FUNCTION IRM.DISPLAY.CREF)
+                                                (FUNCTION IRM.CREF.BOX)
+                                                (FUNCTION IRM.PUT.CREF)
+                                                (FUNCTION IRM.GET.CREF)
+                                                (FUNCTION NILL)
+                                                (FUNCTION IRM.CREF.BUTTONEVENTFN]
+              (GLOBALVARS IRM.CREF.FONT \IRM.CREF.IMAGEFNS))
+        (COMS 
+
+(* ;;; "Internal functions and variables")
+
+              (FNS \IRM.GET.REF \IRM.SMART.REF \IRM.CHOOSE.REF \IRM.WILD.REF \IRM.WILDCARD 
+                   \IRM.WILD.MATCH \IRM.GET.HASHFILE \IRM.GET.KEYWORDS)
+              (INITVARS (\IRM.HASHFILE)
+                     (\IRM.KEYWORDS))
+              (GLOBALVARS \IRM.HASHFILE \IRM.KEYWORDS)
+              (FUNCTIONS \IRM.AROUND-EXIT)
+              (ADDVARS (AROUNDEXITFNS \IRM.AROUND-EXIT))
+              (PROP (FILETYPE)
+                    HELPSYS))))
+
+(FILESLOAD DINFO HASH)
+(DECLARE%: EVAL@COMPILE
+
+(RECORD IRMREFERENCE 
+                     (* ;; "A reference to something in the IRM.  There is a list of these for each entry in the index of the IRM.  Each element of the list corresponds to one of the page references.  These lists are stored under the ITEM in a hash file. ")
+
+                     (TYPE                                   (* ; "The type of index entry -- typically a capitalized symbol in IL, eg. il:|Functions|.  Yes, it's ugly.")
+                           ITEM                              (* ; "The name indexed")
+                           PRIMARYFLG                        (* ; 
+                                          "True iff this is the primary reference for this name/type")
+                           NODE                              (* ; 
+                                "The ID of the node in the IRM DInfo graph containing this reference")
+                           CH#                               (* ; "The character number of the beginning of the reference.  If unspecified we search for the first existence of NAME in the text of the node.")
+                           )
+                     (SYSTEM))
+)
+(DECLARE%: EVAL@COMPILE DONTCOPY 
+
+(FILESLOAD (LOADCOMP)
+       DINFO HASH)
+)
+
+(DEFCOMMAND "man" (ENTRY) "Lookup ENTRY in the IRM."
+   (GENERIC.MAN.LOOKUP ENTRY))
+(DEFINEQ
+
+(HELPSYS
+  [LAMBDA (FN PROPS)                                       (* ; "Edited 24-Aug-2022 16:17 by larry")
+                                                             (* ; "Edited 13-Aug-2022 22:35 by lmm")
+                                                             (* drc%: "20-Jan-86 18:05")
+    (if (NOT IRM.HOST&DIR)
+        then (PROMPTPRINT "HELPSYS is unavailable.  Set IRM.HOST&DIR.")
+             NIL
+      else (SELECTQ PROPS
+               (ARGS 
+
+         (* HELPSYS is called by SMARTARGLIST to get args, but this implementation does 
+         not support that.)
+
+                     NIL)
+               (FromDEdit                                    (* from ? under EditCom)
+                          (IRM.LOOKUP (if (LISTP FN)
+                                          then (CAR FN)
+                                        else FN))
+                          NIL)
+               (NIL                                          (* called by TTYIN <actually XHELPSYS 
+                                                             is...> when FN...? <CR> is typed.)
+                    (if (FGETD FN)
+                        then (GENERIC.MAN.LOOKUP FN NIL 'Function)
+                      elseif (for MACRO.TYPE in MACROPROPS thereis (GETPROP FN MACRO.TYPE))
+                        then (IRM.LOOKUP FN 'Macro IRMWINDOW)
+                      elseif (SELECTQ (CAR (GETPROP FN 'CLISPWORD))
+                                 (NIL)
+                                 (FORWORD (IRM.LOOKUP FN 'I.S.Operator))
+                                 (RECORDTRAN (IRM.LOOKUP FN 'RecordOperator))
+                                 (PROGN (IRM.LOOKUP FN NIL)))
+                      else (BEEP)))
+               NIL])
+
+(IRM.LOOKUP
+  [LAMBDA (KEYWORD TYPE GRAPH SMARTFLG)                    (* ; "Edited 24-Aug-2022 16:32 by larry")
+                                                             (* ; "Edited 19-Aug-2022 19:43 by lmm")
+                                                             (* drc%: "17-Jan-86 14:09")
+
+(* ;;; "Does a lookup in the IRM index for KEYWORD (optionally of TYPE) and visits the DInfo node in GRAPH containing the reference.  If SMARTFLG is non-NIL, wildcards will be enabled.  GRAPH defaults to IRM.DINFOGRAPH.")
+
+    (PROG [(REF (if SMARTFLG
+                    then (\IRM.SMART.REF KEYWORD)
+                  else (\IRM.GET.REF KEYWORD TYPE]
+          (if (NULL REF)
+              then (RETURN))
+          (LET* [(GRAPH (if (type? DINFOGRAPH GRAPH)
+                            then GRAPH
+                          else (IRM.GET.DINFOGRAPH)))
+                 (KEYWORD (MKATOM (U-CASE KEYWORD)))
+                 (TYPE (MKATOM TYPE))
+                 (WINDOW (fetch (DINFOGRAPH WINDOW) of GRAPH))
+                 (MONITORLOCK (DINFOGRAPHPROP GRAPH 'MONITORLOCK]
+                (OPENW WINDOW)
+                (if (OBTAIN.MONITORLOCK MONITORLOCK T)
+                    then (RESETLST
+                             (RESETSAVE (TTYDISPLAYSTREAM (GETPROMPTWINDOW WINDOW)))
+                             (RESETSAVE NIL (LIST 'RELEASE.MONITORLOCK MONITORLOCK))
+                             (IRM.DISPLAY.REF REF GRAPH)
+                             (LIST REF))
+                  else (FLASHWINDOW WINDOW)
+                       NIL])
+
+(GENERIC.MAN.LOOKUP
+  [LAMBDA (KEYWORD GRAPH TYPE)                             (* ; "Edited 27-Aug-2022 12:15 by larry")
+                                                           (* ; "Edited 24-Aug-2022 22:35 by larry")
+                                                             (* ; "Edited 19-Aug-2022 19:35 by lmm")
+                                                             (* drc%: " 6-Jan-86 14:50")
+    (if (STRINGP KEYWORD)
+        then 
+             (* ;; "a string -- look up in all three sources")
+
+             (APPEND (IRM.LOOKUP KEYWORD NIL GRAPH T)
+                    (CLHS.LOOKUP KEYWORD)
+                    (REPO.LOOKUP KEYWORD))
+      elseif (NOT (LITATOM KEYWORD))
+        then 
+             (* ;; " not a string -- list or number. turn it into a string, removing parens")
+
+             (LET ((STR (MKSTRING KEYWORD)))
+                  (if (LISTP KEYWORD)
+                      then (SETQ STR (SUBSTRING KEYWORD 2 -2)))
+                  (GENERIC.MAN.LOOKUP STR GRAPH TYPE))
+      elseif [CL:MULTIPLE-VALUE-BIND (FND TYPE)
+                    (CL:FIND-SYMBOL KEYWORD "XCL")
+                    (AND (EQ KEYWORD FND)
+                         (OR (EQ TYPE :INHERITED)
+                             (EQ TYPE :EXTERNAL]
+        then 
+             (* ;; " Common Lisp symbol")
+
+             (APPEND (CLHS.LOOKUP KEYWORD '(1))
+                    (AND (CL:FIND-SYMBOL KEYWORD "IL")
+                         (IRM.LOOKUP KEYWORD TYPE GRAPH T)))
+      else (APPEND (IRM.LOOKUP KEYWORD TYPE GRAPH T)
+                  (REPO.LOOKUP KEYWORD])
+
+(IRM.SMART.LOOKUP
+  [LAMBDA (KEYWORD GRAPH)                                    (* drc%: " 6-Jan-86 14:50")
+    (IRM.LOOKUP KEYWORD NIL GRAPH T])
+
+(IRM.RESET
+  [LAMBDA NIL                                                (* drc%: "27-Jan-86 11:19")
+    (if (type? DINFOGRAPH IRM.DINFOGRAPH)
+        then (LET ((W (fetch (DINFOGRAPH WINDOW) of IRM.DINFOGRAPH)))
+                  (OPENW W)
+                  (CLOSEW W)))
+    (SETQ IRM.DINFOGRAPH)
+    (CLOSEHASHFILE \IRM.HASHFILE)
+    (SETQ \IRM.HASHFILE)
+    (SETQ \IRM.KEYWORDS])
+)
+
+(RPAQ? IRM.HOST&DIR )
+
+(RPAQ? IRM.HASHFILE.NAME )
+(DECLARE%: DOEVAL@COMPILE DONTCOPY
+
+(GLOBALVARS IRM.HOST&DIR IRM.HASHFILE.NAME)
+)
+(DECLARE%: DONTEVAL@LOAD DOCOPY 
+
+(MOVD 'HELPSYS 'XHELPSYS NIL T)
+)
+
+
+
+(* ;;; "Common Lisp HyperSpec lookup")
+
+(DEFINEQ
+
+(CLHS.INDEX
+  [LAMBDA (ENTRY)                                            (* ; "Edited  5-May-2025 22:04 by rmk")
+                                                             (* ; "Edited  4-May-2025 13:30 by rmk")
+                                                             (* ; "Edited  9-Oct-2022 16:34 by lmm")
+                                                             (* ; "Edited 16-Aug-2022 09:34 by lmm")
+                                                             (* ; "Edited 14-Aug-2022 15:54 by lmm")
+    (OR CLHS.INDEX
+        (SETQ CLHS.INDEX
+         (CL:WITH-OPEN-FILE
+          (STREAM (OR (MEDLEYDIR "tmp/clhs" "clindex.html" NIL T)
+                      (PROGN (PRINTOUT PROMPTWINDOW "Fetching Hyperspec Index from web" T)
+                             (ShellCommand (CONCAT "cd $MEDLEYDIR && " " mkdir -p tmp/clhs && " 
+                                                  "curl --output tmp/clhs/clindex.html -s " 
+                                                  CLHS.ROOT.URL "Front/X¬AllSym.htm"))
+                             (MEDLEYDIR "tmp/clhs" "clindex.html")))
+                 :EXTERNAL-FORMAT :UTF-8)
+          (LET (LINE POSLINK POSFRAG POSENDLINK POSENDTERM POSTERM LINK)
+               (while (SETQ LINE (CL:READ-LINE STREAM NIL))
+                  when [AND (SETQ POSLINK (STRPOS "<LI><A REL=DEFINITION HREF=%"../Body/" LINE 1 NIL
+                                                 NIL T))
+                            (SETQ POSENDLINK (STRPOS "%"><B>" LINE (+ 4 POSLINK)))
+                            [SETQ POSENDTERM (STRPOS "</B></A>" LINE
+                                                    (PLUS 1 (SETQ POSTERM (+ POSENDLINK
+                                                                             (CONSTANT (NCHARS 
+                                                                                             "%"><B>"
+                                                                                              ]
+                            (SETQ TERM (SUBSTRING LINE POSTERM (CL:1- POSENDTERM]
+                  collect (CONS (for SUBST in '(("&amp;" "&"))
+                                   when (EQ 1 (STRPOS (CAR SUBST)
+                                                     TERM))
+                                   do [SETQ TERM (CONCAT (CADR SUBST)
+                                                        (SUBSTRING TERM (PLUS 1 (NCHARS (CAR SUBST]
+                                   finally (RETURN TERM))
+                                (if (SETQ POSFRAG (STRPOS "#" LINE POSLINK POSENDLINK))
+                                    then (LIST (SUBSTRING LINE POSLINK (CL:1- POSFRAG))
+                                               (SUBSTRING LINE (CL:1+ POSFRAG)
+                                                      (CL:1- POSENDLINK)))
+                                  else (LIST (SUBSTRING LINE POSLINK (CL:1- POSENDLINK])
+
+(CLHS.LOOKUP
+  [LAMBDA (ENTRY PHASES)                                     (* ; "Edited 11-Nov-2023 09:11 by lmm")
+                                                             (* ; "Edited 12-Oct-2022 18:32 by FGH")
+                                                           (* ; "Edited 24-Aug-2022 17:08 by larry")
+    (LET [(OPENER (ShellBrowser))
+          (URL NIL)
+          POS
+          (ENTRY (L-CASE (MKSTRING ENTRY]
+         (for PHASE in (OR PHASES '(1 2 3))
+            do 
+               (* ;; " three phases: exact match, initial match, partial match")
+
+               (for X in (CLHS.INDEX) when (SELECTQ PHASE
+                                               (1 (STREQUAL ENTRY (CAR X)))
+                                               (2 [AND (EQ (STRPOS ENTRY (CAR X))
+                                                           1)
+                                                       (NOT (STREQUAL ENTRY (CAR X])
+                                               (3 (AND (SETQ POS (STRPOS ENTRY (CAR X)))
+                                                       (NEQ POS 1)))
+                                               NIL)
+                  join (SETQ URL (CONCAT CLHS.ROOT.URL "Body/" (CADR X)
+                                        (if (CADDR X)
+                                            then (CONCAT "#" (CADDR X))
+                                          else "")))
+                       (if (EQUAL OPENER "lynx")
+                           then 
+                                (* ;; " Need to quote URL because shell eats #")
+
+                                (CHAT 'SHELL NIL (CONCAT OPENER " '" URL "'
+"))
+                         else (ShellCommand (CONCAT OPENER " '" URL "'" 
+                                                   " > /tmp/clhs-warnings-$$.txt 2>&1")
+                                     T))
+                       (RETURN))
+               (AND URL (RETURN (LIST URL])
+
+(CLHS.OPENER
+  [LAMBDA NIL                                              (* ; "Edited 20-Aug-2022 09:38 by larry")
+                                                             (* ; "Edited 20-Aug-2022 09:20 by lmm")
+                                                             (* ; "Edited 16-Aug-2022 16:50 by lmm")
+                                                           (* ; "Edited 16-Aug-2022 12:22 by larry")
+                                                             (* ; "Edited 15-Aug-2022 09:14 by lmm")
+    (OR CLHS.OPENER (if (INFILEP "{UNIX}/usr/bin/wslview")
+                        then 
+                             (* ;; "windows with WSL")
+
+                             "wslview"
+                      elseif (STRPOS "darwin" (OR (UNIX-GETENV "OSTYPE")
+                                                  (UNIX-GETENV "PATH")))
+                        then 
+                             (* ;; " MacOS")
+
+                             "open"
+                      elseif (INFILEP "{UNIX}/usr/bin/lynx")
+                        then (if (INFILEP "{UNIX}/usr/bin/xterm")
+                                 then "xterm -e lynx"
+                               else "lynx")
+                      else "git web--browse"])
+
+(REPO.LOOKUP
+  [LAMBDA (ENTRY TYPES)                                      (* ; "Edited 13-Jan-2023 10:46 by lmm")
+                                                             (* ; "Edited 16-Aug-2022 16:26 by lmm")
+    (for FL in (UNION (WHEREIS ENTRY (OR TYPES HELPSYS.REPO.TYPES)
+                             T)
+                      (LIST ENTRY)) bind POS FND
+       when [SETQ FND (OR (FINDFILE-WITH-EXTENSIONS FL NIL '(TEDIT TXT TED))
+                          (AND (SETQ POS (STRPOS "-" FL))
+                               (FINDFILE-WITH-EXTENSIONS (SUBSTRING FL 1 (CL:1- POS))
+                                      NIL
+                                      '(TEDIT TXT TTY TED]
+       join (CL:WITH-OPEN-FILE (STR (PATHNAME FND)
+                                    :DIRECTION :INPUT)
+                   (CL:WHEN (SETQ POS (FFILEPOS ENTRY STR))
+                       (TEDIT-SEE STR NIL NIL (CL:FORMAT NIL "~a [~a]" FL ENTRY))
+                       (LIST FL))])
+)
+
+(RPAQQ CLHS.INDEX
+       (("&allow-other-keys" "03¬da.htm" "AMallow-other-keys")
+        ("&aux" "03¬da.htm" "AMaux")
+        ("&body" "03¬dd.htm" "AMbody")
+        ("&environment" "03¬dd.htm" "AMenvironment")
+        ("&key" "03¬da.htm" "AMkey")
+        ("&optional" "03¬da.htm" "AMoptional")
+        ("&rest" "03¬da.htm" "AMrest")
+        ("&whole" "03¬dd.htm" "AMwhole")
+        ("*" "a¬st.htm" "ST")
+        ("**" "v¬¬stst¬.htm" "STST")
+        ("***" "v¬¬stst¬.htm" "STSTST")
+        ("*break-on-signals*" "v¬break¬.htm" "STbreak-on-signalsST")
+        ("*compile-file-pathname*" "v¬cmp¬fi.htm" "STcompile-file-pathnameST")
+        ("*compile-file-truename*" "v¬cmp¬fi.htm" "STcompile-file-truenameST")
+        ("*compile-print*" "v¬cmp¬pr.htm" "STcompile-printST")
+        ("*compile-verbose*" "v¬cmp¬pr.htm" "STcompile-verboseST")
+        ("*debug-io*" "v¬debug¬.htm" "STdebug-ioST")
+        ("*debugger-hook*" "v¬debugg.htm" "STdebugger-hookST")
+        ("*default-pathname-defaults*" "v¬defaul.htm" "STdefault-pathname-defaultsST")
+        ("*error-output*" "v¬debug¬.htm" "STerror-outputST")
+        ("*features*" "v¬featur.htm" "STfeaturesST")
+        ("*gensym-counter*" "v¬gensym.htm" "STgensym-counterST")
+        ("*load-pathname*" "v¬ld¬pns.htm" "STload-pathnameST")
+        ("*load-print*" "v¬ld¬prs.htm" "STload-printST")
+        ("*load-truename*" "v¬ld¬pns.htm" "STload-truenameST")
+        ("*load-verbose*" "v¬ld¬prs.htm" "STload-verboseST")
+        ("*macroexpand-hook*" "v¬mexp¬h.htm" "STmacroexpand-hookST")
+        ("*modules*" "v¬module.htm" "STmodulesST")
+        ("*package*" "v¬pkg.htm" "STpackageST")
+        ("*print-array*" "v¬pr¬ar.htm" "STprint-arrayST")
+        ("*print-base*" "v¬pr¬bas.htm" "STprint-baseST")
+        ("*print-case*" "v¬pr¬cas.htm" "STprint-caseST")
+        ("*print-circle*" "v¬pr¬cir.htm" "STprint-circleST")
+        ("*print-escape*" "v¬pr¬esc.htm" "STprint-escapeST")
+        ("*print-gensym*" "v¬pr¬gen.htm" "STprint-gensymST")
+        ("*print-length*" "v¬pr¬lev.htm" "STprint-lengthST")
+        ("*print-level*" "v¬pr¬lev.htm" "STprint-levelST")
+        ("*print-lines*" "v¬pr¬lin.htm" "STprint-linesST")
+        ("*print-miser-width*" "v¬pr¬mis.htm" "STprint-miser-widthST")
+        ("*print-pprint-dispatch*" "v¬pr¬ppr.htm" "STprint-pprint-dispatchST")
+        ("*print-pretty*" "v¬pr¬pre.htm" "STprint-prettyST")
+        ("*print-radix*" "v¬pr¬bas.htm" "STprint-radixST")
+        ("*print-readably*" "v¬pr¬rda.htm" "STprint-readablyST")
+        ("*print-right-margin*" "v¬pr¬rig.htm" "STprint-right-marginST")
+        ("*query-io*" "v¬debug¬.htm" "STquery-ioST")
+        ("*random-state*" "v¬rnd¬st.htm" "STrandom-stateST")
+        ("*read-base*" "v¬rd¬bas.htm" "STread-baseST")
+        ("*read-default-float-format*" "v¬rd¬def.htm" "STread-default-float-formatST")
+        ("*read-eval*" "v¬rd¬eva.htm" "STread-evalST")
+        ("*read-suppress*" "v¬rd¬sup.htm" "STread-suppressST")
+        ("*readtable*" "v¬rdtabl.htm" "STreadtableST")
+        ("*standard-input*" "v¬debug¬.htm" "STstandard-inputST")
+        ("*standard-output*" "v¬debug¬.htm" "STstandard-outputST")
+        ("*terminal-io*" "v¬termin.htm" "STterminal-ioST")
+        ("*trace-output*" "v¬debug¬.htm" "STtrace-outputST")
+        ("+" "a¬pl.htm" "PL")
+        ("++" "v¬pl¬plp.htm" "PLPL")
+        ("+++" "v¬pl¬plp.htm" "PLPLPL")
+        ("-" "a¬¬.htm" "-")
+        ("/" "a¬sl.htm" "SL")
+        ("//" "v¬sl¬sls.htm" "SLSL")
+        ("///" "v¬sl¬sls.htm" "SLSLSL")
+        ("/=" "f¬eq¬sle.htm" "SLEQ")
+        ("1+" "f¬1pl¬1¬.htm" "1PL")
+        ("1-" "f¬1pl¬1¬.htm" "1-")
+        ("&lt;" "f¬eq¬sle.htm" "LT")
+        ("&lt;=" "f¬eq¬sle.htm" "LTEQ")
+        ("=" "f¬eq¬sle.htm" "EQ")
+        ("&gt;" "f¬eq¬sle.htm" "GT")
+        ("&gt;=" "f¬eq¬sle.htm" "GTEQ")
+        ("abort" "a¬abort.htm" "abort")
+        ("abs" "f¬abs.htm" "abs")
+        ("acons" "f¬acons.htm" "acons")
+        ("acos" "f¬asin¬.htm" "acos")
+        ("acosh" "f¬sinh¬.htm" "acosh")
+        ("add-method" "f¬add¬me.htm" "add-method")
+        ("adjoin" "f¬adjoin.htm" "adjoin")
+        ("adjust-array" "f¬adjust.htm" "adjust-array")
+        ("adjustable-array-p" "f¬adju¬1.htm" "adjustable-array-p")
+        ("allocate-instance" "f¬alloca.htm" "allocate-instance")
+        ("alpha-char-p" "f¬alpha¬.htm" "alpha-char-p")
+        ("alphanumericp" "f¬alphan.htm" "alphanumericp")
+        ("and" "a¬and.htm" "and")
+        ("append" "f¬append.htm" "append")
+        ("apply" "f¬apply.htm" "apply")
+        ("apropos" "f¬apropo.htm" "apropos")
+        ("apropos-list" "f¬apropo.htm" "apropos-list")
+        ("aref" "f¬aref.htm" "aref")
+        ("arithmetic-error" "e¬arithm.htm" "arithmetic-error")
+        ("arithmetic-error-operands" "f¬arithm.htm" "arithmetic-error-operands")
+        ("arithmetic-error-operation" "f¬arithm.htm" "arithmetic-error-operation")
+        ("array" "t¬array.htm" "array")
+        ("array-dimension" "f¬ar¬dim.htm" "array-dimension")
+        ("array-dimension-limit" "v¬ar¬dim.htm" "array-dimension-limit")
+        ("array-dimensions" "f¬ar¬d¬1.htm" "array-dimensions")
+        ("array-displacement" "f¬ar¬dis.htm" "array-displacement")
+        ("array-element-type" "f¬ar¬ele.htm" "array-element-type")
+        ("array-has-fill-pointer-p" "f¬ar¬has.htm" "array-has-fill-pointer-p")
+        ("array-in-bounds-p" "f¬ar¬in¬.htm" "array-in-bounds-p")
+        ("array-rank" "f¬ar¬ran.htm" "array-rank")
+        ("array-rank-limit" "v¬ar¬ran.htm" "array-rank-limit")
+        ("array-row-major-index" "f¬ar¬row.htm" "array-row-major-index")
+        ("array-total-size" "f¬ar¬tot.htm" "array-total-size")
+        ("array-total-size-limit" "v¬ar¬tot.htm" "array-total-size-limit")
+        ("arrayp" "f¬arrayp.htm" "arrayp")
+        ("ash" "f¬ash.htm" "ash")
+        ("asin" "f¬asin¬.htm" "asin")
+        ("asinh" "f¬sinh¬.htm" "asinh")
+        ("assert" "m¬assert.htm" "assert")
+        ("assoc" "f¬assocc.htm" "assoc")
+        ("assoc-if" "f¬assocc.htm" "assoc-if")
+        ("assoc-if-not" "f¬assocc.htm" "assoc-if-not")
+        ("atan" "f¬asin¬.htm" "atan")
+        ("atanh" "f¬sinh¬.htm" "atanh")
+        ("atom" "a¬atom.htm" "atom")
+        ("base-char" "t¬base¬c.htm" "base-char")
+        ("base-string" "t¬base¬s.htm" "base-string")
+        ("bignum" "t¬bignum.htm" "bignum")
+        ("bit" "a¬bit.htm" "bit")
+        ("bit-and" "f¬bt¬and.htm" "bit-and")
+        ("bit-andc1" "f¬bt¬and.htm" "bit-andc1")
+        ("bit-andc2" "f¬bt¬and.htm" "bit-andc2")
+        ("bit-eqv" "f¬bt¬and.htm" "bit-eqv")
+        ("bit-ior" "f¬bt¬and.htm" "bit-ior")
+        ("bit-nand" "f¬bt¬and.htm" "bit-nand")
+        ("bit-nor" "f¬bt¬and.htm" "bit-nor")
+        ("bit-not" "f¬bt¬and.htm" "bit-not")
+        ("bit-orc1" "f¬bt¬and.htm" "bit-orc1")
+        ("bit-orc2" "f¬bt¬and.htm" "bit-orc2")
+        ("bit-vector" "t¬bt¬vec.htm" "bit-vector")
+        ("bit-vector-p" "f¬bt¬vec.htm" "bit-vector-p")
+        ("bit-xor" "f¬bt¬and.htm" "bit-xor")
+        ("block" "s¬block.htm" "block")
+        ("boole" "f¬boole.htm" "boole")
+        ("boole-1" "v¬b¬1¬b.htm" "boole-1")
+        ("boole-2" "v¬b¬1¬b.htm" "boole-2")
+        ("boole-and" "v¬b¬1¬b.htm" "boole-and")
+        ("boole-andc1" "v¬b¬1¬b.htm" "boole-andc1")
+        ("boole-andc2" "v¬b¬1¬b.htm" "boole-andc2")
+        ("boole-c1" "v¬b¬1¬b.htm" "boole-c1")
+        ("boole-c2" "v¬b¬1¬b.htm" "boole-c2")
+        ("boole-clr" "v¬b¬1¬b.htm" "boole-clr")
+        ("boole-eqv" "v¬b¬1¬b.htm" "boole-eqv")
+        ("boole-ior" "v¬b¬1¬b.htm" "boole-ior")
+        ("boole-nand" "v¬b¬1¬b.htm" "boole-nand")
+        ("boole-nor" "v¬b¬1¬b.htm" "boole-nor")
+        ("boole-orc1" "v¬b¬1¬b.htm" "boole-orc1")
+        ("boole-orc2" "v¬b¬1¬b.htm" "boole-orc2")
+        ("boole-set" "v¬b¬1¬b.htm" "boole-set")
+        ("boole-xor" "v¬b¬1¬b.htm" "boole-xor")
+        ("boolean" "t¬ban.htm" "boolean")
+        ("both-case-p" "f¬upper¬.htm" "both-case-p")
+        ("boundp" "f¬boundp.htm" "boundp")
+        ("break" "f¬break.htm" "break")
+        ("broadcast-stream" "t¬broadc.htm" "broadcast-stream")
+        ("broadcast-stream-streams" "f¬broadc.htm" "broadcast-stream-streams")
+        ("built-in-class" "t¬built¬.htm" "built-in-class")
+        ("butlast" "f¬butlas.htm" "butlast")
+        ("byte" "f¬by¬by.htm" "byte")
+        ("byte-position" "f¬by¬by.htm" "byte-position")
+        ("byte-size" "f¬by¬by.htm" "byte-size")
+        ("caaaar" "f¬car¬c.htm" "caaaar")
+        ("caaadr" "f¬car¬c.htm" "caaadr")
+        ("caaar" "f¬car¬c.htm" "caaar")
+        ("caadar" "f¬car¬c.htm" "caadar")
+        ("caaddr" "f¬car¬c.htm" "caaddr")
+        ("caadr" "f¬car¬c.htm" "caadr")
+        ("caar" "f¬car¬c.htm" "caar")
+        ("cadaar" "f¬car¬c.htm" "cadaar")
+        ("cadadr" "f¬car¬c.htm" "cadadr")
+        ("cadar" "f¬car¬c.htm" "cadar")
+        ("caddar" "f¬car¬c.htm" "caddar")
+        ("cadddr" "f¬car¬c.htm" "cadddr")
+        ("caddr" "f¬car¬c.htm" "caddr")
+        ("cadr" "f¬car¬c.htm" "cadr")
+        ("call-arguments-limit" "v¬call¬a.htm" "call-arguments-limit")
+        ("call-method" "m¬call¬m.htm" "call-method")
+        ("call-next-method" "f¬call¬n.htm" "call-next-method")
+        ("car" "f¬car¬c.htm" "car")
+        ("case" "m¬case¬.htm" "case")
+        ("catch" "s¬catch.htm" "catch")
+        ("ccase" "m¬case¬.htm" "ccase")
+        ("cdaaar" "f¬car¬c.htm" "cdaaar")
+        ("cdaadr" "f¬car¬c.htm" "cdaadr")
+        ("cdaar" "f¬car¬c.htm" "cdaar")
+        ("cdadar" "f¬car¬c.htm" "cdadar")
+        ("cdaddr" "f¬car¬c.htm" "cdaddr")
+        ("cdadr" "f¬car¬c.htm" "cdadr")
+        ("cdar" "f¬car¬c.htm" "cdar")
+        ("cddaar" "f¬car¬c.htm" "cddaar")
+        ("cddadr" "f¬car¬c.htm" "cddadr")
+        ("cddar" "f¬car¬c.htm" "cddar")
+        ("cdddar" "f¬car¬c.htm" "cdddar")
+        ("cddddr" "f¬car¬c.htm" "cddddr")
+        ("cdddr" "f¬car¬c.htm" "cdddr")
+        ("cddr" "f¬car¬c.htm" "cddr")
+        ("cdr" "f¬car¬c.htm" "cdr")
+        ("ceiling" "f¬floorc.htm" "ceiling")
+        ("cell-error" "e¬cell¬e.htm" "cell-error")
+        ("cell-error-name" "f¬cell¬e.htm" "cell-error-name")
+        ("cerror" "f¬cerror.htm" "cerror")
+        ("change-class" "f¬chg¬cl.htm" "change-class")
+        ("char" "f¬char¬.htm" "char")
+        ("char-code" "f¬char¬c.htm" "char-code")
+        ("char-code-limit" "v¬char¬c.htm" "char-code-limit")
+        ("char-downcase" "f¬char¬u.htm" "char-downcase")
+        ("char-equal" "f¬chareq.htm" "char-equal")
+        ("char-greaterp" "f¬chareq.htm" "char-greaterp")
+        ("char-int" "f¬char¬i.htm" "char-int")
+        ("char-lessp" "f¬chareq.htm" "char-lessp")
+        ("char-name" "f¬char¬n.htm" "char-name")
+        ("char-not-equal" "f¬chareq.htm" "char-not-equal")
+        ("char-not-greaterp" "f¬chareq.htm" "char-not-greaterp")
+        ("char-not-lessp" "f¬chareq.htm" "char-not-lessp")
+        ("char-upcase" "f¬char¬u.htm" "char-upcase")
+        ("char/=" "f¬chareq.htm" "charSLEQ")
+        ("char&lt;" "f¬chareq.htm" "charLT")
+        ("char&lt;=" "f¬chareq.htm" "charLTEQ")
+        ("char=" "f¬chareq.htm" "charEQ")
+        ("char&gt;" "f¬chareq.htm" "charGT")
+        ("char&gt;=" "f¬chareq.htm" "charGTEQ")
+        ("character" "a¬ch.htm" "character")
+        ("characterp" "f¬chp.htm" "characterp")
+        ("check-type" "m¬check¬.htm" "check-type")
+        ("cis" "f¬cis.htm" "cis")
+        ("class" "t¬class.htm" "class")
+        ("class-name" "f¬class¬.htm" "class-name")
+        ("class-of" "f¬clas¬1.htm" "class-of")
+        ("clear-input" "f¬clear¬.htm" "clear-input")
+        ("clear-output" "f¬finish.htm" "clear-output")
+        ("close" "f¬close.htm" "close")
+        ("clrhash" "f¬clrhas.htm" "clrhash")
+        ("code-char" "f¬code¬c.htm" "code-char")
+        ("coerce" "f¬coerce.htm" "coerce")
+        ("compilation-speed" "d¬optimi.htm" "compilation-speed")
+        ("compile" "f¬cmp.htm" "compile")
+        ("compile-file" "f¬cmp¬fi.htm" "compile-file")
+        ("compile-file-pathname" "f¬cmp¬¬1.htm" "compile-file-pathname")
+        ("compiled-function" "t¬cmpd¬f.htm" "compiled-function")
+        ("compiled-function-p" "f¬cmpd¬f.htm" "compiled-function-p")
+        ("compiler-macro" "f¬docume.htm" "compiler-macro")
+        ("compiler-macro-function" "f¬cmp¬ma.htm" "compiler-macro-function")
+        ("complement" "f¬comple.htm" "complement")
+        ("complex" "a¬comple.htm" "complex")
+        ("complexp" "f¬comp¬3.htm" "complexp")
+        ("compute-applicable-methods" "f¬comput.htm" "compute-applicable-methods")
+        ("compute-restarts" "f¬comp¬1.htm" "compute-restarts")
+        ("concatenate" "f¬concat.htm" "concatenate")
+        ("concatenated-stream" "t¬concat.htm" "concatenated-stream")
+        ("concatenated-stream-streams" "f¬conc¬1.htm" "concatenated-stream-streams")
+        ("cond" "m¬cond.htm" "cond")
+        ("condition" "e¬cnd.htm" "condition")
+        ("conjugate" "f¬conjug.htm" "conjugate")
+        ("cons" "a¬cons.htm" "cons")
+        ("consp" "f¬consp.htm" "consp")
+        ("constantly" "f¬cons¬1.htm" "constantly")
+        ("constantp" "f¬consta.htm" "constantp")
+        ("continue" "a¬contin.htm" "continue")
+        ("control-error" "e¬contro.htm" "control-error")
+        ("copy-alist" "f¬cp¬ali.htm" "copy-alist")
+        ("copy-list" "f¬cp¬lis.htm" "copy-list")
+        ("copy-pprint-dispatch" "f¬cp¬ppr.htm" "copy-pprint-dispatch")
+        ("copy-readtable" "f¬cp¬rdt.htm" "copy-readtable")
+        ("copy-seq" "f¬cp¬seq.htm" "copy-seq")
+        ("copy-structure" "f¬cp¬stu.htm" "copy-structure")
+        ("copy-symbol" "f¬cp¬sym.htm" "copy-symbol")
+        ("copy-tree" "f¬cp¬tre.htm" "copy-tree")
+        ("cos" "f¬sin¬c.htm" "cos")
+        ("cosh" "f¬sinh¬.htm" "cosh")
+        ("count" "f¬countc.htm" "count")
+        ("count-if" "f¬countc.htm" "count-if")
+        ("count-if-not" "f¬countc.htm" "count-if-not")
+        ("ctypecase" "m¬tpcase.htm" "ctypecase")
+        ("debug" "d¬optimi.htm" "debug")
+        ("decf" "m¬incf¬.htm" "decf")
+        ("declaim" "m¬declai.htm" "declaim")
+        ("declaration" "d¬declar.htm" "declaration")
+        ("declare" "s¬declar.htm" "declare")
+        ("decode-float" "f¬dec¬fl.htm" "decode-float")
+        ("decode-universal-time" "f¬dec¬un.htm" "decode-universal-time")
+        ("defclass" "m¬defcla.htm" "defclass")
+        ("defconstant" "m¬defcon.htm" "defconstant")
+        ("defgeneric" "m¬defgen.htm" "defgeneric")
+        ("define-compiler-macro" "m¬define.htm" "define-compiler-macro")
+        ("define-condition" "m¬defi¬5.htm" "define-condition")
+        ("define-method-combination" "m¬defi¬4.htm" "define-method-combination")
+        ("define-modify-macro" "m¬defi¬2.htm" "define-modify-macro")
+        ("define-setf-expander" "m¬defi¬3.htm" "define-setf-expander")
+        ("define-symbol-macro" "m¬defi¬1.htm" "define-symbol-macro")
+        ("defmacro" "m¬defmac.htm" "defmacro")
+        ("defmethod" "m¬defmet.htm" "defmethod")
+        ("defpackage" "m¬defpkg.htm" "defpackage")
+        ("defparameter" "m¬defpar.htm" "defparameter")
+        ("defsetf" "m¬defset.htm" "defsetf")
+        ("defstruct" "m¬defstr.htm" "defstruct")
+        ("deftype" "m¬deftp.htm" "deftype")
+        ("defun" "m¬defun.htm" "defun")
+        ("defvar" "m¬defpar.htm" "defvar")
+        ("delete" "f¬rm¬rm.htm" "delete")
+        ("delete-duplicates" "f¬rm¬dup.htm" "delete-duplicates")
+        ("delete-file" "f¬del¬fi.htm" "delete-file")
+        ("delete-if" "f¬rm¬rm.htm" "delete-if")
+        ("delete-if-not" "f¬rm¬rm.htm" "delete-if-not")
+        ("delete-package" "f¬del¬pk.htm" "delete-package")
+        ("denominator" "f¬numera.htm" "denominator")
+        ("deposit-field" "f¬deposi.htm" "deposit-field")
+        ("describe" "f¬descri.htm" "describe")
+        ("describe-object" "f¬desc¬1.htm" "describe-object")
+        ("destructuring-bind" "m¬destru.htm" "destructuring-bind")
+        ("digit-char" "f¬digit¬.htm" "digit-char")
+        ("digit-char-p" "f¬digi¬1.htm" "digit-char-p")
+        ("directory" "f¬dir.htm" "directory")
+        ("directory-namestring" "f¬namest.htm" "directory-namestring")
+        ("disassemble" "f¬disass.htm" "disassemble")
+        ("division-by-zero" "e¬divisi.htm" "division-by-zero")
+        ("do" "m¬do¬do.htm" "do")
+        ("do*" "m¬do¬do.htm" "doST")
+        ("do-all-symbols" "m¬do¬sym.htm" "do-all-symbols")
+        ("do-external-symbols" "m¬do¬sym.htm" "do-external-symbols")
+        ("do-symbols" "m¬do¬sym.htm" "do-symbols")
+        ("documentation" "f¬docume.htm" "documentation")
+        ("dolist" "m¬dolist.htm" "dolist")
+        ("dotimes" "m¬dotime.htm" "dotimes")
+        ("double-float" "t¬short¬.htm" "double-float")
+        ("double-float-epsilon" "v¬short¬.htm" "double-float-epsilon")
+        ("double-float-negative-epsilon" "v¬short¬.htm" "double-float-negative-epsilon")
+        ("dpb" "f¬dpb.htm" "dpb")
+        ("dribble" "f¬dribbl.htm" "dribble")
+        ("dynamic-extent" "d¬dynami.htm" "dynamic-extent")
+        ("ecase" "m¬case¬.htm" "ecase")
+        ("echo-stream" "t¬echo¬s.htm" "echo-stream")
+        ("echo-stream-input-stream" "f¬echo¬s.htm" "echo-stream-input-stream")
+        ("echo-stream-output-stream" "f¬echo¬s.htm" "echo-stream-output-stream")
+        ("ed" "f¬ed.htm" "ed")
+        ("eighth" "f¬firstc.htm" "eighth")
+        ("elt" "f¬elt.htm" "elt")
+        ("encode-universal-time" "f¬encode.htm" "encode-universal-time")
+        ("end-of-file" "e¬end¬of.htm" "end-of-file")
+        ("endp" "f¬endp.htm" "endp")
+        ("enough-namestring" "f¬namest.htm" "enough-namestring")
+        ("ensure-directories-exist" "f¬ensu¬1.htm" "ensure-directories-exist")
+        ("ensure-generic-function" "f¬ensure.htm" "ensure-generic-function")
+        ("eq" "f¬eq.htm" "eq")
+        ("eql" "a¬eql.htm" "eql")
+        ("equal" "f¬equal.htm" "equal")
+        ("equalp" "f¬equalp.htm" "equalp")
+        ("error" "a¬error.htm" "error")
+        ("etypecase" "m¬tpcase.htm" "etypecase")
+        ("eval" "f¬eval.htm" "eval")
+        ("eval-when" "s¬eval¬w.htm" "eval-when")
+        ("evenp" "f¬evenpc.htm" "evenp")
+        ("every" "f¬everyc.htm" "every")
+        ("exp" "f¬exp¬e.htm" "exp")
+        ("export" "f¬export.htm" "export")
+        ("expt" "f¬exp¬e.htm" "expt")
+        ("extended-char" "t¬extend.htm" "extended-char")
+        ("fboundp" "f¬fbound.htm" "fboundp")
+        ("fceiling" "f¬floorc.htm" "fceiling")
+        ("fdefinition" "f¬fdefin.htm" "fdefinition")
+        ("ffloor" "f¬floorc.htm" "ffloor")
+        ("fifth" "f¬firstc.htm" "fifth")
+        ("file-author" "f¬file¬a.htm" "file-author")
+        ("file-error" "e¬file¬e.htm" "file-error")
+        ("file-error-pathname" "f¬file¬e.htm" "file-error-pathname")
+        ("file-length" "f¬file¬l.htm" "file-length")
+        ("file-namestring" "f¬namest.htm" "file-namestring")
+        ("file-position" "f¬file¬p.htm" "file-position")
+        ("file-stream" "t¬file¬s.htm" "file-stream")
+        ("file-string-length" "f¬file¬s.htm" "file-string-length")
+        ("file-write-date" "f¬file¬w.htm" "file-write-date")
+        ("fill" "f¬fill.htm" "fill")
+        ("fill-pointer" "f¬fill¬p.htm" "fill-pointer")
+        ("find" "f¬find¬.htm" "find")
+        ("find-all-symbols" "f¬find¬a.htm" "find-all-symbols")
+        ("find-class" "f¬find¬c.htm" "find-class")
+        ("find-if" "f¬find¬.htm" "find-if")
+        ("find-if-not" "f¬find¬.htm" "find-if-not")
+        ("find-method" "f¬find¬m.htm" "find-method")
+        ("find-package" "f¬find¬p.htm" "find-package")
+        ("find-restart" "f¬find¬r.htm" "find-restart")
+        ("find-symbol" "f¬find¬s.htm" "find-symbol")
+        ("finish-output" "f¬finish.htm" "finish-output")
+        ("first" "f¬firstc.htm" "first")
+        ("fixnum" "t¬fixnum.htm" "fixnum")
+        ("flet" "s¬flet¬.htm" "flet")
+        ("float" "a¬float.htm" "float")
+        ("float-digits" "f¬dec¬fl.htm" "float-digits")
+        ("float-precision" "f¬dec¬fl.htm" "float-precision")
+        ("float-radix" "f¬dec¬fl.htm" "float-radix")
+        ("float-sign" "f¬dec¬fl.htm" "float-sign")
+        ("floating-point-inexact" "e¬floa¬1.htm" "floating-point-inexact")
+        ("floating-point-invalid-operation" "e¬floati.htm" "floating-point-invalid-operation")
+        ("floating-point-overflow" "e¬floa¬2.htm" "floating-point-overflow")
+        ("floating-point-underflow" "e¬floa¬3.htm" "floating-point-underflow")
+        ("floatp" "f¬floatp.htm" "floatp")
+        ("floor" "f¬floorc.htm" "floor")
+        ("fmakunbound" "f¬fmakun.htm" "fmakunbound")
+        ("force-output" "f¬finish.htm" "force-output")
+        ("format" "f¬format.htm" "format")
+        ("formatter" "m¬format.htm" "formatter")
+        ("fourth" "f¬firstc.htm" "fourth")
+        ("fresh-line" "f¬terpri.htm" "fresh-line")
+        ("fround" "f¬floorc.htm" "fround")
+        ("ftruncate" "f¬floorc.htm" "ftruncate")
+        ("ftype" "d¬ftype.htm" "ftype")
+        ("funcall" "f¬funcal.htm" "funcall")
+        ("function" "a¬fn.htm" "function")
+        ("function-keywords" "f¬fn¬kwd.htm" "function-keywords")
+        ("function-lambda-expression" "f¬fn¬lam.htm" "function-lambda-expression")
+        ("functionp" "f¬fnp.htm" "functionp")
+        ("gcd" "f¬gcd.htm" "gcd")
+        ("generic-function" "t¬generi.htm" "generic-function")
+        ("gensym" "f¬gensym.htm" "gensym")
+        ("gentemp" "f¬gentem.htm" "gentemp")
+        ("get" "f¬get.htm" "get")
+        ("get-decoded-time" "f¬get¬un.htm" "get-decoded-time")
+        ("get-dispatch-macro-character" "f¬set¬¬1.htm" "get-dispatch-macro-character")
+        ("get-internal-real-time" "f¬get¬in.htm" "get-internal-real-time")
+        ("get-internal-run-time" "f¬get¬¬1.htm" "get-internal-run-time")
+        ("get-macro-character" "f¬set¬ma.htm" "get-macro-character")
+        ("get-output-stream-string" "f¬get¬ou.htm" "get-output-stream-string")
+        ("get-properties" "f¬get¬pr.htm" "get-properties")
+        ("get-setf-expansion" "f¬get¬se.htm" "get-setf-expansion")
+        ("get-universal-time" "f¬get¬un.htm" "get-universal-time")
+        ("getf" "f¬getf.htm" "getf")
+        ("gethash" "f¬gethas.htm" "gethash")
+        ("go" "s¬go.htm" "go")
+        ("graphic-char-p" "f¬graphi.htm" "graphic-char-p")
+        ("handler-bind" "m¬handle.htm" "handler-bind")
+        ("handler-case" "m¬hand¬1.htm" "handler-case")
+        ("hash-table" "t¬hash¬t.htm" "hash-table")
+        ("hash-table-count" "f¬hash¬1.htm" "hash-table-count")
+        ("hash-table-p" "f¬hash¬t.htm" "hash-table-p")
+        ("hash-table-rehash-size" "f¬hash¬2.htm" "hash-table-rehash-size")
+        ("hash-table-rehash-threshold" "f¬hash¬3.htm" "hash-table-rehash-threshold")
+        ("hash-table-size" "f¬hash¬4.htm" "hash-table-size")
+        ("hash-table-test" "f¬hash¬5.htm" "hash-table-test")
+        ("host-namestring" "f¬namest.htm" "host-namestring")
+        ("identity" "f¬identi.htm" "identity")
+        ("if" "s¬if.htm" "if")
+        ("ignorable" "d¬ignore.htm" "ignorable")
+        ("ignore" "d¬ignore.htm" "ignore")
+        ("ignore-errors" "m¬ignore.htm" "ignore-errors")
+        ("imagpart" "f¬realpa.htm" "imagpart")
+        ("import" "f¬import.htm" "import")
+        ("in-package" "m¬in¬pkg.htm" "in-package")
+        ("incf" "m¬incf¬.htm" "incf")
+        ("initialize-instance" "f¬init¬i.htm" "initialize-instance")
+        ("inline" "d¬inline.htm" "inline")
+        ("input-stream-p" "f¬in¬stm.htm" "input-stream-p")
+        ("inspect" "f¬inspec.htm" "inspect")
+        ("integer" "t¬intege.htm" "integer")
+        ("integer-decode-float" "f¬dec¬fl.htm" "integer-decode-float")
+        ("integer-length" "f¬intege.htm" "integer-length")
+        ("integerp" "f¬inte¬1.htm" "integerp")
+        ("interactive-stream-p" "f¬intera.htm" "interactive-stream-p")
+        ("intern" "f¬intern.htm" "intern")
+        ("internal-time-units-per-second" "v¬intern.htm" "internal-time-units-per-second")
+        ("intersection" "f¬isec¬.htm" "intersection")
+        ("invalid-method-error" "f¬invali.htm" "invalid-method-error")
+        ("invoke-debugger" "f¬invoke.htm" "invoke-debugger")
+        ("invoke-restart" "f¬invo¬1.htm" "invoke-restart")
+        ("invoke-restart-interactively" "f¬invo¬2.htm" "invoke-restart-interactively")
+        ("isqrt" "f¬sqrt¬.htm" "isqrt")
+        ("keyword" "t¬kwd.htm" "keyword")
+        ("keywordp" "f¬kwdp.htm" "keywordp")
+        ("labels" "s¬flet¬.htm" "labels")
+        ("lambda" "a¬lambda.htm" "lambda")
+        ("lambda-list-keywords" "v¬lambda.htm" "lambda-list-keywords")
+        ("lambda-parameters-limit" "v¬lamb¬1.htm" "lambda-parameters-limit")
+        ("last" "f¬last.htm" "last")
+        ("lcm" "f¬lcm.htm" "lcm")
+        ("ldb" "f¬ldb.htm" "ldb")
+        ("ldb-test" "f¬ldb¬te.htm" "ldb-test")
+        ("ldiff" "f¬ldiffc.htm" "ldiff")
+        ("least-negative-double-float" "v¬most¬1.htm" "least-negative-double-float")
+        ("least-negative-long-float" "v¬most¬1.htm" "least-negative-long-float")
+        ("least-negative-normalized-double-float" "v¬most¬1.htm" 
+               "least-negative-normalized-double-float")
+        ("least-negative-normalized-long-float" "v¬most¬1.htm" "least-negative-normalized-long-float"
+               )
+        ("least-negative-normalized-short-float" "v¬most¬1.htm" 
+               "least-negative-normalized-short-float")
+        ("least-negative-normalized-single-float" "v¬most¬1.htm" 
+               "least-negative-normalized-single-float")
+        ("least-negative-short-float" "v¬most¬1.htm" "least-negative-short-float")
+        ("least-negative-single-float" "v¬most¬1.htm" "least-negative-single-float")
+        ("least-positive-double-float" "v¬most¬1.htm" "least-positive-double-float")
+        ("least-positive-long-float" "v¬most¬1.htm" "least-positive-long-float")
+        ("least-positive-normalized-double-float" "v¬most¬1.htm" 
+               "least-positive-normalized-double-float")
+        ("least-positive-normalized-long-float" "v¬most¬1.htm" "least-positive-normalized-long-float"
+               )
+        ("least-positive-normalized-short-float" "v¬most¬1.htm" 
+               "least-positive-normalized-short-float")
+        ("least-positive-normalized-single-float" "v¬most¬1.htm" 
+               "least-positive-normalized-single-float")
+        ("least-positive-short-float" "v¬most¬1.htm" "least-positive-short-float")
+        ("least-positive-single-float" "v¬most¬1.htm" "least-positive-single-float")
+        ("length" "f¬length.htm" "length")
+        ("let" "s¬let¬l.htm" "let")
+        ("let*" "s¬let¬l.htm" "letST")
+        ("lisp-implementation-type" "f¬lisp¬i.htm" "lisp-implementation-type")
+        ("lisp-implementation-version" "f¬lisp¬i.htm" "lisp-implementation-version")
+        ("list" "a¬list.htm" "list")
+        ("list*" "f¬list¬.htm" "listST")
+        ("list-all-packages" "f¬list¬a.htm" "list-all-packages")
+        ("list-length" "f¬list¬l.htm" "list-length")
+        ("listen" "f¬listen.htm" "listen")
+        ("listp" "f¬listp.htm" "listp")
+        ("load" "f¬load.htm" "load")
+        ("load-logical-pathname-translations" "f¬ld¬log.htm" "load-logical-pathname-translations")
+        ("load-time-value" "s¬ld¬tim.htm" "load-time-value")
+        ("locally" "s¬locall.htm" "locally")
+        ("log" "f¬log.htm" "log")
+        ("logand" "f¬logand.htm" "logand")
+        ("logandc1" "f¬logand.htm" "logandc1")
+        ("logandc2" "f¬logand.htm" "logandc2")
+        ("logbitp" "f¬logbtp.htm" "logbitp")
+        ("logcount" "f¬logcou.htm" "logcount")
+        ("logeqv" "f¬logand.htm" "logeqv")
+        ("logical-pathname" "a¬logica.htm" "logical-pathname")
+        ("logical-pathname-translations" "f¬logica.htm" "logical-pathname-translations")
+        ("logior" "f¬logand.htm" "logior")
+        ("lognand" "f¬logand.htm" "lognand")
+        ("lognor" "f¬logand.htm" "lognor")
+        ("lognot" "f¬logand.htm" "lognot")
+        ("logorc1" "f¬logand.htm" "logorc1")
+        ("logorc2" "f¬logand.htm" "logorc2")
+        ("logtest" "f¬logtes.htm" "logtest")
+        ("logxor" "f¬logand.htm" "logxor")
+        ("long-float" "t¬short¬.htm" "long-float")
+        ("long-float-epsilon" "v¬short¬.htm" "long-float-epsilon")
+        ("long-float-negative-epsilon" "v¬short¬.htm" "long-float-negative-epsilon")
+        ("long-site-name" "f¬short¬.htm" "long-site-name")
+        ("loop" "m¬loop.htm" "loop")
+        ("loop-finish" "m¬loop¬f.htm" "loop-finish")
+        ("lower-case-p" "f¬upper¬.htm" "lower-case-p")
+        ("machine-instance" "f¬mach¬i.htm" "machine-instance")
+        ("machine-type" "f¬mach¬t.htm" "machine-type")
+        ("machine-version" "f¬mach¬v.htm" "machine-version")
+        ("macro-function" "f¬macro¬.htm" "macro-function")
+        ("macroexpand" "f¬mexp¬.htm" "macroexpand")
+        ("macroexpand-1" "f¬mexp¬.htm" "macroexpand-1")
+        ("macrolet" "s¬flet¬.htm" "macrolet")
+        ("make-array" "f¬mk¬ar.htm" "make-array")
+        ("make-broadcast-stream" "f¬mk¬bro.htm" "make-broadcast-stream")
+        ("make-concatenated-stream" "f¬mk¬con.htm" "make-concatenated-stream")
+        ("make-condition" "f¬mk¬cnd.htm" "make-condition")
+        ("make-dispatch-macro-character" "f¬mk¬dis.htm" "make-dispatch-macro-character")
+        ("make-echo-stream" "f¬mk¬ech.htm" "make-echo-stream")
+        ("make-hash-table" "f¬mk¬has.htm" "make-hash-table")
+        ("make-instance" "f¬mk¬ins.htm" "make-instance")
+        ("make-instances-obsolete" "f¬mk¬i¬1.htm" "make-instances-obsolete")
+        ("make-list" "f¬mk¬lis.htm" "make-list")
+        ("make-load-form" "f¬mk¬ld¬.htm" "make-load-form")
+        ("make-load-form-saving-slots" "f¬mk¬l¬1.htm" "make-load-form-saving-slots")
+        ("make-method" "m¬call¬m.htm" "make-method")
+        ("make-package" "f¬mk¬pkg.htm" "make-package")
+        ("make-pathname" "f¬mk¬pn.htm" "make-pathname")
+        ("make-random-state" "f¬mk¬rnd.htm" "make-random-state")
+        ("make-sequence" "f¬mk¬seq.htm" "make-sequence")
+        ("make-string" "f¬mk¬stg.htm" "make-string")
+        ("make-string-input-stream" "f¬mk¬s¬1.htm" "make-string-input-stream")
+        ("make-string-output-stream" "f¬mk¬s¬2.htm" "make-string-output-stream")
+        ("make-symbol" "f¬mk¬sym.htm" "make-symbol")
+        ("make-synonym-stream" "f¬mk¬syn.htm" "make-synonym-stream")
+        ("make-two-way-stream" "f¬mk¬two.htm" "make-two-way-stream")
+        ("makunbound" "f¬makunb.htm" "makunbound")
+        ("map" "f¬map.htm" "map")
+        ("map-into" "f¬map¬in.htm" "map-into")
+        ("mapc" "f¬mapc¬.htm" "mapc")
+        ("mapcan" "f¬mapc¬.htm" "mapcan")
+        ("mapcar" "f¬mapc¬.htm" "mapcar")
+        ("mapcon" "f¬mapc¬.htm" "mapcon")
+        ("maphash" "f¬maphas.htm" "maphash")
+        ("mapl" "f¬mapc¬.htm" "mapl")
+        ("maplist" "f¬mapc¬.htm" "maplist")
+        ("mask-field" "f¬mask¬f.htm" "mask-field")
+        ("max" "f¬max¬m.htm" "max")
+        ("member" "a¬member.htm" "member")
+        ("member-if" "f¬mem¬m.htm" "member-if")
+        ("member-if-not" "f¬mem¬m.htm" "member-if-not")
+        ("merge" "f¬merge.htm" "merge")
+        ("merge-pathnames" "f¬merge¬.htm" "merge-pathnames")
+        ("method" "t¬method.htm" "method")
+        ("method-combination" "a¬method.htm" "method-combination")
+        ("method-combination-error" "f¬meth¬1.htm" "method-combination-error")
+        ("method-qualifiers" "f¬method.htm" "method-qualifiers")
+        ("min" "f¬max¬m.htm" "min")
+        ("minusp" "f¬minusp.htm" "minusp")
+        ("mismatch" "f¬mismat.htm" "mismatch")
+        ("mod" "a¬mod.htm" "mod")
+        ("most-negative-double-float" "v¬most¬1.htm" "most-negative-double-float")
+        ("most-negative-fixnum" "v¬most¬p.htm" "most-negative-fixnum")
+        ("most-negative-long-float" "v¬most¬1.htm" "most-negative-long-float")
+        ("most-negative-short-float" "v¬most¬1.htm" "most-negative-short-float")
+        ("most-negative-single-float" "v¬most¬1.htm" "most-negative-single-float")
+        ("most-positive-double-float" "v¬most¬1.htm" "most-positive-double-float")
+        ("most-positive-fixnum" "v¬most¬p.htm" "most-positive-fixnum")
+        ("most-positive-long-float" "v¬most¬1.htm" "most-positive-long-float")
+        ("most-positive-short-float" "v¬most¬1.htm" "most-positive-short-float")
+        ("most-positive-single-float" "v¬most¬1.htm" "most-positive-single-float")
+        ("muffle-warning" "a¬muffle.htm" "muffle-warning")
+        ("multiple-value-bind" "m¬multip.htm" "multiple-value-bind")
+        ("multiple-value-call" "s¬multip.htm" "multiple-value-call")
+        ("multiple-value-list" "m¬mult¬1.htm" "multiple-value-list")
+        ("multiple-value-prog1" "s¬mult¬1.htm" "multiple-value-prog1")
+        ("multiple-value-setq" "m¬mult¬2.htm" "multiple-value-setq")
+        ("multiple-values-limit" "v¬multip.htm" "multiple-values-limit")
+        ("name-char" "f¬name¬c.htm" "name-char")
+        ("namestring" "f¬namest.htm" "namestring")
+        ("nbutlast" "f¬butlas.htm" "nbutlast")
+        ("nconc" "f¬nconc.htm" "nconc")
+        ("next-method-p" "f¬next¬m.htm" "next-method-p")
+        ("nil" "a¬nil.htm" "nil")
+        ("nintersection" "f¬isec¬.htm" "nintersection")
+        ("ninth" "f¬firstc.htm" "ninth")
+        ("no-applicable-method" "f¬no¬app.htm" "no-applicable-method")
+        ("no-next-method" "f¬no¬nex.htm" "no-next-method")
+        ("not" "a¬not.htm" "not")
+        ("notany" "f¬everyc.htm" "notany")
+        ("notevery" "f¬everyc.htm" "notevery")
+        ("notinline" "d¬inline.htm" "notinline")
+        ("nreconc" "f¬revapp.htm" "nreconc")
+        ("nreverse" "f¬revers.htm" "nreverse")
+        ("nset-difference" "f¬set¬di.htm" "nset-difference")
+        ("nset-exclusive-or" "f¬set¬ex.htm" "nset-exclusive-or")
+        ("nstring-capitalize" "f¬stg¬up.htm" "nstring-capitalize")
+        ("nstring-downcase" "f¬stg¬up.htm" "nstring-downcase")
+        ("nstring-upcase" "f¬stg¬up.htm" "nstring-upcase")
+        ("nsublis" "f¬sublis.htm" "nsublis")
+        ("nsubst" "f¬substc.htm" "nsubst")
+        ("nsubst-if" "f¬substc.htm" "nsubst-if")
+        ("nsubst-if-not" "f¬substc.htm" "nsubst-if-not")
+        ("nsubstitute" "f¬sbs¬s.htm" "nsubstitute")
+        ("nsubstitute-if" "f¬sbs¬s.htm" "nsubstitute-if")
+        ("nsubstitute-if-not" "f¬sbs¬s.htm" "nsubstitute-if-not")
+        ("nth" "f¬nth.htm" "nth")
+        ("nth-value" "m¬nth¬va.htm" "nth-value")
+        ("nthcdr" "f¬nthcdr.htm" "nthcdr")
+        ("null" "a¬null.htm" "null")
+        ("number" "t¬number.htm" "number")
+        ("numberp" "f¬nump.htm" "numberp")
+        ("numerator" "f¬numera.htm" "numerator")
+        ("nunion" "f¬unionc.htm" "nunion")
+        ("oddp" "f¬evenpc.htm" "oddp")
+        ("open" "f¬open.htm" "open")
+        ("open-stream-p" "f¬open¬s.htm" "open-stream-p")
+        ("optimize" "d¬optimi.htm" "optimize")
+        ("or" "a¬or.htm" "or")
+        ("otherwise" "m¬case¬.htm" "otherwise")
+        ("output-stream-p" "f¬in¬stm.htm" "output-stream-p")
+        ("package" "t¬pkg.htm" "package")
+        ("package-error" "e¬pkg¬er.htm" "package-error")
+        ("package-error-package" "f¬pkg¬er.htm" "package-error-package")
+        ("package-name" "f¬pkg¬na.htm" "package-name")
+        ("package-nicknames" "f¬pkg¬ni.htm" "package-nicknames")
+        ("package-shadowing-symbols" "f¬pkg¬sh.htm" "package-shadowing-symbols")
+        ("package-use-list" "f¬pkg¬us.htm" "package-use-list")
+        ("package-used-by-list" "f¬pkg¬¬1.htm" "package-used-by-list")
+        ("packagep" "f¬pkgp.htm" "packagep")
+        ("pairlis" "f¬pairli.htm" "pairlis")
+        ("parse-error" "e¬parse¬.htm" "parse-error")
+        ("parse-integer" "f¬parse¬.htm" "parse-integer")
+        ("parse-namestring" "f¬pars¬1.htm" "parse-namestring")
+        ("pathname" "a¬pn.htm" "pathname")
+        ("pathname-device" "f¬pn¬hos.htm" "pathname-device")
+        ("pathname-directory" "f¬pn¬hos.htm" "pathname-directory")
+        ("pathname-host" "f¬pn¬hos.htm" "pathname-host")
+        ("pathname-match-p" "f¬pn¬mat.htm" "pathname-match-p")
+        ("pathname-name" "f¬pn¬hos.htm" "pathname-name")
+        ("pathname-type" "f¬pn¬hos.htm" "pathname-type")
+        ("pathname-version" "f¬pn¬hos.htm" "pathname-version")
+        ("pathnamep" "f¬pnp.htm" "pathnamep")
+        ("peek-char" "f¬peek¬c.htm" "peek-char")
+        ("phase" "f¬phase.htm" "phase")
+        ("pi" "v¬pi.htm" "pi")
+        ("plusp" "f¬minusp.htm" "plusp")
+        ("pop" "m¬pop.htm" "pop")
+        ("position" "f¬pos¬p.htm" "position")
+        ("position-if" "f¬pos¬p.htm" "position-if")
+        ("position-if-not" "f¬pos¬p.htm" "position-if-not")
+        ("pprint" "f¬wr¬pr.htm" "pprint")
+        ("pprint-dispatch" "f¬ppr¬di.htm" "pprint-dispatch")
+        ("pprint-exit-if-list-exhausted" "m¬ppr¬ex.htm" "pprint-exit-if-list-exhausted")
+        ("pprint-fill" "f¬ppr¬fi.htm" "pprint-fill")
+        ("pprint-indent" "f¬ppr¬in.htm" "pprint-indent")
+        ("pprint-linear" "f¬ppr¬fi.htm" "pprint-linear")
+        ("pprint-logical-block" "m¬ppr¬lo.htm" "pprint-logical-block")
+        ("pprint-newline" "f¬ppr¬nl.htm" "pprint-newline")
+        ("pprint-pop" "m¬ppr¬po.htm" "pprint-pop")
+        ("pprint-tab" "f¬ppr¬ta.htm" "pprint-tab")
+        ("pprint-tabular" "f¬ppr¬fi.htm" "pprint-tabular")
+        ("prin1" "f¬wr¬pr.htm" "prin1")
+        ("prin1-to-string" "f¬wr¬to¬.htm" "prin1-to-string")
+        ("princ" "f¬wr¬pr.htm" "princ")
+        ("princ-to-string" "f¬wr¬to¬.htm" "princ-to-string")
+        ("print" "f¬wr¬pr.htm" "print")
+        ("print-not-readable" "e¬pr¬not.htm" "print-not-readable")
+        ("print-not-readable-object" "f¬pr¬not.htm" "print-not-readable-object")
+        ("print-object" "f¬pr¬obj.htm" "print-object")
+        ("print-unreadable-object" "m¬pr¬unr.htm" "print-unreadable-object")
+        ("probe-file" "f¬probe¬.htm" "probe-file")
+        ("proclaim" "f¬procla.htm" "proclaim")
+        ("prog" "m¬prog¬.htm" "prog")
+        ("prog*" "m¬prog¬.htm" "progST")
+        ("prog1" "m¬prog1c.htm" "prog1")
+        ("prog2" "m¬prog1c.htm" "prog2")
+        ("progn" "s¬progn.htm" "progn")
+        ("program-error" "e¬progra.htm" "program-error")
+        ("progv" "s¬progv.htm" "progv")
+        ("provide" "f¬provid.htm" "provide")
+        ("psetf" "m¬setf¬.htm" "psetf")
+        ("psetq" "m¬psetq.htm" "psetq")
+        ("push" "m¬push.htm" "push")
+        ("pushnew" "m¬pshnew.htm" "pushnew")
+        ("quote" "s¬quote.htm" "quote")
+        ("random" "f¬random.htm" "random")
+        ("random-state" "t¬rnd¬st.htm" "random-state")
+        ("random-state-p" "f¬rnd¬st.htm" "random-state-p")
+        ("rassoc" "f¬rassoc.htm" "rassoc")
+        ("rassoc-if" "f¬rassoc.htm" "rassoc-if")
+        ("rassoc-if-not" "f¬rassoc.htm" "rassoc-if-not")
+        ("ratio" "t¬ratio.htm" "ratio")
+        ("rational" "a¬ration.htm" "rational")
+        ("rationalize" "f¬ration.htm" "rationalize")
+        ("rationalp" "f¬rati¬1.htm" "rationalp")
+        ("read" "f¬rd¬rd.htm" "read")
+        ("read-byte" "f¬rd¬by.htm" "read-byte")
+        ("read-char" "f¬rd¬cha.htm" "read-char")
+        ("read-char-no-hang" "f¬rd¬c¬1.htm" "read-char-no-hang")
+        ("read-delimited-list" "f¬rd¬del.htm" "read-delimited-list")
+        ("read-from-string" "f¬rd¬fro.htm" "read-from-string")
+        ("read-line" "f¬rd¬lin.htm" "read-line")
+        ("read-preserving-whitespace" "f¬rd¬rd.htm" "read-preserving-whitespace")
+        ("read-sequence" "f¬rd¬seq.htm" "read-sequence")
+        ("reader-error" "e¬rder¬e.htm" "reader-error")
+        ("readtable" "t¬rdtabl.htm" "readtable")
+        ("readtable-case" "f¬rdtabl.htm" "readtable-case")
+        ("readtablep" "f¬rdta¬1.htm" "readtablep")
+        ("real" "t¬real.htm" "real")
+        ("realp" "f¬realp.htm" "realp")
+        ("realpart" "f¬realpa.htm" "realpart")
+        ("reduce" "f¬reduce.htm" "reduce")
+        ("reinitialize-instance" "f¬reinit.htm" "reinitialize-instance")
+        ("rem" "f¬mod¬r.htm" "rem")
+        ("remf" "m¬remf.htm" "remf")
+        ("remhash" "f¬remhas.htm" "remhash")
+        ("remove" "f¬rm¬rm.htm" "remove")
+        ("remove-duplicates" "f¬rm¬dup.htm" "remove-duplicates")
+        ("remove-if" "f¬rm¬rm.htm" "remove-if")
+        ("remove-if-not" "f¬rm¬rm.htm" "remove-if-not")
+        ("remove-method" "f¬rm¬met.htm" "remove-method")
+        ("remprop" "f¬rempro.htm" "remprop")
+        ("rename-file" "f¬rn¬fil.htm" "rename-file")
+        ("rename-package" "f¬rn¬pkg.htm" "rename-package")
+        ("replace" "f¬replac.htm" "replace")
+        ("require" "f¬provid.htm" "require")
+        ("rest" "f¬rest.htm" "rest")
+        ("restart" "t¬rst.htm" "restart")
+        ("restart-bind" "m¬rst¬bi.htm" "restart-bind")
+        ("restart-case" "m¬rst¬ca.htm" "restart-case")
+        ("restart-name" "f¬rst¬na.htm" "restart-name")
+        ("return" "m¬return.htm" "return")
+        ("return-from" "s¬ret¬fr.htm" "return-from")
+        ("revappend" "f¬revapp.htm" "revappend")
+        ("reverse" "f¬revers.htm" "reverse")
+        ("room" "f¬room.htm" "room")
+        ("rotatef" "m¬rotate.htm" "rotatef")
+        ("round" "f¬floorc.htm" "round")
+        ("row-major-aref" "f¬row¬ma.htm" "row-major-aref")
+        ("rplaca" "f¬rplaca.htm" "rplaca")
+        ("rplacd" "f¬rplaca.htm" "rplacd")
+        ("safety" "d¬optimi.htm" "safety")
+        ("satisfies" "t¬satisf.htm" "satisfies")
+        ("sbit" "f¬bt¬sb.htm" "sbit")
+        ("scale-float" "f¬dec¬fl.htm" "scale-float")
+        ("schar" "f¬char¬.htm" "schar")
+        ("search" "f¬search.htm" "search")
+        ("second" "f¬firstc.htm" "second")
+        ("sequence" "t¬seq.htm" "sequence")
+        ("serious-condition" "e¬seriou.htm" "serious-condition")
+        ("set" "f¬set.htm" "set")
+        ("set-difference" "f¬set¬di.htm" "set-difference")
+        ("set-dispatch-macro-character" "f¬set¬¬1.htm" "set-dispatch-macro-character")
+        ("set-exclusive-or" "f¬set¬ex.htm" "set-exclusive-or")
+        ("set-macro-character" "f¬set¬ma.htm" "set-macro-character")
+        ("set-pprint-dispatch" "f¬set¬pp.htm" "set-pprint-dispatch")
+        ("set-syntax-from-char" "f¬set¬sy.htm" "set-syntax-from-char")
+        ("setf" "a¬setf.htm" "setf")
+        ("setq" "s¬setq.htm" "setq")
+        ("seventh" "f¬firstc.htm" "seventh")
+        ("shadow" "f¬shadow.htm" "shadow")
+        ("shadowing-import" "f¬shdw¬i.htm" "shadowing-import")
+        ("shared-initialize" "f¬shared.htm" "shared-initialize")
+        ("shiftf" "m¬shiftf.htm" "shiftf")
+        ("short-float" "t¬short¬.htm" "short-float")
+        ("short-float-epsilon" "v¬short¬.htm" "short-float-epsilon")
+        ("short-float-negative-epsilon" "v¬short¬.htm" "short-float-negative-epsilon")
+        ("short-site-name" "f¬short¬.htm" "short-site-name")
+        ("signal" "f¬signal.htm" "signal")
+        ("signed-byte" "t¬sgn¬by.htm" "signed-byte")
+        ("signum" "f¬signum.htm" "signum")
+        ("simple-array" "t¬smp¬ar.htm" "simple-array")
+        ("simple-base-string" "t¬smp¬ba.htm" "simple-base-string")
+        ("simple-bit-vector" "t¬smp¬bt.htm" "simple-bit-vector")
+        ("simple-bit-vector-p" "f¬smp¬bt.htm" "simple-bit-vector-p")
+        ("simple-condition" "e¬smp¬cn.htm" "simple-condition")
+        ("simple-condition-format-arguments" "f¬smp¬cn.htm" "simple-condition-format-arguments")
+        ("simple-condition-format-control" "f¬smp¬cn.htm" "simple-condition-format-control")
+        ("simple-error" "e¬smp¬er.htm" "simple-error")
+        ("simple-string" "t¬smp¬st.htm" "simple-string")
+        ("simple-string-p" "f¬smp¬st.htm" "simple-string-p")
+        ("simple-type-error" "e¬smp¬tp.htm" "simple-type-error")
+        ("simple-vector" "t¬smp¬ve.htm" "simple-vector")
+        ("simple-vector-p" "f¬smp¬ve.htm" "simple-vector-p")
+        ("simple-warning" "e¬smp¬wa.htm" "simple-warning")
+        ("sin" "f¬sin¬c.htm" "sin")
+        ("single-float" "t¬short¬.htm" "single-float")
+        ("single-float-epsilon" "v¬short¬.htm" "single-float-epsilon")
+        ("single-float-negative-epsilon" "v¬short¬.htm" "single-float-negative-epsilon")
+        ("sinh" "f¬sinh¬.htm" "sinh")
+        ("sixth" "f¬firstc.htm" "sixth")
+        ("sleep" "f¬sleep.htm" "sleep")
+        ("slot-boundp" "f¬slt¬bo.htm" "slot-boundp")
+        ("slot-exists-p" "f¬slt¬ex.htm" "slot-exists-p")
+        ("slot-makunbound" "f¬slt¬ma.htm" "slot-makunbound")
+        ("slot-missing" "f¬slt¬mi.htm" "slot-missing")
+        ("slot-unbound" "f¬slt¬un.htm" "slot-unbound")
+        ("slot-value" "f¬slt¬va.htm" "slot-value")
+        ("software-type" "f¬sw¬tpc.htm" "software-type")
+        ("software-version" "f¬sw¬tpc.htm" "software-version")
+        ("some" "f¬everyc.htm" "some")
+        ("sort" "f¬sort¬.htm" "sort")
+        ("space" "d¬optimi.htm" "space")
+        ("special" "d¬specia.htm" "special")
+        ("special-operator-p" "f¬specia.htm" "special-operator-p")
+        ("speed" "d¬optimi.htm" "speed")
+        ("sqrt" "f¬sqrt¬.htm" "sqrt")
+        ("stable-sort" "f¬sort¬.htm" "stable-sort")
+        ("standard" "07¬ffb.htm" "standard")
+        ("standard-char" "t¬std¬ch.htm" "standard-char")
+        ("standard-char-p" "f¬std¬ch.htm" "standard-char-p")
+        ("standard-class" "t¬std¬cl.htm" "standard-class")
+        ("standard-generic-function" "t¬std¬ge.htm" "standard-generic-function")
+        ("standard-method" "t¬std¬me.htm" "standard-method")
+        ("standard-object" "t¬std¬ob.htm" "standard-object")
+        ("step" "m¬step.htm" "step")
+        ("storage-condition" "e¬storag.htm" "storage-condition")
+        ("store-value" "a¬store¬.htm" "store-value")
+        ("stream" "t¬stream.htm" "stream")
+        ("stream-element-type" "f¬stm¬el.htm" "stream-element-type")
+        ("stream-error" "e¬stm¬er.htm" "stream-error")
+        ("stream-error-stream" "f¬stm¬er.htm" "stream-error-stream")
+        ("stream-external-format" "f¬stm¬ex.htm" "stream-external-format")
+        ("streamp" "f¬stmp.htm" "streamp")
+        ("string" "a¬string.htm" "string")
+        ("string-capitalize" "f¬stg¬up.htm" "string-capitalize")
+        ("string-downcase" "f¬stg¬up.htm" "string-downcase")
+        ("string-equal" "f¬stgeq¬.htm" "string-equal")
+        ("string-greaterp" "f¬stgeq¬.htm" "string-greaterp")
+        ("string-left-trim" "f¬stg¬tr.htm" "string-left-trim")
+        ("string-lessp" "f¬stgeq¬.htm" "string-lessp")
+        ("string-not-equal" "f¬stgeq¬.htm" "string-not-equal")
+        ("string-not-greaterp" "f¬stgeq¬.htm" "string-not-greaterp")
+        ("string-not-lessp" "f¬stgeq¬.htm" "string-not-lessp")
+        ("string-right-trim" "f¬stg¬tr.htm" "string-right-trim")
+        ("string-stream" "t¬stg¬st.htm" "string-stream")
+        ("string-trim" "f¬stg¬tr.htm" "string-trim")
+        ("string-upcase" "f¬stg¬up.htm" "string-upcase")
+        ("string/=" "f¬stgeq¬.htm" "stringSLEQ")
+        ("string&lt;" "f¬stgeq¬.htm" "stringLT")
+        ("string&lt;=" "f¬stgeq¬.htm" "stringLTEQ")
+        ("string=" "f¬stgeq¬.htm" "stringEQ")
+        ("string&gt;" "f¬stgeq¬.htm" "stringGT")
+        ("string&gt;=" "f¬stgeq¬.htm" "stringGTEQ")
+        ("stringp" "f¬stgp.htm" "stringp")
+        ("structure" "f¬docume.htm" "structure")
+        ("structure-class" "t¬stu¬cl.htm" "structure-class")
+        ("structure-object" "t¬stu¬ob.htm" "structure-object")
+        ("style-warning" "e¬style¬.htm" "style-warning")
+        ("sublis" "f¬sublis.htm" "sublis")
+        ("subseq" "f¬subseq.htm" "subseq")
+        ("subsetp" "f¬subset.htm" "subsetp")
+        ("subst" "f¬substc.htm" "subst")
+        ("subst-if" "f¬substc.htm" "subst-if")
+        ("subst-if-not" "f¬substc.htm" "subst-if-not")
+        ("substitute" "f¬sbs¬s.htm" "substitute")
+        ("substitute-if" "f¬sbs¬s.htm" "substitute-if")
+        ("substitute-if-not" "f¬sbs¬s.htm" "substitute-if-not")
+        ("subtypep" "f¬subtpp.htm" "subtypep")
+        ("svref" "f¬svref.htm" "svref")
+        ("sxhash" "f¬sxhash.htm" "sxhash")
+        ("symbol" "t¬symbol.htm" "symbol")
+        ("symbol-function" "f¬symb¬1.htm" "symbol-function")
+        ("symbol-macrolet" "s¬symbol.htm" "symbol-macrolet")
+        ("symbol-name" "f¬symb¬2.htm" "symbol-name")
+        ("symbol-package" "f¬symb¬3.htm" "symbol-package")
+        ("symbol-plist" "f¬symb¬4.htm" "symbol-plist")
+        ("symbol-value" "f¬symb¬5.htm" "symbol-value")
+        ("symbolp" "f¬symbol.htm" "symbolp")
+        ("synonym-stream" "t¬syn¬st.htm" "synonym-stream")
+        ("synonym-stream-symbol" "f¬syn¬st.htm" "synonym-stream-symbol")
+        ("t" "a¬t.htm" "t")
+        ("tagbody" "s¬tagbod.htm" "tagbody")
+        ("tailp" "f¬ldiffc.htm" "tailp")
+        ("tan" "f¬sin¬c.htm" "tan")
+        ("tanh" "f¬sinh¬.htm" "tanh")
+        ("tenth" "f¬firstc.htm" "tenth")
+        ("terpri" "f¬terpri.htm" "terpri")
+        ("the" "s¬the.htm" "the")
+        ("third" "f¬firstc.htm" "third")
+        ("throw" "s¬throw.htm" "throw")
+        ("time" "m¬time.htm" "time")
+        ("trace" "m¬tracec.htm" "trace")
+        ("translate-logical-pathname" "f¬tr¬log.htm" "translate-logical-pathname")
+        ("translate-pathname" "f¬tr¬pn.htm" "translate-pathname")
+        ("tree-equal" "f¬tree¬e.htm" "tree-equal")
+        ("truename" "f¬tn.htm" "truename")
+        ("truncate" "f¬floorc.htm" "truncate")
+        ("two-way-stream" "t¬two¬wa.htm" "two-way-stream")
+        ("two-way-stream-input-stream" "f¬two¬wa.htm" "two-way-stream-input-stream")
+        ("two-way-stream-output-stream" "f¬two¬wa.htm" "two-way-stream-output-stream")
+        ("type" "a¬type.htm" "type")
+        ("type-error" "e¬tp¬err.htm" "type-error")
+        ("type-error-datum" "f¬tp¬err.htm" "type-error-datum")
+        ("type-error-expected-type" "f¬tp¬err.htm" "type-error-expected-type")
+        ("type-of" "f¬tp¬of.htm" "type-of")
+        ("typecase" "m¬tpcase.htm" "typecase")
+        ("typep" "f¬typep.htm" "typep")
+        ("unbound-slot" "e¬unboun.htm" "unbound-slot")
+        ("unbound-slot-instance" "f¬unboun.htm" "unbound-slot-instance")
+        ("unbound-variable" "e¬unbo¬1.htm" "unbound-variable")
+        ("undefined-function" "e¬undefi.htm" "undefined-function")
+        ("unexport" "f¬unexpo.htm" "unexport")
+        ("unintern" "f¬uninte.htm" "unintern")
+        ("union" "f¬unionc.htm" "union")
+        ("unless" "m¬when¬.htm" "unless")
+        ("unread-char" "f¬unrd¬c.htm" "unread-char")
+        ("unsigned-byte" "t¬unsgn¬.htm" "unsigned-byte")
+        ("untrace" "m¬tracec.htm" "untrace")
+        ("unuse-package" "f¬unuse¬.htm" "unuse-package")
+        ("unwind-protect" "s¬unwind.htm" "unwind-protect")
+        ("update-instance-for-different-class" "f¬update.htm" "update-instance-for-different-class")
+        ("update-instance-for-redefined-class" "f¬upda¬1.htm" "update-instance-for-redefined-class")
+        ("upgraded-array-element-type" "f¬upgr¬1.htm" "upgraded-array-element-type")
+        ("upgraded-complex-part-type" "f¬upgrad.htm" "upgraded-complex-part-type")
+        ("upper-case-p" "f¬upper¬.htm" "upper-case-p")
+        ("use-package" "f¬use¬pk.htm" "use-package")
+        ("use-value" "a¬use¬va.htm" "use-value")
+        ("user-homedir-pathname" "f¬user¬h.htm" "user-homedir-pathname")
+        ("values" "a¬values.htm" "values")
+        ("values-list" "f¬vals¬l.htm" "values-list")
+        ("variable" "f¬docume.htm" "variable")
+        ("vector" "a¬vector.htm" "vector")
+        ("vector-pop" "f¬vec¬po.htm" "vector-pop")
+        ("vector-push" "f¬vec¬ps.htm" "vector-push")
+        ("vector-push-extend" "f¬vec¬ps.htm" "vector-push-extend")
+        ("vectorp" "f¬vecp.htm" "vectorp")
+        ("warn" "f¬warn.htm" "warn")
+        ("warning" "e¬warnin.htm" "warning")
+        ("when" "m¬when¬.htm" "when")
+        ("wild-pathname-p" "f¬wild¬p.htm" "wild-pathname-p")
+        ("with-accessors" "m¬w¬acce.htm" "with-accessors")
+        ("with-compilation-unit" "m¬w¬comp.htm" "with-compilation-unit")
+        ("with-condition-restarts" "m¬w¬cnd¬.htm" "with-condition-restarts")
+        ("with-hash-table-iterator" "m¬w¬hash.htm" "with-hash-table-iterator")
+        ("with-input-from-string" "m¬w¬in¬f.htm" "with-input-from-string")
+        ("with-open-file" "m¬w¬open.htm" "with-open-file")
+        ("with-open-stream" "m¬w¬op¬1.htm" "with-open-stream")
+        ("with-output-to-string" "m¬w¬out¬.htm" "with-output-to-string")
+        ("with-package-iterator" "m¬w¬pkg¬.htm" "with-package-iterator")
+        ("with-simple-restart" "m¬w¬smp¬.htm" "with-simple-restart")
+        ("with-slots" "m¬w¬slts.htm" "with-slots")
+        ("with-standard-io-syntax" "m¬w¬std¬.htm" "with-standard-io-syntax")
+        ("write" "f¬wr¬pr.htm" "write")
+        ("write-byte" "f¬wr¬by.htm" "write-byte")
+        ("write-char" "f¬wr¬cha.htm" "write-char")
+        ("write-line" "f¬wr¬stg.htm" "write-line")
+        ("write-sequence" "f¬wr¬seq.htm" "write-sequence")
+        ("write-string" "f¬wr¬stg.htm" "write-string")
+        ("write-to-string" "f¬wr¬to¬.htm" "write-to-string")
+        ("y-or-n-p" "f¬y¬or¬n.htm" "y-or-n-p")
+        ("yes-or-no-p" "f¬y¬or¬n.htm" "yes-or-no-p")
+        ("zerop" "f¬zerop.htm" "zerop")))
+
+(RPAQ? CLHS.ROOT.URL "https://interlisp.org/clhs/")
+
+(RPAQ? CLHS.INDEX )
+
+(RPAQ? CLHS.OPENER )
+
+(RPAQ? HELPSYS.REPO.TYPES '(FNS FUNCTIONS VARS VARIABLES))
+(DECLARE%: DOEVAL@COMPILE DONTCOPY
+
+(GLOBALVARS CLHS.INDEX CLHS.OPENER HELPSYS.REPO.TYPES CLHS.ROOT.URL)
+)
+
+
+
+(* ;;; "Interface to DInfo")
+
+(DEFINEQ
+
+(IRM.GET.DINFOGRAPH
+  [LAMBDA (FROM.BACKGROUND?)                                 (* ; "Edited 14-Aug-87 17:31 by drc:")
+
+    (* ;; "returns the DInfo graph for the IRM, ensuring that it has been setup.")
+
+    (CL:UNLESS (TYPEP IRM.DINFOGRAPH 'DINFOGRAPH)
+
+        (* ;; "graph has not been loaded -- load it")
+
+        (RESETFORM (TTYDISPLAYSTREAM PROMPTWINDOW)
+               (SETQ IRM.DINFOGRAPH (IRM.LOAD-GRAPH))))
+    (CL:UNLESS (WINDOWP (fetch (DINFOGRAPH WINDOW) of IRM.DINFOGRAPH))
+
+        (* ;; "graph has not been set up -- set it up")
+
+        (DINFO IRM.DINFOGRAPH (CREATEW (GETBOXREGION 540 400 NIL NIL NIL 
+                                              "Specify region for IRM DInfo window")
+                                     "IRM DInfo Graph")
+               T
+               (NOT FROM.BACKGROUND?)))
+    IRM.DINFOGRAPH])
+
+(IRM.DISPLAY.REF
+  [LAMBDA (REF GRAPH)                                        (* ; "Edited 19-Aug-2022 20:21 by lmm")
+                                                             (* drc%: "18-Jan-86 17:17")
+
+(* ;;; "visit the DInfo node of GRAPH containing REF")
+
+    (LET [(NODE (FASSOC (fetch (IRMREFERENCE NODE) of REF)
+                       (fetch (DINFOGRAPH NODELST) of GRAPH]
+         (if NODE
+             then (DINFO.UPDATE GRAPH NODE (LIST (fetch (IRMREFERENCE ITEM) of REF)
+                                                 (fetch (IRMREFERENCE CH#) of REF])
+)
+
+(CL:DEFUN IRM.LOAD-GRAPH ()
+   [LET [(FILE (INFILEP (PACKFILENAME 'NAME 'IRM 'EXTENSION 'DINFOGRAPH 'BODY IRM.HOST&DIR]
+        (CL:IF FILE
+            (DINFO.READ.GRAPH FILE)
+            (PROG1 NIL (CL:WARN 
+                        "IRM.DINFOGRAPH not found on ~S~%%Perhaps IL:IRM.HOST&DIR is set incorrectly"
+                              IRM.HOST&DIR)))])
+
+(ADDTOVAR DINFO.GRAPHS ("Interlisp-D Reference Manual" (IRM.GET.DINFOGRAPH T)))
+
+(RPAQ? IRM.DINFOGRAPH )
+(DECLARE%: DOEVAL@COMPILE DONTCOPY
+
+(GLOBALVARS IRM.DINFOGRAPH)
+)
+(DECLARE%: DONTEVAL@LOAD DOCOPY 
+
+[COND
+   (IRM.HOST&DIR (SETQ IRM.DINFOGRAPH (IRM.LOAD-GRAPH]
+)
+
+
+
+(* ;;; "Cross reference imageobj")
+
+(DEFINEQ
+
+(IRM.DISPLAY.CREF
+  [LAMBDA (IMAGEOBJ STREAM)                                  (* drc%: " 7-Jan-86 13:41")
+    (if (EQ (IMAGESTREAMTYPE STREAM)
+            'DISPLAY)
+        then (DSPFONT IRM.CREF.FONT STREAM)
+             (LET* ((STRING (IMAGEOBJPROP IMAGEOBJ 'ITEM))
+                    (STRINGREGION (STRINGREGION STRING STREAM))
+                    (LEFT (ADD1 (fetch (REGION LEFT) of STRINGREGION)))
+                    (BOTTOM (fetch (REGION BOTTOM) of STRINGREGION))
+                    (REGION (create REGION
+                                   LEFT _ LEFT
+                                   BOTTOM _ BOTTOM
+                                   HEIGHT _ (IPLUS (fetch (REGION HEIGHT) of STRINGREGION)
+                                                   2)
+                                   WIDTH _ (IPLUS (fetch (REGION WIDTH) of STRINGREGION)
+                                                  6)))
+                    (TOP (fetch (REGION TOP) of REGION))
+                    (RIGHT (fetch (REGION RIGHT) of REGION)))
+                   (IMAGEOBJPROP IMAGEOBJ 'REGION REGION)
+                   (CENTERPRINTINREGION STRING REGION STREAM)
+                   (DRAWLINE LEFT BOTTOM LEFT (SUB1 TOP)
+                          1
+                          'INVERT STREAM)
+                   (DRAWLINE LEFT TOP (SUB1 RIGHT)
+                          TOP 1 'INVERT STREAM)
+                   (DRAWLINE RIGHT TOP RIGHT (ADD1 BOTTOM)
+                          1
+                          'INVERT STREAM)
+                   (DRAWLINE RIGHT BOTTOM (ADD1 LEFT)
+                          BOTTOM 1 'INVERT STREAM))
+      else (PRIN1 "page X.XX" STREAM])
+
+(IRM.CREF.BOX
+  [LAMBDA (IMAGEOBJ STREAM CURRENTX RIGHTMARGIN)             (* drc%: " 7-Jan-86 13:42")
+    (LET ((TYPE (IMAGESTREAMTYPE STREAM)))
+         (create IMAGEBOX
+                XSIZE _ (SELECTQ TYPE
+                            (DISPLAY (IPLUS (STRINGWIDTH (IMAGEOBJPROP IMAGEOBJ 'ITEM)
+                                                   IRM.CREF.FONT)
+                                            8))
+                            (STRINGWIDTH "page X.XX" STREAM))
+                YSIZE _ (SELECTQ TYPE
+                            (DISPLAY (IPLUS (FONTHEIGHT IRM.CREF.FONT)
+                                            4))
+                            (FONTHEIGHT STREAM))
+                YDESC _ (SELECTQ TYPE
+                            (DISPLAY 4)
+                            0)
+                XKERN _ 0])
+
+(IRM.PUT.CREF
+  [LAMBDA (IMAGEOBJ STREAM)                                  (* drc%: " 7-Jan-86 22:09")
+    (PRIN2 (CONS (IMAGEOBJPROP IMAGEOBJ 'ITEM)
+                 (IMAGEOBJPROP IMAGEOBJ 'TYPE))
+           STREAM])
+
+(IRM.GET.CREF
+  [LAMBDA (FILE TEXTSTREAM)                                  (* drc%: " 2-Jan-86 17:45")
+    (DECLARE (GLOBALVARS \IRM.CREF.IMAGEFNS))
+    (LET ((DATA (READ FILE))
+          (IMAGEOBJ (IMAGEOBJCREATE NIL \IRM.CREF.IMAGEFNS)))
+         (IMAGEOBJPROP IMAGEOBJ 'ITEM (CAR DATA))
+         (IMAGEOBJPROP IMAGEOBJ 'TYPE (CDR DATA))
+         IMAGEOBJ])
+
+(IRM.CREF.BUTTONEVENTFN
+  [LAMBDA (IMAGEOBJ WSTREAM SELECTION RELX RELY WINDOW TEXTSTREAM BUTTON)
+                                                             (* drc%: " 8-Jan-86 15:34")
+                                                             (* (INSPECT IMAGEOBJ))
+    (LET* ((BOUNDBOX (IMAGEOBJPROP IMAGEOBJ 'BOUNDBOX))
+           (WIDTH (fetch (IMAGEBOX XSIZE) of BOUNDBOX))
+           (HEIGHT (fetch (IMAGEBOX YSIZE) of BOUNDBOX))
+           (REGION (create REGION
+                          HEIGHT _ HEIGHT
+                          WIDTH _ WIDTH
+                          LEFT _ 0
+                          BOTTOM _ 0)))
+          (RESETFORM (TTYDISPLAYSTREAM (GETPROMPTWINDOW WINDOW))
+                 (BLTSHADE BLACKSHADE WSTREAM 0 0 WIDTH HEIGHT 'INVERT)
+                 (bind (N _ 0)
+                       (ITEM _ (IMAGEOBJPROP IMAGEOBJ 'ITEM))
+                       (TYPE _ (IMAGEOBJPROP IMAGEOBJ 'TYPE))
+                    until [OR (NOT (MOUSESTATE (OR LEFT MIDDLE)))
+                              (NOT (INSIDEP REGION (CURSORPOSITION NIL WSTREAM]
+                    do (BLOCK 100)
+                       (if (EQ (SETQ N (ADD1 N))
+                               10)
+                           then (printout T T "Will lookup " (IMAGEOBJPROP IMAGEOBJ 'ITEM)
+                                       (if TYPE
+                                           then (CONCAT " as a " TYPE ".")
+                                         else ".")))
+                       (GETMOUSESTATE) finally (CLEARW T)
+                                             (if (INSIDEP REGION (CURSORPOSITION NIL WSTREAM))
+                                                 then (ADD.PROCESS (LIST 'IRM.LOOKUP (KWOTE ITEM)
+                                                                         (KWOTE TYPE)
+                                                                         (WINDOWPROP WINDOW
+                                                                                'DINFOGRAPH))
+                                                             'NAME "IRM Cross Reference"))
+                                             (BLTSHADE BLACKSHADE WSTREAM 0 0 WIDTH HEIGHT
+                                                    'INVERT)
+                                             NIL])
+)
+
+(RPAQ? IRM.CREF.FONT (FONTCREATE 'MODERN 8 'MRR))
+
+(RPAQ? \IRM.CREF.IMAGEFNS (IMAGEFNSCREATE (FUNCTION IRM.DISPLAY.CREF)
+                                 (FUNCTION IRM.CREF.BOX)
+                                 (FUNCTION IRM.PUT.CREF)
+                                 (FUNCTION IRM.GET.CREF)
+                                 (FUNCTION NILL)
+                                 (FUNCTION IRM.CREF.BUTTONEVENTFN)))
+(DECLARE%: DOEVAL@COMPILE DONTCOPY
+
+(GLOBALVARS IRM.CREF.FONT \IRM.CREF.IMAGEFNS)
+)
+
+
+
+(* ;;; "Internal functions and variables")
+
+(DEFINEQ
+
+(\IRM.GET.REF
+  [LAMBDA (KEYWORD TYPE)                                     (* ; "Edited 19-Aug-2022 20:00 by lmm")
+                                                             (* drc%: "18-Jan-86 17:13")
+
+(* ;;; "Returns an IRMREFERENCE for KEYWORD of optionally specified TYPE.")
+
+    (\IRM.GET.HASHFILE)
+
+    (* ;; "keywords in hashfile are all uppercased -- makes lookup case insensitive;")
+
+    (SETQ KEYWORD (MKATOM (U-CASE KEYWORD)))
+    (LET ((REFS (GETHASHFILE KEYWORD \IRM.HASHFILE)))
+         (COND
+            ((NULL REFS)
+             NIL)
+            ((NULL TYPE)
+             (\IRM.CHOOSE.REF REFS KEYWORD))
+            ((for REF in REFS thereis (if (AND (EQ (fetch (IRMREFERENCE TYPE) of REF)
+                                                   TYPE)
+                                               (fetch (IRMREFERENCE PRIMARYFLG) of REF))
+                                          then REF)))
+            ((SETQ REFS (for REF in REFS join (if (EQ (fetch (IRMREFERENCE TYPE) of REF)
+                                                      TYPE)
+                                                  then (LIST REF)
+                                                else NIL)))
+             (\IRM.CHOOSE.REF REFS KEYWORD])
+
+(\IRM.SMART.REF
+  [LAMBDA (KEYWORD)                                          (* ; "Edited 19-Aug-2022 20:46 by lmm")
+                                                             (* drc%: "18-Jan-86 17:40")
+
+(* ;;; 
+"Returns IRMREFERENCE for KEYWORD.  Allows wildcards in KEYWORD, and will try spelling correction.")
+
+    (if (while [SETQ POS (STRPOS "*" KEYWORD (AND POS (ADD1 POS] bind POS
+           when (NEQ (NTHCHAR KEYWORD (SUB1 POS))
+                     '%') do (RETURN T)
+           finally                                           (* ; 
+                               "if not doing wildcarding then remove quotes when preceding asterisks")
+                 [SETQ KEYWORD (PACK (for TAIL on (UNPACK KEYWORD)
+                                        when [NOT (AND (EQ (CAR TAIL)
+                                                           '%')
+                                                       (EQ (CADR TAIL)
+                                                           '*] collect (CAR TAIL]
+                 (RETURN NIL))
+        then                                                 (* ; 
+                                             "there's an unquoted asterisk -- it's wildcardin' time!")
+             (\IRM.WILD.REF KEYWORD)
+      elseif \IRM.KEYWORDS
+        then                                                 (* ; 
+                                      "we've got possible matches loaded, so try spelling correction")
+             [RESETFORM (TTY.PROCESS (THIS.PROCESS))
+                    (LET ((CORRECTED (MISSPELLED? KEYWORD 50 \IRM.KEYWORDS T)))
+                         (if CORRECTED
+                             then (\IRM.GET.REF CORRECTED]
+      else                                                   (* ; "default to normal lookup")
+           (\IRM.GET.REF KEYWORD])
+
+(\IRM.CHOOSE.REF
+  [LAMBDA (REFS KEYWORD)                                     (* drc%: " 8-Jan-86 15:23")
+    (if (NULL (CDR REFS))
+        then (CAR REFS)
+      else (MENU (create MENU
+                        CENTERFLG _ T
+                        TITLE _ (MKSTRING KEYWORD)
+                        ITEMS _ (for REF in REFS
+                                   collect (LIST (LET ((TYPE (fetch (IRMREFERENCE TYPE) of REF)))
+                                                      (if (fetch (IRMREFERENCE PRIMARYFLG)
+                                                             of REF)
+                                                          then (PACK* "* " TYPE " *")
+                                                        else TYPE))
+                                                 (KWOTE REF)
+                                                 (CONCAT "Lookup " KEYWORD " as " (fetch (
+                                                                                         IRMREFERENCE
+                                                                                          TYPE)
+                                                                                     of REF])
+
+(\IRM.WILD.REF
+  [LAMBDA (KEYWORD)                                          (* ; "Edited 19-Aug-2022 20:31 by lmm")
+                                                             (* drc%: "18-Jan-86 17:04")
+
+    (* ;; "Return IRMREFERENCE matching wildcarded KEYWORD.")
+
+    (LET* ((MATCHES (\IRM.WILDCARD KEYWORD)))
+          (if MATCHES
+              then (if (NULL (CDR MATCHES))
+                       then (\IRM.GET.REF (CAR MATCHES))
+                     else (LET [(CHOICE (MENU (create MENU
+                                                     ITEMS _
+                                                     (for MATCH in MATCHES
+                                                        collect (LIST MATCH (KWOTE MATCH)
+                                                                      (CONCAT "Will lookup " MATCH 
+                                                                             " in IRM if selected."))
+                                                          )
+                                                     CENTERFLG _ T
+                                                     TITLE _ KEYWORD]
+                               (AND CHOICE (\IRM.GET.REF CHOICE])
+
+(\IRM.WILDCARD
+  [LAMBDA (WILDATOM LIST)                                    (* drc%: "18-Jan-86 17:00")
+
+         (* * Returns those atoms in LIST which match WILDATOM.)
+
+    (LET ((SCRATCH (CONS))
+          (WILDLIST (UNPACK WILDATOM)))
+         (for ATOM in LIST when (\IRM.WILD.MATCH WILDLIST (DUNPACK ATOM SCRATCH)) collect ATOM])
+
+(\IRM.WILD.MATCH
+  [LAMBDA (WILDLIST LIST)                                    (* drc%: "18-Jan-86 16:59")
+
+         (* * predicate for whether wildcard containing WILDLIST matches LIST.)
+
+    (COND
+       ((AND (NULL WILDLIST)
+             (NULL LIST)))
+       [(AND (EQ (CAR WILDLIST)
+                 '%')
+             (EQ (CADR WILDLIST)
+                 '*))                                        (* found a quoted asterisk)
+        (if (EQ '* (CAR LIST))
+            then                                             (* and it matches)
+                 (\IRM.WILD.MATCH (CDDR WILDLIST)
+                        (CDR LIST]
+       [(EQ (CAR WILDLIST)
+            '*)                                              (* found a real wildcard)
+        (OR (NULL (CDR WILDLIST))
+            (for TAIL on LIST thereis (\IRM.WILD.MATCH (CDR WILDLIST)
+                                             TAIL]
+       ((EQ (CAR WILDLIST)
+            (CAR LIST))                                      (* first chars match --
+                                                             keep checking)
+        (\IRM.WILD.MATCH (CDR WILDLIST)
+               (CDR LIST)))
+       (T NIL])
+
+(\IRM.GET.HASHFILE
+  [LAMBDA NIL                                                (* drc%: "16-Dec-85 12:09")
+    (OR (ARRAYP \IRM.HASHFILE)
+        (SETQ \IRM.HASHFILE (OPENHASHFILE (OR IRM.HASHFILE.NAME (PACKFILENAME 'NAME 'IRM 'EXTENSION
+                                                                       'HASHFILE
+                                                                       'BODY IRM.HOST&DIR))
+                                   'INPUT])
+
+(\IRM.GET.KEYWORDS
+  [LAMBDA NIL                                                (* ; "Edited 19-Aug-2022 20:33 by lmm")
+                                                             (* drc%: "18-Jan-86 17:14")
+
+(* ;;; "keyword list is hidden in hashfile as its key is in lower case")
+
+    (OR \IRM.KEYWORDS (PROGN (\IRM.GET.HASHFILE)
+                             (SETQ \IRM.KEYWORDS (GETHASHFILE 'irm.keywords (\IRM.GET.HASHFILE])
+)
+
+(RPAQ? \IRM.HASHFILE )
+
+(RPAQ? \IRM.KEYWORDS )
+(DECLARE%: DOEVAL@COMPILE DONTCOPY
+
+(GLOBALVARS \IRM.HASHFILE \IRM.KEYWORDS)
+)
+
+(CL:DEFUN \IRM.AROUND-EXIT (EVENT)
+   (CASE EVENT
+       ((BEFORELOGOUT BEFOREMAKESYS BEFORESYSOUT) (AND \IRM.HASHFILE (CLOSEHASHFILE \IRM.HASHFILE)))))
+
+(ADDTOVAR AROUNDEXITFNS \IRM.AROUND-EXIT)
+
+(PUTPROPS HELPSYS FILETYPE :FAKE-COMPILE-FILE)
+(DECLARE%: DONTCOPY
+  (FILEMAP (NIL (4571 10304 (HELPSYS 4581 . 6422) (IRM.LOOKUP 6424 . 8062) (GENERIC.MAN.LOOKUP 8064 . 
+9733) (IRM.SMART.LOOKUP 9735 . 9891) (IRM.RESET 9893 . 10302)) (10561 17880 (CLHS.INDEX 10571 . 13535)
+ (CLHS.LOOKUP 13537 . 15543) (CLHS.OPENER 15545 . 16868) (REPO.LOOKUP 16870 . 17878)) (70975 72493 (
+IRM.GET.DINFOGRAPH 70985 . 71860) (IRM.DISPLAY.REF 71862 . 72491)) (72495 72857 (IRM.LOAD-GRAPH 72495
+ . 72857)) (73182 78686 (IRM.DISPLAY.CREF 73192 . 74906) (IRM.CREF.BOX 74908 . 75735) (IRM.PUT.CREF 
+75737 . 75962) (IRM.GET.CREF 75964 . 76335) (IRM.CREF.BUTTONEVENTFN 76337 . 78684)) (79241 87547 (
+\IRM.GET.REF 79251 . 80582) (\IRM.SMART.REF 80584 . 82511) (\IRM.CHOOSE.REF 82513 . 83764) (
+\IRM.WILD.REF 83766 . 85021) (\IRM.WILDCARD 85023 . 85389) (\IRM.WILD.MATCH 85391 . 86621) (
+\IRM.GET.HASHFILE 86623 . 87086) (\IRM.GET.KEYWORDS 87088 . 87545)) (87684 87840 (\IRM.AROUND-EXIT 
+87684 . 87840)))))
+STOP

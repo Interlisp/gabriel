@@ -1,0 +1,259 @@
+Lisp Type:          Venue Medley
+Lisp Version:       Medley 2.0 sysout of  7-Jan-2026 01:26:13
+Software Type:      Envos Medley
+Software Version:   Medley 2.0 sysout of  7-Jan-2026 01:26:13, Make-init dates:  7-Jan-2026 01:25:51,  7-Jan-2026 01:25:51
+Machine Type:       i386
+Machine Version:    Emulator created: 17-Jun-20, memory size: 0
+Machine Instance:   0 Kabirs-MacBook-Pro.local
+Site:               Unknown
+Features:           (:CLOS :XEROX-MEDLEY :INTERLISP :XEROX :COMMON :IEEE-FLOATING-POINT :MEDLEY)
+
+***** NULL-LOOP Benchmark ***
+
+Null loop, 1000 times thru
+
+
+Iteration 0 of NULL-LOOP
+Timing for :         IL:NULL-LOOP
+Elapsed time        =     0.046 seconds
+reclaim time        =     0.004 seconds
+net compute time    =     0.042 seconds
+Storage allocated:
+20023 FIXP, 6 ENVIRONMENT
+
+
+Iteration 1 of NULL-LOOP
+Timing for :         IL:NULL-LOOP
+Elapsed time        =     0.046 seconds
+net compute time    =     0.046 seconds
+Storage allocated:
+20016 FIXP, 20219 LISTP, 6 ENVIRONMENT
+
+
+
+***** FLOAT-ADD Benchmark ***
+
+1000 Floating-point additions
+
+
+Iteration 0 of FLOAT-ADD
+Timing for :         IL:FLOAT-ADD
+Elapsed time        =     0.052 seconds
+reclaim time        =     0.003 seconds
+net compute time    =     0.049 seconds
+Storage allocated:
+20023 FIXP, 10000 FLOATP, 20344 LISTP, 6 ENVIRONMENT
+
+
+Iteration 1 of FLOAT-ADD
+Timing for :         IL:FLOAT-ADD
+Elapsed time        =     0.053 seconds
+SWAP time           =     0.001 seconds
+reclaim time        =     0.005 seconds
+net compute time    =     0.047 seconds
+Storage allocated:
+20016 FIXP, 10000 FLOATP, 20231 LISTP, 6 ENVIRONMENT
+
+
+
+***** FLOAT-SUB Benchmark ***
+
+1000 Floating-point subtractions
+
+
+Iteration 0 of FLOAT-SUB
+Timing for :         IL:FLOAT-SUB
+Elapsed time        =     0.052 seconds
+SWAP time           =     0.001 seconds
+reclaim time        =     0.004 seconds
+net compute time    =     0.047 seconds
+Storage allocated:
+20023 FIXP, 10000 FLOATP, 20344 LISTP, 6 ENVIRONMENT
+
+
+Iteration 1 of FLOAT-SUB
+Timing for :         IL:FLOAT-SUB
+Elapsed time        =     0.051 seconds
+SWAP time           =     0.001 seconds
+reclaim time        =     0.005 seconds
+net compute time    =     0.045 seconds
+Storage allocated:
+20016 FIXP, 10000 FLOATP, 20231 LISTP, 6 ENVIRONMENT
+
+
+
+***** FLOAT-TIMES Benchmark ***
+
+1000 Floating-point multiplications
+
+
+Iteration 0 of FLOAT-TIMES
+Timing for :         IL:FLOAT-TIMES
+Elapsed time        =     0.052 seconds
+SWAP time           =     0.001 seconds
+reclaim time        =     0.005 seconds
+net compute time    =     0.046 seconds
+Storage allocated:
+20023 FIXP, 10000 FLOATP, 6 ENVIRONMENT
+
+
+Iteration 1 of FLOAT-TIMES
+Timing for :         IL:FLOAT-TIMES
+Elapsed time        =     0.051 seconds
+SWAP time           =     0.001 seconds
+reclaim time        =     0.004 seconds
+net compute time    =     0.046 seconds
+Storage allocated:
+20016 FIXP, 10000 FLOATP, 20231 LISTP, 6 ENVIRONMENT
+
+
+
+***** FLOAT-DIV Benchmark ***
+
+1000 Floating-point divisions
+
+
+Iteration 0 of FLOAT-DIV
+Timing for :         IL:FLOAT-DIV
+Elapsed time        =     0.052 seconds
+SWAP time           =     0.001 seconds
+reclaim time        =     0.005 seconds
+net compute time    =     0.046 seconds
+Storage allocated:
+20023 FIXP, 10000 FLOATP, 20344 LISTP, 6 ENVIRONMENT
+
+
+Iteration 1 of FLOAT-DIV
+Timing for :         IL:FLOAT-DIV
+Elapsed time        =     0.051 seconds
+SWAP time           =     0.001 seconds
+reclaim time        =     0.002 seconds
+net compute time    =     0.048 seconds
+Storage allocated:
+20016 FIXP, 10000 FLOATP, 20231 LISTP, 6 ENVIRONMENT
+
+
+
+***** GENERIC-ADD-FLOAT Benchmark ***
+
+10000 Generic + with float args
+
+
+Iteration 0 of GENERIC-ADD-FLOAT
+Timing for :         IL:GENERIC-ADD-FLOAT
+Elapsed time        =     0.053 seconds
+SWAP time           =     0.001 seconds
+reclaim time        =     0.002 seconds
+net compute time    =     0.050 seconds
+Storage allocated:
+20023 FIXP, 10000 FLOATP, 20344 LISTP, 6 ENVIRONMENT
+
+
+Iteration 1 of GENERIC-ADD-FLOAT
+Timing for :         IL:GENERIC-ADD-FLOAT
+Elapsed time        =     0.052 seconds
+SWAP time           =     0.001 seconds
+reclaim time        =     0.008 seconds
+net compute time    =     0.043 seconds
+Storage allocated:
+20016 FIXP, 10000 FLOATP, 20231 LISTP, 6 ENVIRONMENT
+
+
+
+***** GENERIC-SUB-FLOAT Benchmark ***
+
+10000 Generic - with float args
+
+
+Iteration 0 of GENERIC-SUB-FLOAT
+Timing for :         IL:GENERIC-SUB-FLOAT
+Elapsed time        =     0.052 seconds
+reclaim time        =     0.003 seconds
+net compute time    =     0.049 seconds
+Storage allocated:
+20023 FIXP, 10000 FLOATP, 6 ENVIRONMENT
+
+
+Iteration 1 of GENERIC-SUB-FLOAT
+Timing for :         IL:GENERIC-SUB-FLOAT
+Elapsed time        =     0.052 seconds
+SWAP time           =     0.001 seconds
+reclaim time        =     0.003 seconds
+net compute time    =     0.048 seconds
+Storage allocated:
+20016 FIXP, 10000 FLOATP, 20231 LISTP, 6 ENVIRONMENT
+
+
+
+***** GENERIC-TIMES-FLOAT Benchmark ***
+
+10000 Generic * with float args
+
+
+Iteration 0 of GENERIC-TIMES-FLOAT
+Timing for :         IL:GENERIC-TIMES-FLOAT
+Elapsed time        =     0.053 seconds
+reclaim time        =     0.002 seconds
+net compute time    =     0.051 seconds
+Storage allocated:
+20023 FIXP, 10000 FLOATP, 20344 LISTP, 6 ENVIRONMENT
+
+
+Iteration 1 of GENERIC-TIMES-FLOAT
+Timing for :         IL:GENERIC-TIMES-FLOAT
+Elapsed time        =     0.052 seconds
+SWAP time           =     0.001 seconds
+reclaim time        =     0.003 seconds
+net compute time    =     0.048 seconds
+Storage allocated:
+20016 FIXP, 10000 FLOATP, 20231 LISTP, 6 ENVIRONMENT
+
+
+
+***** GENERIC-DIV-FLOAT Benchmark ***
+
+10000 Generic / with float args
+
+
+Iteration 0 of GENERIC-DIV-FLOAT
+Timing for :         IL:GENERIC-DIV-FLOAT
+Elapsed time        =     0.053 seconds
+reclaim time        =     0.004 seconds
+net compute time    =     0.049 seconds
+Storage allocated:
+20023 FIXP, 10000 FLOATP, 20344 LISTP, 6 ENVIRONMENT
+
+
+Iteration 1 of GENERIC-DIV-FLOAT
+Timing for :         IL:GENERIC-DIV-FLOAT
+Elapsed time        =     0.053 seconds
+SWAP time           =     0.001 seconds
+reclaim time        =     0.004 seconds
+net compute time    =     0.048 seconds
+Storage allocated:
+20016 FIXP, 10000 FLOATP, 20231 LISTP, 6 ENVIRONMENT
+
+
+
+***** FLOAT-SINE Benchmark ***
+
+10000 calls to CL:SIN(pi/6)
+
+
+Iteration 0 of FLOAT-SINE
+Timing for :         IL:FLOAT-SINE
+Elapsed time        =     0.061 seconds
+reclaim time        =     0.007 seconds
+net compute time    =     0.054 seconds
+Storage allocated:
+20023 FIXP, 110000 FLOATP, 6 ENVIRONMENT
+
+
+Iteration 1 of FLOAT-SINE
+Timing for :         IL:FLOAT-SINE
+Elapsed time        =     0.061 seconds
+reclaim time        =     0.010 seconds
+net compute time    =     0.051 seconds
+Storage allocated:
+20016 FIXP, 110000 FLOATP, 20229 LISTP, 6 ENVIRONMENT
+

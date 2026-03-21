@@ -1,0 +1,1111 @@
+LLDISPLAY bootloaded
+MAIKOBITBLT bootloaded
+MAIKOLOADUPFNS bootloaded
+CMLREADTABLE bootloaded
+CMLCHARACTER bootloaded
+CMLLIST bootloaded
+DMISC bootloaded
+COMPATIBILITY bootloaded
+APUTDQ bootloaded
+MEDLEYFONTFORMAT bootloaded
+FONT bootloaded
+PASSWORDS bootloaded
+UFSCALLC bootloaded
+UFS bootloaded
+DSK bootloaded
+CMLARRAY bootloaded
+PROC bootloaded
+XCL-PACKAGE bootloaded
+CONDITION-PACKAGE bootloaded
+PACKAGE-STARTUP bootloaded
+LLPACKAGE bootloaded
+LLSYMBOL bootloaded
+LLERROR bootloaded
+LLRESTART bootloaded
+CMLSPECIALFORMS bootloaded
+CMLPROGV bootloaded
+CMLEVAL bootloaded
+CMLMACROS bootloaded
+BOOTSTRAP bootloaded
+MISC bootloaded
+AINTERRUPT bootloaded
+AERROR bootloaded
+ABASIC bootloaded
+APRINT bootloaded
+ATERM bootloaded
+VANILLADISK bootloaded
+PMAP bootloaded
+ADIR bootloaded
+AOFD bootloaded
+COREIO bootloaded
+ACODE bootloaded
+LLCODE bootloaded
+ATBL bootloaded
+DTDECLARE bootloaded
+ASTACK bootloaded
+LLTIMER bootloaded
+LLKEY bootloaded
+LLDATATYPE bootloaded
+LLSTK bootloaded
+LLCHAR bootloaded
+MCCS bootloaded
+IOCHAR bootloaded
+LLREAD bootloaded
+LLBIGNUM bootloaded
+LLFLOAT bootloaded
+LLARITH bootloaded
+CMLSEQBASICS bootloaded
+SETF-RUNTIME bootloaded
+DEFSTRUCT-RUN-TIME bootloaded
+LLMVS bootloaded
+LLINTERP bootloaded
+LLARRAYELT bootloaded
+LLGC bootloaded
+LLBASIC bootloaded
+IMAGEIO bootloaded
+EXTERNALFORMAT bootloaded
+FILEIO bootloaded
+LLNEW bootloaded
+LLBFS bootloaded
+LLSUBRS bootloaded
+LLFAULT bootloaded
+PACKAGE-CONVERSION-TABLE bootloaded
+ACODE already loaded
+MACHINEINDEPENDENT already loaded
+loading MULTI-ALIST
+
+{DSK}<home>runner>work>medley>medley>library>MULTI-ALIST.LCOM;1
+compiled on 21-Dec-2025 20:40:36
+File created 21-Dec-2025 20:40:36
+MULTI-ALISTCOMS
+loading LISP-PACKAGE
+
+{DSK}<home>runner>work>medley>medley>sources>LISP-PACKAGE.LCOM;1
+compiled on 25-Jan-98 15:03:32
+File created 16-May-90 18:44:49
+IL:LISP-PACKAGECOMS
+loading FASL-PACKAGE
+
+{DSK}<home>runner>work>medley>medley>sources>FASL-PACKAGE.LCOM;1
+compiled on 25-Jan-98 13:21:46
+File created 16-May-90 16:33:38
+IL:FASL-PACKAGECOMS
+loading D-ASSEM-PACKAGE
+
+{DSK}<home>runner>work>medley>medley>sources>D-ASSEM-PACKAGE.LCOM;1
+compiled on 25-Jan-98 12:20:01
+File created  8-Jan-91 00:37:24
+IL:D-ASSEM-PACKAGECOMS
+loading COMPILER-PACKAGE
+
+{DSK}<home>runner>work>medley>medley>sources>COMPILER-PACKAGE.LCOM;1
+compiled on 25-Jan-98 11:43:48
+File created 16-May-90 15:03:20
+IL:COMPILER-PACKAGECOMS
+loading ERROR-RUNTIME
+
+{DSK}<home>runner>work>medley>medley>sources>ERROR-RUNTIME.LCOM;1
+compiled on 25-Jan-98 13:15:12
+File created 16-May-90 16:27:39
+loading CMLARITH
+
+{DSK}<home>runner>work>medley>medley>sources>CMLARITH.LCOM;1
+compiled on 24-Sep-2023 15:37:41
+File created 24-Sep-2023 15:37:27
+loading CONDITION-HIERARCHY
+
+{DSK}<home>runner>work>medley>medley>sources>CONDITION-HIERARCHY.LCOM;1
+compiled on 25-Jan-98 11:43:54
+File created 22-Aug-90 09:45:58
+
+{DSK}<home>runner>work>medley>medley>sources>CONDITION-HIERARCHY-SI.LCOM;1
+compiled on 25-Jan-98 11:52:40
+File created 16-May-90 15:05:52
+
+{DSK}<home>runner>work>medley>medley>sources>CONDITION-HIERARCHY-POST-SI.LCOM;1
+compiled on 25-Jan-98 11:52:26
+File created 16-May-90 15:05:05
+
+{DSK}<home>runner>work>medley>medley>sources>CONDITION-HIERARCHY-IL.LCOM;1
+compiled on 25-Jan-98 11:50:25
+File created 16-May-90 15:04:10
+loading CMLHASH
+
+{DSK}<home>runner>work>medley>medley>sources>CMLHASH.LCOM;1
+compiled on 25-Jan-98 10:17:44
+File created 16-May-90 13:25:03
+loading D-ASSEM
+
+{DSK}<home>runner>work>medley>medley>sources>D-ASSEM.LCOM;1
+compiled on 25-Jan-98 12:01:26
+File created  1-Dec-92 02:18:56
+loading FASLOAD
+
+{DSK}<home>runner>work>medley>medley>sources>FASLOAD.LCOM;1
+compiled on  7-Dec-2023 00:00:54
+File created 23-Nov-2021 12:29:28
+loading DEFFER-RUNTIME
+
+{DSK}<home>runner>work>medley>medley>sources>DEFFER-RUNTIME.LCOM;1
+compiled on 25-Jan-98 12:24:48
+File created 16-May-90 15:30:14
+loading CMLPRINT
+
+{DSK}<home>runner>work>medley>medley>sources>CMLPRINT.LCOM;1
+compiled on 13-Jun-2021 21:13:01
+File created 16-May-90 14:19:58
+loading CLSTREAMS
+
+{DSK}<home>runner>work>medley>medley>sources>CLSTREAMS.LCOM;1
+compiled on  8-Dec-2023 15:47:18
+File created  8-Dec-2023 15:46:10
+loading CMLSTRING
+
+{DSK}<home>runner>work>medley>medley>sources>CMLSTRING.LCOM;1
+compiled on 20-Aug-2021 20:45:38
+File created 20-Aug-2021 20:44:50
+loading CMLSYMBOL
+
+{DSK}<home>runner>work>medley>medley>sources>CMLSYMBOL.LCOM;1
+compiled on 25-Jan-98 11:30:38
+File created 16-May-90 14:47:55
+loading CMLTYPES
+
+{DSK}<home>runner>work>medley>medley>sources>CMLTYPES.LCOM;1
+compiled on  4-Jun-2024 23:32:50
+File created  4-Jun-2024 23:32:50
+loading CMLSEQCOMMON
+
+{DSK}<home>runner>work>medley>medley>sources>CMLSEQCOMMON.LCOM;1
+compiled on 14-Dec-2024 19:23:39
+File created 14-Dec-2024 19:23:34
+loading CMLSEQMAPPERS
+
+{DSK}<home>runner>work>medley>medley>sources>CMLSEQMAPPERS.LCOM;1
+compiled on 25-Jan-98 10:40:02
+File created 16-May-90 14:31:36
+loading CMLPATHNAME
+
+{DSK}<home>runner>work>medley>medley>sources>CMLPATHNAME.LCOM;1
+compiled on  9-Apr-2024 13:08:15
+File created  9-Apr-2024 12:59:40
+loading CMLFILESYS
+
+{DSK}<home>runner>work>medley>medley>sources>CMLFILESYS.LCOM;1
+compiled on 23-Jan-2022 12:32:55
+File created 23-Jan-2022 12:32:16
+loading CMLDEFFER
+
+{DSK}<home>runner>work>medley>medley>sources>CMLDEFFER.DFASL;1
+XCL Compiler output for source file {DSK}<Users>kaplan>Local>medley3.5>my-medley>sources>CMLDEFFER.;2
+Source file created  6-Mar-2022 22:19:48
+FASL file created Sunday, 6 March 2022, 22:19:53
+
+loading ERROR-RUNTIME-AFTER-FASL
+
+{DSK}<home>runner>work>medley>medley>sources>ERROR-RUNTIME-AFTER-FASL.DFASL;1
+XCL Compiler output for source file {DSK}<lispcore>sources>ERROR-RUNTIME-AFTER-FASL.;1
+Source file created Wednesday, 16 May 1990, 16:14:06.
+FASL file created Sunday, 25 January 1998, 13:18:10.
+
+loading WRAPPERS
+
+{DSK}<home>runner>work>medley>medley>sources>WRAPPERS.LCOM;1
+compiled on 26-Jan-98 13:55:56
+File created  2-Feb-94 14:15:09
+loading STACKFNS
+
+{DSK}<home>runner>work>medley>medley>sources>STACKFNS.LCOM;1
+compiled on 26-Jan-98 13:41:05
+File created 17-May-90 15:48:43
+STACKFNSCOMS
+STACKFNSCOMS
+loading CMLMVS
+
+{DSK}<home>runner>work>medley>medley>sources>CMLMVS.LCOM;1
+compiled on 25-Jan-98 10:25:04
+File created 16-May-90 13:35:04
+loading MACROS
+
+{DSK}<home>runner>work>medley>medley>sources>MACROS.LCOM;1
+compiled on 25-Jan-98 17:37:48
+File created 16-May-90 20:28:24
+loading MACROAUX
+
+{DSK}<home>runner>work>medley>medley>sources>MACROAUX.LCOM;1
+compiled on 25-Jan-98 17:37:05
+File created 16-May-90 20:26:31
+loading UNWINDMACROS
+
+{DSK}<home>runner>work>medley>medley>sources>UNWINDMACROS.LCOM;1
+compiled on 26-Jan-98 13:53:42
+File created 17-May-90 16:11:33
+loading COMMON
+
+{DSK}<home>runner>work>medley>medley>sources>COMMON.LCOM;1
+compiled on 25-Jan-98 11:40:32
+File created 16-May-90 14:58:17
+loading XCLC-RUNTIME
+
+{DSK}<home>runner>work>medley>medley>sources>XCLC-RUNTIME.LCOM;1
+compiled on 26-Jan-98 14:00:44
+File created 23-May-90 13:18:14
+CMLTYPES already loaded
+loading CL-ERROR
+
+{DSK}<home>runner>work>medley>medley>sources>CL-ERROR.DFASL;1
+XCL Compiler output for source file {DSK}<lispcore>sources>CL-ERROR.;1
+Source file created Wednesday, 21 August 1991, 17:03:40.
+FASL file created Sunday, 25 January 1998, 9:28:09.
+
+loading AFONT
+
+{DSK}<home>runner>work>medley>medley>sources>AFONT.DFASL;1
+XCL Compiler output for source file {DSK}<Users>kaplan>Local>medley3.5>working-medley>sources>AFONT.;15
+Source file created 22-Jul-2025 23:20:06
+FASL file created Tuesday, 22 July 2025, 23:20:06
+
+loading EDIT
+
+{DSK}<home>runner>work>medley>medley>sources>EDIT.LCOM;1
+compiled on 25-Jan-98 13:09:41
+File created 16-May-90 16:23:16
+EDITCOMS
+loading WEDIT
+
+{DSK}<home>runner>work>medley>medley>sources>WEDIT.LCOM;1
+compiled on 26-Jan-98 13:54:04
+File created 23-Oct-91 16:39:18
+WEDITCOMS
+loading PRETTY
+
+{DSK}<home>runner>work>medley>medley>sources>PRETTY.LCOM;1
+compiled on 24-Apr-2025 22:19:43
+File created 24-Apr-2025 22:19:43
+PRETTYCOMS
+loading DSPRINTDEF
+
+{DSK}<home>runner>work>medley>medley>sources>DSPRINTDEF.LCOM;1
+compiled on 13-Jun-2021 20:56:35
+File created 19-Jan-93 10:27:05
+DSPRINTDEFCOMS
+loading NEWPRINTDEF
+
+{DSK}<home>runner>work>medley>medley>sources>NEWPRINTDEF.LCOM;1
+compiled on 31-Dec-2000 11:53:35
+File created 31-Dec-2000 11:53:33
+NEWPRINTDEFCOMS
+loading SPELLFILE
+
+{DSK}<home>runner>work>medley>medley>sources>SPELLFILE.LCOM;1
+compiled on 17-Mar-2022 12:13:30
+File created 17-Mar-2022 12:13:30
+SPELLFILECOMS
+loading PRINTFN
+
+{DSK}<home>runner>work>medley>medley>sources>PRINTFN.LCOM;1
+compiled on 14-Sep-2023 22:53:09
+File created 14-Sep-2023 22:53:09
+PRINTFNCOMS
+loading LOADFNS
+
+{DSK}<home>runner>work>medley>medley>sources>LOADFNS.LCOM;1
+compiled on  2-May-2022 11:38:58
+File created  2-May-2022 11:38:55
+LOADFNSCOMS
+DMISC already loaded
+loading DIRECTORY
+
+{DSK}<home>runner>work>medley>medley>sources>DIRECTORY.LCOM;1
+compiled on  6-Nov-2025 00:13:55
+File created  6-Nov-2025 00:13:55
+DIRECTORYCOMS
+SPELLFILE already loaded
+loading FILEPKG
+
+{DSK}<home>runner>work>medley>medley>sources>FILEPKG.LCOM;1
+compiled on 27-Sep-2025 19:56:28
+File created 27-Sep-2025 19:56:28
+FILEPKGCOMS
+loading RESOURCE
+
+{DSK}<home>runner>work>medley>medley>sources>RESOURCE.LCOM;1
+compiled on 26-Jan-98 13:30:19
+File created 16-May-90 21:31:50
+RESOURCECOMS
+loading HIST
+
+{DSK}<home>runner>work>medley>medley>sources>HIST.LCOM;1
+compiled on 14-Jan-2025 13:20:34
+File created 14-Jan-2025 13:20:25
+HISTCOMS
+loading UNDO
+
+{DSK}<home>runner>work>medley>medley>sources>UNDO.LCOM;1
+compiled on 26-Jan-98 13:53:32
+File created 17-May-90 16:09:40
+UNDOCOMS
+loading SPELL
+
+{DSK}<home>runner>work>medley>medley>sources>SPELL.LCOM;1
+compiled on 26-Jan-98 13:37:04
+File created 17-May-90 11:20:15
+SPELLCOMS
+loading DWIM
+
+{DSK}<home>runner>work>medley>medley>sources>DWIM.LCOM;1
+compiled on 14-Sep-2022 10:25:40
+File created 14-Sep-2022 10:25:40
+DWIMCOMS
+loading WTFIX
+
+{DSK}<home>runner>work>medley>medley>sources>WTFIX.LCOM;1
+compiled on 26-Jan-98 13:56:09
+File created 18-May-90 01:12:06
+WTFIXCOMS
+loading CLISP
+
+{DSK}<home>runner>work>medley>medley>sources>CLISP.LCOM;1
+compiled on 25-Jan-98 09:32:34
+File created 16-May-90 12:27:02
+loading DWIMIFY
+
+{DSK}<home>runner>work>medley>medley>sources>DWIMIFY.LCOM;1
+compiled on 14-Sep-2022 10:25:44
+File created 14-Sep-2022 10:25:44
+DWIMIFYCOMS
+loading CLISPIFY
+
+{DSK}<home>runner>work>medley>medley>sources>CLISPIFY.LCOM;1
+compiled on 25-Jan-98 09:33:48
+File created 16-May-90 12:28:58
+CLISPIFYCOMS
+loading RECORD
+
+{DSK}<home>runner>work>medley>medley>sources>RECORD.LCOM;1
+compiled on 26-Jan-98 13:29:01
+File created 19-Jan-93 11:15:39
+RECORDCOMS
+loading GAINSPACE
+
+{DSK}<home>runner>work>medley>medley>sources>GAINSPACE.LCOM;1
+compiled on 25-Jan-98 14:03:59
+File created 16-May-90 18:05:30
+GAINSPACECOMS
+loading COROUTINE
+
+{DSK}<home>runner>work>medley>medley>sources>COROUTINE.LCOM;1
+compiled on 25-Jan-98 11:56:27
+File created 16-May-90 15:10:30
+loading ARGLIST
+
+{DSK}<home>runner>work>medley>medley>sources>ARGLIST.LCOM;1
+compiled on 25-Jan-98 08:30:09
+File created 16-May-90 12:03:44
+ARGLISTCOMS
+loading ASKUSER
+
+{DSK}<home>runner>work>medley>medley>sources>ASKUSER.LCOM;1
+compiled on 12-Feb-2021 17:00:05
+File created 12-Feb-2021 17:00:02
+ASKUSERCOMS
+loading SYSPRETTY
+
+{DSK}<home>runner>work>medley>medley>sources>SYSPRETTY.LCOM;1
+compiled on 26-Jan-98 13:41:07
+File created 17-May-90 15:50:03
+SYSPRETTYCOMS
+COMMON already loaded
+loading COMPARE
+
+{DSK}<home>runner>work>medley>medley>sources>COMPARE.LCOM;1
+compiled on 29-Nov-2021 14:05:50
+File created 29-Nov-2021 14:05:45
+COMPARECOMS
+loading CMLSTEP
+
+{DSK}<home>runner>work>medley>medley>sources>CMLSTEP.LCOM;1
+compiled on 25-Jan-98 11:20:57
+File created 16-May-90 14:44:40
+loading CMLDOC
+
+{DSK}<home>runner>work>medley>medley>sources>CMLDOC.LCOM;1
+compiled on 25-Jan-98 09:59:44
+File created 16-May-90 13:06:35
+loading CMLPARSE
+
+{DSK}<home>runner>work>medley>medley>sources>CMLPARSE.LCOM;1
+compiled on 25-Jan-98 10:27:38
+File created  8-Jun-90 14:57:22
+loading CMLSETF
+
+{DSK}<home>runner>work>medley>medley>sources>CMLSETF.DFASL;1
+XCL Compiler output for source file {DSK}<lispcore>sources>CMLSETF.;1
+Source file created Wednesday, 13 June 1990, 0:19:02.
+FASL file created Sunday, 25 January 1998, 10:52:44.
+
+loading CMLPRED
+
+{DSK}<home>runner>work>medley>medley>sources>CMLPRED.LCOM;1
+compiled on 25-Jan-98 10:30:39
+File created 16-May-90 14:19:02
+loading CMLREAD
+
+{DSK}<home>runner>work>medley>medley>sources>CMLREAD.LCOM;1
+compiled on 24-Apr-2025 21:59:48
+File created 24-Apr-2025 21:59:48
+loading WALKER
+
+{DSK}<home>runner>work>medley>medley>sources>WALKER.DFASL;1
+XCL Compiler output for source file {DSK}<disk>disk2>jdstools>lc3>lispcore3.0>sources>WALKER.;1
+Source file created Thursday, 17 May 1990, 16:04:34.
+FASL file created Monday, 26 January 1998, 13:53:47.
+
+loading CMLSEQFINDER
+
+{DSK}<home>runner>work>medley>medley>sources>CMLSEQFINDER.LCOM;1
+compiled on 14-Dec-2024 19:21:37
+File created 14-Dec-2024 19:21:30
+loading CMLSEQMODIFY
+
+{DSK}<home>runner>work>medley>medley>sources>CMLSEQMODIFY.LCOM;1
+compiled on 25-Jan-98 10:41:41
+File created 16-May-90 14:33:28
+loading CMLSORT
+
+{DSK}<home>runner>work>medley>medley>sources>CMLSORT.LCOM;1
+compiled on 25-Jan-98 11:18:04
+File created 16-May-90 14:41:22
+loading DEFSTRUCT
+
+{DSK}<home>runner>work>medley>medley>sources>DEFSTRUCT.DFASL;1
+XCL Compiler output for source file {DSK}<lispcore>sources>DEFSTRUCT.;1
+Source file created Monday, 4 January 1993, 18:06:34.
+FASL file created Sunday, 25 January 1998, 12:25:14.
+
+loading CMLMISCIO
+
+{DSK}<home>runner>work>medley>medley>sources>CMLMISCIO.LCOM;1
+compiled on 14-Jun-2021 23:16:31
+File created 16-May-90 13:33:00
+loading CMLCOMPILE
+
+{DSK}<home>runner>work>medley>medley>sources>CMLCOMPILE.LCOM;1
+compiled on 24-Sep-2023 14:11:25
+File created 24-Sep-2023 14:11:25
+loading CMLDESTRUCT
+
+{DSK}<home>runner>work>medley>medley>sources>CMLDESTRUCT.LCOM;1
+compiled on 25-Jan-98 09:59:34
+File created 16-May-90 13:05:47
+CL-ERROR already loaded
+loading CMLFORMAT
+
+{DSK}<home>runner>work>medley>medley>sources>CMLFORMAT.LCOM;1
+compiled on  3-Jul-2022 17:43:06
+File created  3-Jul-2022 17:43:01
+loading CMLENVIRONMENT
+
+{DSK}<home>runner>work>medley>medley>sources>CMLENVIRONMENT.DFASL;1
+XCL Compiler output for source file {DSK}<home>larry>medley>sources>CMLENVIRONMENT.;2
+Source file created 12-Aug-2022 12:31:32
+FASL file created Friday, 12 August 2022, 12:32:14
+
+loading CMLLOAD
+
+{DSK}<home>runner>work>medley>medley>sources>CMLLOAD.LCOM;1
+compiled on 25-Jan-98 10:23:35
+File created 13-Jul-90 18:00:23
+loading CMLFLOAT
+
+{DSK}<home>runner>work>medley>medley>sources>CMLFLOAT.LCOM;1
+compiled on 25-Jan-98 10:08:08
+File created 16-May-90 13:16:23
+loading CMLTIME
+
+{DSK}<home>runner>work>medley>medley>sources>CMLTIME.LCOM;1
+compiled on 25-Jan-98 11:30:50
+File created 16-May-90 14:48:46
+loading CMLRAND
+
+{DSK}<home>runner>work>medley>medley>sources>CMLRAND.LCOM;1
+compiled on 25-Jan-98 10:31:47
+File created 16-May-90 14:21:56
+loading CMLMODULES
+
+{DSK}<home>runner>work>medley>medley>sources>CMLMODULES.DFASL;1
+XCL Compiler output for source file {DSK}<Users>kaplan>Local>medley3.5>lispcore>sources>CMLMODULES.;2
+Source file created Monday, 16 April 2018, 22:46:19.
+FASL file created Monday, 16 April 2018, 22:46:19.
+
+loading PROFILE
+
+{DSK}<home>runner>work>medley>medley>sources>PROFILE.LCOM;1
+compiled on 26-Jan-98 13:28:16
+File created 16-May-90 21:15:43
+loading CMLEXEC
+
+{DSK}<home>runner>work>medley>medley>sources>CMLEXEC.LCOM;1
+compiled on 24-May-2024 20:54:50
+File created 24-May-2024 20:54:49
+
+{DSK}<home>runner>work>medley>medley>sources>CMLUNDO.DFASL;1
+XCL Compiler output for source file {DSK}<home>larry>ilisp>medley>sources>CMLUNDO.;2
+Source file created  7-Nov-2022 09:54:34
+FASL file created Monday, 7 November 2022, 9:54:35
+
+loading EXEC-COMMANDS
+
+{DSK}<home>runner>work>medley>medley>sources>EXEC-COMMANDS.LCOM;1
+compiled on 25-Jan-98 13:18:25
+File created 16-May-90 16:29:25
+loading DEBUGGER
+
+{DSK}<home>runner>work>medley>medley>sources>DEBUGGER.DFASL;1
+XCL Compiler output for source file {DSK}<home>larry>medley>sources>DEBUGGER.;2
+Source file created 12-Sep-2021 15:59:37
+FASL file created Sunday, 12 September 2021, 15:59:38
+
+loading IL-ERROR-STUFF
+
+{DSK}<home>runner>work>medley>medley>sources>IL-ERROR-STUFF.LCOM;1
+compiled on 25-Jan-98 14:25:53
+File created 16-May-90 18:18:52
+IL-ERROR-STUFFCOMS
+IL-ERROR-STUFFCOMS
+loading DEBUGEDIT
+
+{DSK}<home>runner>work>medley>medley>sources>DEBUGEDIT.LCOM;1
+compiled on 25-Jan-98 12:20:10
+File created 16-May-90 15:24:15
+loading ADDARITH
+
+{DSK}<home>runner>work>medley>medley>sources>ADDARITH.LCOM;1
+compiled on 25-Jan-98 02:08:33
+File created 16-May-90 11:46:37
+loading UNICODE-TABLES
+
+{DSK}<home>runner>work>medley>medley>library>UNICODE-TABLES.LCOM;1
+compiled on 22-Oct-2025 23:28:57
+File created 22-Oct-2025 23:28:42
+UNICODE-TABLESCOMS
+loading UNICODE
+
+{DSK}<home>runner>work>medley>medley>library>UNICODE.LCOM;1
+compiled on 23-Oct-2025 08:31:21
+File created 23-Oct-2025 08:31:21
+UNICODECOMS
+CMLPATHNAME already loaded
+loading HPRINT
+
+{DSK}<home>runner>work>medley>medley>sources>HPRINT.LCOM;1
+compiled on 15-Jan-2024 13:54:51
+File created 15-Jan-2024 13:54:51
+loading AARITH
+
+{DSK}<home>runner>work>medley>medley>sources>AARITH.LCOM;1
+compiled on 25-Jan-98 01:58:27
+File created 16-May-90 11:41:16
+AARITHCOMS
+loading ADISPLAY
+
+{DSK}<home>runner>work>medley>medley>sources>ADISPLAY.LCOM;1
+compiled on  8-Jul-2025 20:19:58
+File created  8-Jul-2025 20:19:58
+ADISPLAYCOMS
+loading HLDISPLAY
+
+{DSK}<home>runner>work>medley>medley>sources>HLDISPLAY.LCOM;1
+compiled on 29-Aug-2025 11:38:16
+File created 29-Aug-2025 11:38:16
+loading FONTPROFILE
+
+{DSK}<home>runner>work>medley>medley>sources>FONTPROFILE.LCOM;1
+compiled on 23-Jul-2023 20:42:49
+File created 23-Jul-2023 20:42:48
+FONTPROFILECOMS
+loading MENU
+
+{DSK}<home>runner>work>medley>medley>sources>MENU.LCOM;1
+compiled on  2-Oct-2025 17:53:42
+File created  2-Oct-2025 17:53:41
+MENUCOMS
+loading WINDOWOBJ
+
+{DSK}<home>runner>work>medley>medley>sources>WINDOWOBJ.LCOM;1
+compiled on  4-Sep-2024 20:52:28
+File created  4-Sep-2024 20:52:28
+WINDOWOBJCOMS
+loading WINDOWSCROLL
+
+{DSK}<home>runner>work>medley>medley>sources>WINDOWSCROLL.LCOM;1
+compiled on 17-Feb-2021 13:49:06
+File created 17-Feb-2021 13:49:06
+WINDOWSCROLLCOMS
+loading WINDOW
+
+{DSK}<home>runner>work>medley>medley>sources>WINDOW.LCOM;1
+compiled on 29-Jun-2024 00:18:05
+File created 29-Jun-2024 00:18:05
+
+{DSK}<home>runner>work>medley>medley>sources>PAINTW.LCOM;1
+compiled on 16-Jul-99 15:49:39
+File created 16-Jul-99 15:49:37
+loading WINDOWICON
+
+{DSK}<home>runner>work>medley>medley>sources>WINDOWICON.LCOM;1
+compiled on 26-Jan-98 13:55:34
+File created  2-Feb-94 13:26:29
+WINDOWICONCOMS
+PAINTW already loaded
+loading ATTACHEDWINDOW
+
+{DSK}<home>runner>work>medley>medley>sources>ATTACHEDWINDOW.LCOM;1
+compiled on 28-Jun-99 17:18:53
+File created 28-Jun-99 17:18:50
+ATTACHEDWINDOWCOMS
+loading XXGEOM
+
+{DSK}<home>runner>work>medley>medley>sources>XXGEOM.LCOM;1
+compiled on 14-May-2023 15:49:02
+File created 14-May-2023 15:47:43
+XXGEOMCOMS
+loading XXFILL
+
+{DSK}<home>runner>work>medley>medley>sources>XXFILL.LCOM;1
+compiled on 25-May-2023 22:22:23
+File created 25-May-2023 22:14:28
+XXFILLCOMS
+loading DEXEC
+
+{DSK}<home>runner>work>medley>medley>sources>DEXEC.LCOM;1
+compiled on  7-Oct-2021 14:29:56
+File created  7-Oct-2021 14:29:56
+loading INSPECT
+
+{DSK}<home>runner>work>medley>medley>sources>INSPECT.LCOM;1
+compiled on 21-Jul-2025 16:55:33
+File created 21-Jul-2025 16:55:18
+INSPECTCOMS
+loading DESCRIBE
+
+{DSK}<home>runner>work>medley>medley>sources>DESCRIBE.DFASL;1
+XCL Compiler output for source file {DSK}<lispcore>sources>DESCRIBE.;1
+Source file created Wednesday, 16 May 1990, 15:27:33.
+FASL file created Sunday, 25 January 1998, 12:32:53.
+
+loading CMLARRAYINSPECTOR
+
+{DSK}<home>runner>work>medley>medley>sources>CMLARRAYINSPECTOR.LCOM;1
+compiled on 25-Jan-98 09:53:09
+File created 31-Dec-93 12:26:35
+CMLARRAYINSPECTORCOMS
+
+{DSK}<home>runner>work>medley>medley>sources>TWODINSPECTOR.LCOM;1
+compiled on 19-Feb-2021 14:31:33
+File created 19-Feb-2021 14:31:33
+TWODINSPECTORCOMS
+
+{DSK}<home>runner>work>medley>medley>sources>FREEMENU.LCOM;1
+compiled on 25-Jan-98 13:54:38
+File created  6-Dec-94 10:55:40
+loading EDITINTERFACE
+
+{DSK}<home>runner>work>medley>medley>sources>EDITINTERFACE.DFASL;1
+XCL Compiler output for source file {DSK}<Users>kaplan>Local>medley3.5>working-medley>sources>EDITINTERFACE.;57
+Source file created  2-Oct-2025 10:43:08
+FASL file created Thursday, 2 October 2025, 10:43:08
+
+loading TTYIN
+
+{DSK}<home>runner>work>medley>medley>sources>TTYIN.LCOM;1
+compiled on 24-Aug-2025 14:07:41
+File created 24-Aug-2025 14:07:41
+TTYINCOMS
+loading BREAK-AND-TRACE
+
+{DSK}<home>runner>work>medley>medley>sources>BREAK-AND-TRACE.DFASL;1
+XCL Compiler output for source file {DSK}<users>kaplan>local>medley3.5>working-medley>sources>BREAK-AND-TRACE.;2
+Source file created 12-Sep-2022 21:16:02
+FASL file created Monday, 12 September 2022, 21:16:29
+
+loading FASDUMP
+
+{DSK}<home>runner>work>medley>medley>sources>FASDUMP.DFASL;1
+XCL Compiler output for source file {DSK}<lispcore>sources>FASDUMP.;1
+Source file created Friday, 11 January 1991, 16:23:30.
+FASL file created Sunday, 25 January 1998, 13:18:44.
+
+loading XCL-COMPILER
+
+{DSK}<home>runner>work>medley>medley>sources>XCL-COMPILER.LCOM;1
+compiled on 26-Jan-98 13:56:11
+File created 18-May-90 01:13:35
+XCL-COMPILERCOMS
+
+{DSK}<home>runner>work>medley>medley>sources>XCLC-ENV-CTXT.LCOM;1
+compiled on 26-Jan-98 13:58:55
+File created 17-Jul-90 10:48:08
+
+{DSK}<home>runner>work>medley>medley>sources>XCLC-TREES.DFASL;1
+XCL Compiler output for source file {DSK}<disk>disk2>jdstools>lc3>lispcore3.0>sources>XCLC-TREES.;1
+Source file created Wednesday, 23 May 1990, 13:17:15.
+FASL file created Monday, 26 January 1998, 14:01:24.
+
+
+{DSK}<home>runner>work>medley>medley>sources>XCLC-TOP-LEVEL.DFASL;1
+XCL Compiler output for source file {DSK}<Users>kaplan>Local>medley3.5>lispcore>sources>XCLC-TOP-LEVEL.;10
+Source file created 19-Sep-2020 22:02:59
+FASL file created Saturday, 19 September 2020, 22:02:59
+
+
+{DSK}<home>runner>work>medley>medley>sources>XCLC-ALPHA.DFASL;1
+XCL Compiler output for source file {DSK}<home>larry>il>medley>sources>XCLC-ALPHA.;2
+Source file created 10-Apr-2024 19:21:49
+FASL file created Wednesday, 10 April 2024, 19:22:08
+
+
+{DSK}<home>runner>work>medley>medley>sources>XCLC-OPTIMIZERS.DFASL;1
+XCL Compiler output for source file {DSK}<disk>disk2>jdstools>lc3>lispcore3.0>sources>XCLC-OPTIMIZERS.;1
+Source file created Sunday, 3 June 1990, 22:30:55.
+FASL file created Monday, 26 January 1998, 14:00:16.
+
+
+{DSK}<home>runner>work>medley>medley>sources>XCLC-ANALYZE.LCOM;1
+compiled on 26-Jan-98 13:57:17
+File created 18-May-90 01:25:52
+
+{DSK}<home>runner>work>medley>medley>sources>XCLC-META-EVAL.LCOM;1
+compiled on 26-Jan-98 13:59:42
+File created  9-Dec-91 03:12:25
+
+{DSK}<home>runner>work>medley>medley>sources>XCLC-TRANSFORMS.LCOM;1
+compiled on 26-Jan-98 14:01:16
+File created 10-Aug-92 13:17:53
+
+{DSK}<home>runner>work>medley>medley>sources>XCLC-DATABASE.DFASL;1
+XCL Compiler output for source file {DSK}<disk>disk2>jdstools>lc3>lispcore3.0>sources>XCLC-DATABASE.;1
+Source file created Tuesday, 19 January 1993, 11:26:11.
+FASL file created Monday, 26 January 1998, 13:58:14.
+
+
+{DSK}<home>runner>work>medley>medley>sources>XCLC-ANNOTATE.LCOM;1
+compiled on 26-Jan-98 13:57:27
+File created 18-May-90 01:28:45
+
+{DSK}<home>runner>work>medley>medley>sources>XCLC-GENCODE.LCOM;1
+compiled on 26-Jan-98 13:59:08
+File created  2-Oct-91 11:38:50
+
+{DSK}<home>runner>work>medley>medley>sources>XCLC-PEEPHOLE.LCOM;1
+compiled on 26-Jan-98 14:00:34
+File created 27-Aug-91 14:38:23
+loading ADVISE
+
+{DSK}<home>runner>work>medley>medley>sources>ADVISE.DFASL;1
+XCL Compiler output for source file {DSK}<lispcore>sources>ADVISE.;1
+Source file created Wednesday, 16 May 1990, 11:45:00.
+FASL file created Sunday, 25 January 1998, 8:20:23.
+
+loading DLAP
+
+{DSK}<home>runner>work>medley>medley>sources>DLAP.LCOM;1
+compiled on 31-Jan-98 10:01:22
+File created 25-Jan-93 16:56:13
+loading BYTECOMPILER
+
+{DSK}<home>runner>work>medley>medley>sources>BYTECOMPILER.LCOM;1
+compiled on 13-Jun-2021 09:51:42
+File created 13-Jun-2021 09:51:42
+loading COMPILE
+
+{DSK}<home>runner>work>medley>medley>sources>COMPILE.LCOM;1
+compiled on 24-Apr-2025 22:04:20
+File created 24-Apr-2025 22:04:20
+COMPILECOMS
+DSK already loaded
+UFS already loaded
+UFSCALLC already loaded
+MAIKOBITBLT already loaded
+loading TIME
+
+{DSK}<home>runner>work>medley>medley>sources>TIME.LCOM;1
+compiled on 16-Apr-2018 23:05:17
+File created 16-Apr-2018 23:05:10
+loading BRKDWN
+
+{DSK}<home>runner>work>medley>medley>sources>BRKDWN.LCOM;1
+compiled on 25-Jan-98 09:16:08
+File created 16-May-90 12:14:36
+BRKDWNCOMS
+loading LOGOW
+
+{DSK}<home>runner>work>medley>medley>sources>LOGOW.DFASL;1
+XCL Compiler output for source file {DSK}<home>frank>il>medley>tmedley>sources>LOGOW.;5
+Source file created 18-Apr-2023 12:12:26
+FASL file created Tuesday, 18 April 2023, 12:12:42
+
+loading IDLER
+
+{DSK}<home>runner>work>medley>medley>sources>IDLER.LCOM;1
+compiled on  4-Oct-2022 16:42:36
+File created  4-Oct-2022 16:42:36
+IDLERCOMS
+loading HARDCOPY
+
+{DSK}<home>runner>work>medley>medley>sources>HARDCOPY.LCOM;1
+compiled on 11-Sep-2025 17:08:35
+File created 11-Sep-2025 17:08:34
+HARDCOPYCOMS
+loading ICONW
+
+{DSK}<home>runner>work>medley>medley>sources>ICONW.LCOM;1
+compiled on 13-Jun-2021 20:58:49
+File created 16-May-90 18:16:27
+ICONWCOMS
+FREEMENU already loaded
+loading SEDIT
+
+{DSK}<home>runner>work>medley>medley>sources>SEDIT.DFASL;1
+XCL Compiler output for source file {DSK}<disk>disk2>jdstools>lc3>lispcore3.0>sources>SEDIT.;1
+Source file created Friday, 25 January 1991, 17:01:33.
+FASL file created Monday, 26 January 1998, 13:30:21.
+
+
+{DSK}<home>runner>work>medley>medley>sources>SEDIT-ACCESS.DFASL;1
+XCL Compiler output for source file {DSK}<Users>kaplan>Local>medley3.5>my-medley>sources>SEDIT-ACCESS.;2
+Source file created  2-Dec-2021 23:29:30
+FASL file created Thursday, 2 December 2021, 23:30:22
+
+
+{DSK}<home>runner>work>medley>medley>sources>SEDIT-ATOMIC.DFASL;1
+XCL Compiler output for source file {DSK}<usr>local>lde>lispcore>sources>SEDIT-ATOMIC.;3
+Source file created 16-May-90 21:37:57
+FASL file created Sunday, 20 September 2020, 21:00:28
+
+
+{DSK}<home>runner>work>medley>medley>sources>SEDIT-BASE.DFASL;1
+XCL Compiler output for source file {DSK}<disk>disk2>jdstools>lc3>lispcore3.0>sources>SEDIT-BASE.;1
+Source file created Wednesday, 2 December 1992, 17:40:24.
+FASL file created Monday, 26 January 1998, 13:31:04.
+
+
+{DSK}<home>runner>work>medley>medley>sources>SEDIT-COMMANDS.DFASL;1
+XCL Compiler output for source file {WMEDLEY}<sources>SEDIT-COMMANDS.;5
+Source file created 13-Nov-2025 00:19:24
+FASL file created Thursday, 13 November 2025, 0:19:25
+
+
+{DSK}<home>runner>work>medley>medley>sources>SEDIT-COMMENTS.DFASL;1
+XCL Compiler output for source file {DSK}<disk>disk2>jdstools>lc3>lispcore3.0>sources>SEDIT-COMMENTS.;1
+Source file created Wednesday, 16 May 1990, 21:35:01.
+FASL file created Monday, 26 January 1998, 13:32:56.
+
+
+{DSK}<home>runner>work>medley>medley>sources>SEDIT-EXPORTS.DFASL;1
+XCL Compiler output for source file {DSK}<Users>kaplan>Local>medley3.5>my-medley>sources>SEDIT-EXPORTS.;3
+Source file created  1-Dec-2021 20:41:41
+FASL file created Wednesday, 1 December 2021, 20:41:42
+
+
+{DSK}<home>runner>work>medley>medley>sources>SEDIT-INDENT.DFASL;1
+XCL Compiler output for source file {DSK}<disk>disk2>jdstools>lc3>lispcore3.0>sources>SEDIT-INDENT.;1
+Source file created Thursday, 17 May 1990, 10:52:22.
+FASL file created Monday, 26 January 1998, 13:33:37.
+
+
+{DSK}<home>runner>work>medley>medley>sources>SEDIT-LIST-FORMATS.DFASL;1
+XCL Compiler output for source file {WMEDLEY}<sources>SEDIT-LIST-FORMATS.;2
+Source file created 17-Jun-2023 19:46:35
+FASL file created Saturday, 17 June 2023, 19:46:35
+
+
+{DSK}<home>runner>work>medley>medley>sources>SEDIT-LINEAR.DFASL;1
+XCL Compiler output for source file {DSK}<disk>disk2>jdstools>lc3>lispcore3.0>sources>SEDIT-LINEAR.;1
+Source file created Thursday, 17 May 1990, 10:54:05.
+FASL file created Monday, 26 January 1998, 13:33:51.
+
+
+{DSK}<home>runner>work>medley>medley>sources>SEDIT-LISTS.DFASL;1
+XCL Compiler output for source file {DSK}<disk>disk2>jdstools>lc3>lispcore3.0>sources>SEDIT-LISTS.;1
+Source file created Thursday, 17 May 1990, 10:58:06.
+FASL file created Monday, 26 January 1998, 13:35:03.
+
+
+{DSK}<home>runner>work>medley>medley>sources>SEDIT-TERMINAL.DFASL;1
+XCL Compiler output for source file {DSK}<disk>disk2>jdstools>lc3>lispcore3.0>sources>SEDIT-TERMINAL.;1
+Source file created Thursday, 17 May 1990, 10:59:38.
+FASL file created Monday, 26 January 1998, 13:35:55.
+
+
+{DSK}<home>runner>work>medley>medley>sources>SEDIT-TOPLEVEL.DFASL;1
+XCL Compiler output for source file {DSK}<home>larry>medley>sources>SEDIT-TOPLEVEL.;3
+Source file created 23-Aug-2022 20:43:35
+FASL file created Tuesday, 23 August 2022, 20:43:49
+
+
+{DSK}<home>runner>work>medley>medley>sources>SEDIT-WINDOW.DFASL;1
+XCL Compiler output for source file {WMEDLEY}<sources>SEDIT-WINDOW.;6
+Source file created 13-Jul-2023 14:28:53
+FASL file created Thursday, 13 July 2023, 14:28:53
+
+loading XCL-EXTRAS
+
+{DSK}<home>runner>work>medley>medley>sources>XCL-EXTRAS.DFASL;1
+XCL Compiler output for source file {DSK}<home>matt>Interlisp>medley>sources>XCL-EXTRAS.;2
+Source file created 11-Dec-2025 22:27:58
+FASL file created Thursday, 11 December 2025, 22:27:58
+
+loading CMLPACKAGE
+
+{DSK}<home>runner>work>medley>medley>sources>CMLPACKAGE.DFASL;1
+XCL Compiler output for source file {DSK}<lispcore>sources>CMLPACKAGE.;1
+Source file created Thursday, 14 June 1990, 1:35:57.
+FASL file created Sunday, 25 January 1998, 10:25:22.
+
+loading CMLSMARTARGS
+
+{DSK}<home>runner>work>medley>medley>sources>CMLSMARTARGS.DFASL;1
+XCL Compiler output for source file {DSK}<disk>disk2>jdstools>lc3>lispcore3.0>sources>CMLSMARTARGS.;2
+Source file created Tuesday, 27 January 1998, 10:56:02.
+FASL file created Tuesday, 27 January 1998, 10:58:59.
+
+loading IMPLICIT-KEY-HASH
+
+{DSK}<home>runner>work>medley>medley>sources>IMPLICIT-KEY-HASH.DFASL;1
+XCL Compiler output for source file {DSK}<lispcore>sources>IMPLICIT-KEY-HASH.;1
+Source file created Wednesday, 16 May 1990, 18:10:26.
+FASL file created Sunday, 25 January 1998, 14:31:31.
+
+loading CLOSURE-CACHE
+
+{DSK}<home>runner>work>medley>medley>sources>CLOSURE-CACHE.DFASL;1
+XCL Compiler output for source file {DSK}<lispcore>sources>CLOSURE-CACHE.;1
+Source file created Wednesday, 16 May 1990, 12:24:08.
+FASL file created Sunday, 25 January 1998, 9:35:47.
+
+loading BIGBITMAPS
+
+{DSK}<home>runner>work>medley>medley>library>BIGBITMAPS.LCOM;1
+compiled on 31-Jul-2023 13:39:50
+File created 31-Jul-2023 13:39:50
+loading XCL-LOOP
+
+{DSK}<home>runner>work>medley>medley>sources>XCL-LOOP.DFASL;1
+XCL Compiler output for source file {DSK}<home>matt>Interlisp>medley>sources>XCL-LOOP.;3
+Source file created  3-Dec-2025 12:36:20
+FASL file created Wednesday, 3 December 2025, 12:36:20
+
+loading XCL-HASH-LOOP
+
+{DSK}<home>runner>work>medley>medley>sources>XCL-HASH-LOOP.DFASL;1
+XCL Compiler output for source file {DSK}<home>larry>il>medley>sources>XCL-HASH-LOOP.;8
+Source file created 21-Mar-2024 11:19:24
+FASL file created Thursday, 21 March 2024, 12:54:09
+
+loading BACKGROUND-YIELD
+
+{DSK}<home>runner>work>medley>medley>lispusers>BACKGROUND-YIELD.LCOM;1
+compiled on 28-Jul-2023 09:49:24
+File created 28-Jul-2023 09:49:24
+BACKGROUND-YIELDCOMS
+loading PUP
+
+{DSK}<home>runner>work>medley>medley>sources>PUP.LCOM;1
+compiled on  1-May-2021 19:49:18
+File created  1-May-2021 19:49:18
+loading 10MBDRIVER
+
+{DSK}<home>runner>work>medley>medley>sources>10MBDRIVER.LCOM;1
+compiled on 25-Jan-98 01:56:51
+File created 26-Feb-91 13:32:30
+10MBDRIVERCOMS
+loading LEAF
+
+{DSK}<home>runner>work>medley>medley>sources>LEAF.LCOM;1
+compiled on 11-May-2023 21:39:54
+File created 11-May-2023 21:39:24
+LEAFCOMS
+loading LLETHER
+
+{DSK}<home>runner>work>medley>medley>sources>LLETHER.LCOM;1
+compiled on 12-Nov-2023 20:33:32
+File created  3-May-2021 23:13:56
+LLETHERCOMS
+loading DPUPFTP
+
+{DSK}<home>runner>work>medley>medley>sources>DPUPFTP.LCOM;1
+compiled on 13-Jun-2021 21:11:45
+File created 16-May-90 16:10:35
+DPUPFTPCOMS
+loading LOCALFILE
+
+{DSK}<home>runner>work>medley>medley>sources>LOCALFILE.LCOM;1
+compiled on 11-May-2023 21:40:09
+File created 11-May-2023 21:39:23
+LOCALFILECOMS
+loading DSKDISPLAY
+
+{DSK}<home>runner>work>medley>medley>sources>DSKDISPLAY.LCOM;1
+compiled on 25-Jan-98 12:58:13
+File created 21-Jun-90 13:01:45
+DSKDISPLAYCOMS
+loading COURIER
+
+{DSK}<home>runner>work>medley>medley>sources>COURIER.LCOM;1
+compiled on 17-Oct-2021 12:30:11
+File created  2-Nov-93 13:53:08
+COURIERCOMS
+loading LLNS
+
+{DSK}<home>runner>work>medley>medley>sources>LLNS.LCOM;1
+compiled on 25-Jan-98 16:33:55
+File created 19-Jan-93 10:52:26
+LLNSCOMS
+loading TRSERVER
+
+{DSK}<home>runner>work>medley>medley>sources>TRSERVER.LCOM;1
+compiled on 29-Jan-98 10:12:58
+File created 17-May-90 15:58:24
+TRSERVERCOMS
+loading SPP
+
+{DSK}<home>runner>work>medley>medley>sources>SPP.LCOM;1
+compiled on  2-Jul-2022 14:01:06
+File created 19-Jan-93 11:20:29
+SPPCOMS
+loading NSPRINT
+
+{DSK}<home>runner>work>medley>medley>sources>NSPRINT.LCOM;1
+compiled on 26-Jan-98 13:26:31
+File created 28-Apr-92 17:29:44
+NSPRINTCOMS
+loading AUTHENTICATION
+
+{DSK}<home>runner>work>medley>medley>sources>AUTHENTICATION.LCOM;1
+compiled on 25-Jan-98 08:40:41
+File created 16-May-90 12:10:46
+AUTHENTICATIONCOMS
+loading BSP
+
+{DSK}<home>runner>work>medley>medley>sources>BSP.LCOM;1
+compiled on  2-Jul-2022 13:51:14
+File created 19-Jan-93 10:23:19
+BSPCOMS
+loading CLEARINGHOUSE
+
+{DSK}<home>runner>work>medley>medley>sources>CLEARINGHOUSE.LCOM;1
+compiled on 25-Jan-98 09:31:30
+File created 19-Jan-93 10:24:59
+CLEARINGHOUSECOMS
+loading NSFILING
+
+{DSK}<home>runner>work>medley>medley>sources>NSFILING.LCOM;1
+compiled on 23-May-2024 23:21:03
+File created 23-May-2024 23:20:49
+NSFILINGCOMS
+loading MAIKOETHER
+
+{DSK}<home>runner>work>medley>medley>sources>MAIKOETHER.LCOM;1
+compiled on 25-Oct-2021 15:12:34
+File created 25-Oct-2021 15:12:33

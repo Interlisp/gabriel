@@ -85,10 +85,10 @@ IL:|{DSK}<python>lde>lispcore>gabriel>benchmarks>IO-BENCHMARKS.;3|)
                                            (IL:* IL:|;;| "Set up for this series of tests")
 
                                            (IL:P (IL:COPYFILE 
-                                               "{DSK}<USR>LOCAL>LDE>LISPCORE>GABRIEL>AUX>2000-FLOATS"
+                                               "{GABRIEL}<aux>2000-FLOATS-TO-READ"
                                                         "{CORE}FLOATS")
                                                  (IL:COPYFILE 
-                                              "{DSK}<USR>LOCAL>LDE>LISPCORE>GABRIEL>AUX>1000-SYMBOLS"
+                                              "{GABRIEL}<aux>1000-SYMBOLS"
                                                         "{CORE}1000-SYMBOLS")))
                                     (IL:PROP (IL:MAKEFILE-ENVIRONMENT IL:FILETYPE)
                                            IL:IO-BENCHMARKS)))
@@ -322,7 +322,7 @@ IL:|{DSK}<python>lde>lispcore>gabriel>benchmarks>IO-BENCHMARKS.;3|)
           (PROG1 NIL (IL:READ IL:STR))))
 
 (GABRIEL::DEFINE-TIMER (IL:READ-EXISTING-SYMBOLS :SETUP (IL:COPYFILE 
-                                                           "{ERIS}<LISPCORE>GABRIEL>AUX>1000-SYMBOLS"
+                                                           "{GABRIEL}<aux>1000-SYMBOLS"
                                                                    "{CORE}1000-SYMBOLS")
                               (IL:READ-EXISTING-SYMBOLS)) 
    "Read 1000 symbols that exist in the sysout already"
@@ -377,9 +377,9 @@ IL:|{DSK}<python>lde>lispcore>gabriel>benchmarks>IO-BENCHMARKS.;3|)
 (IL:* IL:|;;| "Set up for this series of tests")
 
 
-(IL:COPYFILE "{DSK}<USR>LOCAL>LDE>LISPCORE>GABRIEL>AUX>2000-FLOATS" "{CORE}FLOATS")
+(IL:COPYFILE "{GABRIEL}<aux>2000-FLOATS-TO-READ" "{CORE}FLOATS")
 
-(IL:COPYFILE "{DSK}<USR>LOCAL>LDE>LISPCORE>GABRIEL>AUX>1000-SYMBOLS" "{CORE}1000-SYMBOLS")
+(IL:COPYFILE "{GABRIEL}<aux>1000-SYMBOLS" "{CORE}1000-SYMBOLS")
 
 (IL:PUTPROPS IL:IO-BENCHMARKS IL:MAKEFILE-ENVIRONMENT (:READTABLE "XCL" :PACKAGE (XCL:DEFPACKAGE
                                                                                       "BENCHMARKS")))

@@ -13,7 +13,7 @@
 #
 
 main() {
-        MEDLEYDIR=$(cd "${SCRIPTDIR}/.." && pwd)
+        MEDLEYDIR=/Users/kabirgupta/Documents/Interlisp/medley_folder/medley
         export MEDLEYDIR
         logindir=/tmp/benchmarks-$$
         mkdir -p "${logindir}"
