@@ -1,0 +1,51 @@
+(DEFINE-FILE-INFO PACKAGE "INTERLISP" READTABLE "INTERLISP" BASE 10)
+
+(FILECREATED "21-Mar-2026 23:06:19" {DSK}<Users>kabirgupta>documents>interlisp>gabriel>NEW-BENCH-5.;1 1738   
+
+      :CHANGES-TO (VARS NEW-BENCH-5COMS)
+                  (FNS BENCH-5)
+                  (VARIABLES *BENCH5-TOOLS-DIR* *BENCH5-BENCHMARKS-DIR* *BENCH5-RESULTS-DIR*)
+
+      :PREVIOUS-DATE "18-Mar-2026 00:25:45" 
+{DSK}<Users>kabirgupta>documents>interlisp>gabriel>NEW-BENCH-3.;1)
+
+
+(PRETTYCOMPRINT NEW-BENCH-5COMS)
+
+(RPAQQ NEW-BENCH-5COMS ((P (DEFPACKAGE "GABRIEL"))
+                        (VARIABLES *BENCH5-TOOLS-DIR* *BENCH5-BENCHMARKS-DIR* *BENCH5-RESULTS-DIR*)
+                        (FNS BENCH-5)))
+
+(DEFPACKAGE "GABRIEL")
+
+(CL:DEFVAR *BENCH5-TOOLS-DIR* "{GABRIEL}<tools>"
+   "Directory where the Gabriel benchmark tools for Bench-5 reside")
+
+(CL:DEFVAR *BENCH5-BENCHMARKS-DIR* "{GABRIEL}<benchmarks>"
+   "Where the Bench-5 benchmark source/object files are found")
+
+(CL:DEFVAR *BENCH5-RESULTS-DIR* "{GABRIEL}<Results>"
+   "Where to write the Bench-5 results")
+(DEFINEQ
+
+(BENCH-5
+  [LAMBDA (TOOLS-DIR BENCH3-DIR RESULTS-DIR)
+
+    (* ;; "load tools and benchmarks")
+
+    (LOAD (PACKFILENAME.STRING 'DIRECTORY TOOLS-DIR 'BODY "GABRIEL-TIMERS.LCOM"))
+    (LOAD (PACKFILENAME.STRING 'DIRECTORY BENCH5-DIR 'BODY "MISC-BENCHMARKS.LCOM"))
+    (LOAD (PACKFILENAME.STRING 'DIRECTORY BENCH3-DIR 'BODY "IO-BENCHMARKS.LCOM"))
+
+    (* ;; "do a prophylactic GC")
+
+    (RECLAIM)
+
+    (* ;; "run the benchmarks")
+
+    (GABRIEL::RUN-BENCHMARKS GABRIEL::*MISC-BENCHMARKS* (PACKFILENAME.STRING 'DIRECTORY RESULTS-DIR
+                                                               'BODY "MISC.Results"])
+)
+(DECLARE%: DONTCOPY
+  (FILEMAP (NIL (1075 1715 (BENCH-5 1085 . 1713)))))
+STOP
